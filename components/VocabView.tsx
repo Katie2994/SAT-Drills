@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useEffect, useCallback } from 'react';
 import { combinedVocabList } from '../data/vocab';
 import { speakText } from '../services/audioService';
 import { ArrowLeft, ArrowRight, RotateCw, Lightbulb, Volume2, Download, Archive, Search, FileCode } from 'lucide-react';
@@ -77,22 +77,63 @@ const VocabView: React.FC = () => {
   const currentCard = filteredList[currentIndex] || filteredList[0];
   const templateRef = useRef<HTMLDivElement>(null);
 
-  const nextCard = () => {
+  const nextCard = useCallback(() => {
     setIsFlipped(false);
     setTimeout(() => {
       if (filteredList.length > 0) {
          setCurrentIndex((prev) => (prev + 1) % filteredList.length);
       }
     }, 200);
-  };
+  }, [filteredList.length]);
 
-  const prevCard = () => {
+  const prevCard = useCallback(() => {
     setIsFlipped(false);
     setTimeout(() => {
       if (filteredList.length > 0) {
          setCurrentIndex((prev) => (prev - 1 + filteredList.length) % filteredList.length);
       }
     }, 200);
+  }, [filteredList.length]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowLeft') {
+        prevCard();
+      } else if (e.key === 'ArrowRight') {
+        nextCard();
+      } else if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        setIsFlipped((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [nextCard, prevCard]);
+
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEndEvent = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    if (isLeftSwipe) {
+      nextCard();
+    }
+    if (isRightSwipe) {
+      prevCard();
+    }
   };
 
   const handleAudioClick = (e: React.MouseEvent, text: string) => {
@@ -445,7 +486,12 @@ const VocabView: React.FC = () => {
 
       {filteredList.length > 0 && currentCard ? (
         <div id="vocab-active-card-container-wrap" className="w-full">
-          <div className="relative min-h-[420px] w-full mb-8 perspective-1000 group">
+          <div 
+            className="relative min-h-[420px] w-full mb-8 perspective-1000 group"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEndEvent}
+          >
           <div 
             className={`relative w-full h-full cursor-pointer transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}
             onClick={() => setIsFlipped(!isFlipped)}
