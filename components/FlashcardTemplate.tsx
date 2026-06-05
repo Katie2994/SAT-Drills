@@ -37,7 +37,7 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
       {/* Top Bar - Scaled to match smaller yellow border */}
       <div className="absolute top-4 left-6 right-6 flex justify-between items-center z-10 gap-4">
         <div className="bg-white border-[5px] border-black rounded-[30px] px-8 py-4 w-full text-center shadow-[8px_8px_0px_0px_#000000]">
-          <h2 className="text-2xl font-black uppercase tracking-widest text-black">
+          <h2 className="text-2xl font-black uppercase tracking-widest text-black whitespace-nowrap truncate">
             {isConcept ? "MATH CONCEPTS • GENIUS" : "DIGITAL SAT • VOCAB GENIUS"}
           </h2>
         </div>
@@ -70,22 +70,31 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
                 {card.term}
               </h1>
               
-              <div className="flex flex-wrap gap-3 mt-1 items-center">
+              <div className="flex flex-wrap gap-4 mt-3 items-center max-w-full">
                 {card.synonym && (
-                  <div className="text-black text-lg font-bold tracking-wide bg-[#ffe36d] inline-block px-3 py-1.5 rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_#000000]">
-                    Synonym: {card.synonym}
+                  <div className="flex items-center gap-2 max-w-full">
+                    <span className="text-slate-300 text-sm font-bold uppercase tracking-wider whitespace-nowrap">Synonym</span>
+                    <div className="text-black text-lg font-bold tracking-wide bg-[#ffe36d] inline-block px-4 py-1.5 rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_#000000] truncate">
+                      {card.synonym}
+                    </div>
                   </div>
                 )}
                 {card.antonym && (
-                  <div className="text-white text-lg font-bold tracking-wide bg-gray-800 inline-block px-3 py-1.5 rounded-xl border-2 border-gray-700 shadow-[3px_3px_0px_0px_#000000]">
-                    Antonym: {card.antonym}
+                  <div className="flex items-center gap-2 max-w-full">
+                    <span className="text-slate-300 text-sm font-bold uppercase tracking-wider whitespace-nowrap">Antonym</span>
+                    <div className="text-white text-lg font-bold tracking-wide bg-gray-800 inline-block px-4 py-1.5 rounded-xl border-2 border-gray-700 shadow-[3px_3px_0px_0px_#000000] truncate">
+                      {card.antonym}
+                    </div>
                   </div>
                 )}
               </div>
 
               {card.topic && (
-                <div className="mt-4 text-sm font-extrabold tracking-wider uppercase bg-[#dc2323] text-white border-2 border-black px-5 py-2 rounded-full inline-block max-w-[90%] whitespace-normal break-words shadow-[3px_3px_0px_0px_#000000]">
-                  🌍 Subject: {card.topic}
+                <div className="mt-5 flex items-center gap-3 max-w-full">
+                  <span className="text-slate-300 text-sm font-extrabold tracking-wider uppercase whitespace-nowrap">🌍 Subject</span>
+                  <div className="text-sm font-extrabold tracking-wider uppercase bg-[#dc2323] text-white border-2 border-black px-5 py-2 rounded-full inline-block truncate shadow-[3px_3px_0px_0px_#000000]">
+                     {card.topic}
+                  </div>
                 </div>
               )}
 
@@ -117,7 +126,7 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
                />
 
                <div className="relative z-10">
-                 <div className="inline-block bg-[#dc2323] text-white text-sm font-black tracking-widest px-4 py-1.5 rounded-lg border-2 border-black mb-4 uppercase shadow-[3px_3px_0px_0px_#000000]">
+                 <div className="inline-block bg-[#dc2323] text-white text-sm font-black tracking-widest px-4 py-1.5 rounded-lg border-2 border-black mb-4 uppercase shadow-[3px_3px_0px_0px_#000000] whitespace-nowrap truncate max-w-full">
                     DEFINITION • ĐỊNH NGHĨA
                  </div>
                  <p className={`text-white font-extrabold tracking-tight leading-snug ${defSize}`}>
@@ -146,13 +155,13 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
 
           {/* Bottom Tags */}
           <div className="flex gap-4 z-20 mt-auto shrink-0 w-full">
-             <div className="bg-[#ffe36d] border-[4px] border-black rounded-full h-[60px] text-xs font-black tracking-widest text-black shadow-[6px_6px_0px_0px_#000000] flex items-center justify-center min-w-[145px] px-5 text-center uppercase leading-none">
+             <div className="bg-[#ffe36d] border-[4px] border-black rounded-full h-[60px] text-xs font-black tracking-widest text-black shadow-[6px_6px_0px_0px_#000000] flex items-center justify-center min-w-[145px] px-5 text-center uppercase leading-none whitespace-nowrap truncate">
                {isConcept ? "MATH DRILLS" : "VOCAB DRILLS"}
              </div>
              <div className="bg-[#dc2323] border-[4px] border-black rounded-full h-[60px] font-black text-lg text-white shadow-[6px_6px_0px_0px_#000000] flex-1 flex items-center justify-center px-8 text-center truncate leading-none">
                @SAT_DRILLS
              </div>
-             <div className="bg-white border-[4px] border-black rounded-full h-[60px] font-black text-lg shadow-[6px_6px_0px_0px_#000000] flex items-center justify-center min-w-[125px] px-8 text-center leading-none">
+             <div className="bg-white border-[4px] border-black rounded-full h-[60px] font-black text-lg shadow-[6px_6px_0px_0px_#000000] flex items-center justify-center min-w-[125px] px-8 text-center leading-none whitespace-nowrap truncate">
                2026
              </div>
           </div>
