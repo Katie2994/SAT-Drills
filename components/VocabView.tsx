@@ -3,7 +3,7 @@ import { combinedVocabList } from '../data/vocab';
 import { speakText } from '../services/audioService';
 import { ArrowLeft, ArrowRight, RotateCw, Lightbulb, Volume2, Download, Archive, Search, FileCode } from 'lucide-react';
 import FlashcardTemplate from './FlashcardTemplate';
-import { toPng } from 'html-to-image';
+import html2canvas from 'html2canvas';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { exportToHtml } from '../utils/exportHelper';
@@ -145,20 +145,12 @@ const VocabView: React.FC = () => {
     if (!templateRef.current || !currentCard) return;
     try {
       setIsDownloading(true);
-      const dataUrl = await toPng(templateRef.current, {
-        cacheBust: true,
-        pixelRatio: 2.5,
-        backgroundColor: '#ffe36d', // Solid yellow, transparent = 0
-        fontEmbedCSS: '',
-        styleSheetsFilter: (sheet) => {
-          try {
-            const rules = sheet.cssRules;
-            return true;
-          } catch (e) {
-            return false;
-          }
-        },
+      const canvas = await html2canvas(templateRef.current, {
+        useCORS: true,
+        scale: 2,
+        backgroundColor: '#ffe36d'
       });
+      const dataUrl = canvas.toDataURL('image/png');
       saveAs(dataUrl, `SAT_DRILLS_${currentCard.term.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.png`);
     } catch (err) {
       console.error('Error downloading:', err);
@@ -187,20 +179,12 @@ const VocabView: React.FC = () => {
           for (let i = 0; i < limit; i++) {
               const el = cards[i] as HTMLElement;
               const term = el.getAttribute('data-term') || `card_${i}`;
-              const dataUrl = await toPng(el, {
-                cacheBust: true,
-                pixelRatio: 2.5,
-                backgroundColor: '#ffe36d', // Solid yellow, transparent = 0
-                fontEmbedCSS: '',
-                styleSheetsFilter: (sheet) => {
-                  try {
-                    const rules = sheet.cssRules;
-                    return true;
-                  } catch (e) {
-                    return false;
-                  }
-                },
+              const canvas = await html2canvas(el, {
+                useCORS: true,
+                scale: 2,
+                backgroundColor: '#ffe36d'
               });
+              const dataUrl = canvas.toDataURL('image/png');
               const base64Data = dataUrl.replace(/^data:image\/png;base64,/, "");
               zip.file(`SAT_DRILLS_${i+1}_${term.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.png`, base64Data, { base64: true });
           }

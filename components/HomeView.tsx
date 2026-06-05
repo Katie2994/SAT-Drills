@@ -313,10 +313,10 @@ const HomeView: React.FC<HomeViewProps> = ({ setView }) => {
             <div className="flex flex-col gap-3 mt-4">
               <button
                 onClick={() => setView(ViewState.VOCAB)}
-                className="w-full bg-[#20273a] hover:bg-[#2c3650] border-2 border-black p-4 md:p-5 rounded-xl flex items-center justify-between text-left font-extrabold text-sm md:text-base text-white transition-colors group"
+                className="w-full bg-[#20273a] hover:bg-[#2c3650] border-2 border-black p-5 md:p-6 rounded-xl flex items-center justify-between text-left font-black text-base md:text-lg text-white transition-colors group"
               >
                 <span>Từ Vựng Flashcards Siêu Thiết Yếu</span>
-                <ArrowRight className="w-5 h-5 text-[#ffe36d] group-hover:translate-x-1 transition-transform stroke-[2.5px]" />
+                <ArrowRight className="w-6 h-6 text-[#ffe36d] group-hover:translate-x-1 transition-transform stroke-[3px]" />
               </button>
             </div>
           </div>
@@ -348,10 +348,10 @@ const HomeView: React.FC<HomeViewProps> = ({ setView }) => {
             <div className="flex flex-col gap-3 mt-4">
               <button
                 onClick={() => setView(ViewState.PRACTICE)}
-                className="w-full bg-white hover:bg-[#fffdf0] text-black border-2 border-black p-4 md:p-5 rounded-xl flex items-center justify-between text-left font-black text-sm md:text-base transition-colors group"
+                className="w-full bg-white hover:bg-[#fffdf0] text-black border-2 border-black p-5 md:p-6 rounded-xl flex items-center justify-between text-left font-black text-base md:text-lg transition-colors group"
               >
                 <span>Ngân Hàng Drills Tổng Hợp</span>
-                <ArrowRight className="w-5 h-5 text-[#dc2323] group-hover:translate-x-1 transition-transform stroke-[3px]" />
+                <ArrowRight className="w-6 h-6 text-[#dc2323] group-hover:translate-x-1 transition-transform stroke-[3px]" />
               </button>
             </div>
           </div>

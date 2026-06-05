@@ -70,19 +70,19 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
                 {card.term}
               </h1>
               
-              <div className="flex flex-wrap gap-4 mt-3 items-center max-w-full">
+              <div className="flex flex-wrap gap-4 mt-4 items-center max-w-full">
                 {card.synonym && (
-                  <div className="flex items-center gap-2 max-w-full">
-                    <span className="text-slate-300 text-sm font-bold uppercase tracking-wider whitespace-nowrap">Synonym</span>
-                    <div className="text-black text-lg font-bold tracking-wide bg-[#ffe36d] inline-block px-4 py-1.5 rounded-xl border-2 border-black shadow-[3px_3px_0px_0px_#000000] truncate">
+                  <div className="flex items-center gap-3 max-w-full">
+                    <span className="text-slate-300 text-[18px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">Synonym</span>
+                    <div className="text-black text-[22px] font-bold tracking-wide bg-[#ffe36d] inline-block px-5 py-2 rounded-2xl border-2 border-black shadow-[3px_3px_0px_0px_#000000] break-words">
                       {card.synonym}
                     </div>
                   </div>
                 )}
                 {card.antonym && (
-                  <div className="flex items-center gap-2 max-w-full">
-                    <span className="text-slate-300 text-sm font-bold uppercase tracking-wider whitespace-nowrap">Antonym</span>
-                    <div className="text-white text-lg font-bold tracking-wide bg-gray-800 inline-block px-4 py-1.5 rounded-xl border-2 border-gray-700 shadow-[3px_3px_0px_0px_#000000] truncate">
+                  <div className="flex items-center gap-3 max-w-full">
+                    <span className="text-slate-300 text-[18px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">Antonym</span>
+                    <div className="text-white text-[22px] font-bold tracking-wide bg-gray-800 inline-block px-5 py-2 rounded-2xl border-2 border-gray-700 shadow-[3px_3px_0px_0px_#000000] break-words">
                       {card.antonym}
                     </div>
                   </div>
@@ -90,9 +90,9 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
               </div>
 
               {card.topic && (
-                <div className="mt-5 flex items-center gap-3 max-w-full">
-                  <span className="text-slate-300 text-sm font-extrabold tracking-wider uppercase whitespace-nowrap">🌍 Subject</span>
-                  <div className="text-sm font-extrabold tracking-wider uppercase bg-[#dc2323] text-white border-2 border-black px-5 py-2 rounded-full inline-block truncate shadow-[3px_3px_0px_0px_#000000]">
+                <div className="mt-6 flex items-start gap-4 max-w-full">
+                  <span className="text-slate-300 text-[20px] mt-3.5 font-extrabold tracking-wider uppercase whitespace-nowrap shrink-0">🌍 Subject</span>
+                  <div className="text-[26px] font-black tracking-wider uppercase bg-[#dc2323] text-white border-4 border-black px-8 py-4 rounded-[20px] inline-block shadow-[6px_6px_0px_0px_#000000] break-words">
                      {card.topic}
                   </div>
                 </div>
@@ -115,7 +115,7 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
           <div className="flex-grow flex flex-col justify-center gap-6 my-4">
             
             {/* Meaning Container */}
-            <div className="bg-gradient-to-r from-[#1c2230] to-[#121622] border-[3px] border-black p-8 rounded-[30px] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+            <div className="bg-gradient-to-r from-[#1c2230] to-[#121622] border-[3px] border-black p-8 rounded-[30px] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden flex-shrink-0">
                {/* Pattern overlay to reduce negative empty space */}
                <div 
                  className="absolute inset-0 opacity-[0.03] pointer-events-none" 
@@ -125,11 +125,11 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
                  }} 
                />
 
-               <div className="relative z-10">
-                 <div className="inline-block bg-[#dc2323] text-white text-sm font-black tracking-widest px-4 py-1.5 rounded-lg border-2 border-black mb-4 uppercase shadow-[3px_3px_0px_0px_#000000] whitespace-nowrap truncate max-w-full">
+               <div className="relative z-10 w-full overflow-hidden">
+                 <div className="inline-block bg-[#dc2323] text-white text-sm font-black tracking-widest px-4 py-1.5 rounded-lg border-2 border-black mb-4 uppercase shadow-[3px_3px_0px_0px_#000000] whitespace-nowrap truncate max-w-[100%] overflow-hidden">
                     DEFINITION • ĐỊNH NGHĨA
                  </div>
-                 <p className={`text-white font-extrabold tracking-tight leading-snug ${defSize}`}>
+                 <p className={`text-white font-extrabold tracking-tight break-words max-w-full ${defSize}`}>
                    {card.definition}
                  </p>
                </div>
@@ -137,16 +137,16 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
 
             {/* Example Container if exists */}
             {card.example && (
-              <div className="bg-[#171c2a] border-[3px] border-dashed border-gray-600 rounded-[30px] p-8 relative overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <div className="bg-[#171c2a] border-[3px] border-dashed border-gray-600 rounded-[30px] p-8 relative overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex-shrink-0">
                 {/* Ambient dynamic accent indicator */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-[#ffe36d] border-l-[3px] border-b-[3px] border-black rounded-bl-[20px] flex items-center justify-center text-3xl font-bold select-none text-black">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-[#ffe36d] border-l-[3px] border-b-[3px] border-black rounded-bl-[20px] flex items-center justify-center text-[48px] font-bold select-none text-black">
                   📖
                 </div>
                 
-                <h3 className="text-[#ffe36d] text-base font-black tracking-[0.1em] mb-3 uppercase">
+                <h3 className="text-[#ffe36d] text-[24px] font-black tracking-[0.1em] mb-4 uppercase">
                   EXAMPLE IN CONTEXT
                 </h3>
-                <p className="text-gray-100 text-2xl font-serif italic leading-relaxed pr-10">
+                <p className="text-gray-100 text-[42px] font-serif italic leading-[1.4] pr-[80px] break-words max-w-full">
                   "{card.example}"
                 </p>
               </div>

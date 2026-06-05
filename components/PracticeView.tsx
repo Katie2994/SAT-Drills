@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { topics } from '../data/content';
+import { expandedTopics as topics } from '../data/expanded_drills';
 import { speakText } from '../services/audioService';
 import { SampleResponse } from '../types';
 import FormattedText from './FormattedText';

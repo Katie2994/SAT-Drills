@@ -35,15 +35,15 @@ export const exportToPng = async (elementId: string, title: string, filename: st
   header.style.padding = '24px 32px';
   header.className = 'flex justify-between items-center select-none';
   header.innerHTML = `
-    <div>
-      <h1 class="text-xl font-extrabold text-black uppercase tracking-tight m-0" style="margin: 0; font-family: 'Inter', sans-serif;">
+    <div class="flex flex-col justify-center">
+      <h1 class="text-xl font-extrabold text-black uppercase tracking-tight m-0" style="margin: 0; font-family: 'Inter', sans-serif; line-height: 1;">
         REMIX: SAT DRILLS
       </h1>
-      <p class="text-xs font-semibold text-[#dc2323] uppercase tracking-wider mt-1 m-0" style="margin: 4px 0 0 0; font-family: 'Inter', sans-serif;">
+      <p class="text-xs font-semibold text-[#dc2323] uppercase tracking-wider mt-1 m-0" style="margin: 4px 0 0 0; font-family: 'Inter', sans-serif; line-height: 1;">
         Digital SAT Companion & Study Deck • ${title}
       </p>
     </div>
-    <div class="bg-[#dc2323] text-white font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex-shrink-0" style="font-family: 'Inter', sans-serif;">
+    <div class="bg-[#dc2323] text-white font-black text-xs px-4 py-3 rounded-full uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex-shrink-0 flex items-center justify-center text-center" style="font-family: 'Inter', sans-serif; height: 32px; line-height: 1;">
       @SAT_DRILLS
     </div>
   `;
@@ -138,8 +138,8 @@ export const exportToPng = async (elementId: string, title: string, filename: st
         <span class="text-gray-300">|</span>
         <span>Website: <span class="text-blue-600 font-bold">ieltsdrills.com/sat_drills</span></span>
     </div>
-    <div class="flex-shrink-0">
-        <span class="bg-[#dc2323] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap">
+    <div class="flex-shrink-0 flex items-center justify-center">
+        <span class="bg-[#dc2323] text-white text-[11px] font-black uppercase tracking-wider px-4 rounded-full border-2 border-black flex items-center justify-center text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap" style="height: 32px; line-height: 1;">
             Luyện IELTS ở IELTS Drills
         </span>
     </div>
@@ -244,8 +244,8 @@ export const exportToHtml = (elementId: string, title: string, filename: string)
                 <span class="text-gray-300">|</span>
                 <span>Website: <a href="https://ieltsdrills.com/sat_drills" target="_blank" class="text-blue-600 font-extrabold hover:underline">ieltsdrills.com/sat_drills</a></span>
             </div>
-            <div class="flex-shrink-0">
-                <a href="https://ieltsdrills.com" target="_blank" class="bg-[#dc2323] hover:bg-[#b01c1c] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap">
+            <div class="flex-shrink-0 flex items-center justify-center">
+                <a href="https://ieltsdrills.com" target="_blank" class="bg-[#dc2323] hover:bg-[#b01c1c] text-white text-[11px] font-black uppercase tracking-wider px-4 rounded-full border-2 border-black flex items-center justify-center text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap" style="height: 32px; line-height: 1;">
                     Luyện IELTS ở IELTS Drills
                 </a>
             </div>

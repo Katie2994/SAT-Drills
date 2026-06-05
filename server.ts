@@ -101,17 +101,17 @@ async function startServer() {
       ${text ? `Yêu cầu thêm từ người dùng: "${text}"\n\n` : ''}
       
       Hãy giải thích chi tiết câu hỏi và các bước giải bằng tiếng Việt, kèm các thuật ngữ chuyên ngành tiếng Anh (ví dụ: Linear equation, inference).
-      Hãy chỉ ra vì sao đáp án đúng là đúng, và các đáp án sai lại sai. Có một quy tắc bắt buộc: Nếu câu hỏi có các lựa chọn đáp án (Trắc nghiệm), thì trong đề phải luôn có chính xác 4 lựa chọn (A, B, C, D). Nếu câu hỏi gốc bị thiếu lựa chọn hoặc chỉ có ít hơn 4 lựa chọn, hãy tự động giả định hoặc bổ sung các phương án gây nhiễu hợp lý để tạo thành đủ 4 lựa chọn đáp án (A, B, C, D) cho người dùng trước khi phân tích.
-      Nếu câu hỏi đầu vào vốn có chứa định dạng JSON hoặc text cấu trúc phức tạp, hãy tự động trích ra các trường thông tin chính để giải đáp chuẩn xác.
-      Nếu có từ vựng quan trọng (đối với phần verbal) hoặc khái niệm quan trọng (đối với phần math), hãy liệt kê chúng ra.
+      Hãy chỉ ra vì sao đáp án đúng là đúng, và các đáp án sai lại sai. Sử dụng **Markdown** mạnh mẽ (như in đậm, in nghiêng, gạch chân) để làm nổi bật từ khóa trong lời giải.
       Trình bày dưới dạng JSON như sau:
       {
-         "questionSummary": "Tóm tắt ngắn gọn câu hỏi. Nếu câu hỏi có các lựa chọn trắc nghiệm, cần liệt kê đầy đủ cả 4 lựa chọn A, B, C, D ở đây.",
+         "question": "Chỉ lấy nội dung câu hỏi chính (chưa bao gồm 4 đáp án A, B, C, D)",
+         "options": ["A) ...", "B) ...", "C) ...", "D) ..."],
          "correctAnswer": "Khóa đáp án đúng (ví dụ: 'A' hoặc 'A) ...')",
-         "explanation": "Giải thích chi tiết bằng ngôn ngữ chính là tiếng Việt (kèm thuật ngữ tiếng Anh), làm rõ lý do vì sao đáp án đã chọn là chính xác và 3 đáp án còn lại là không chính xác.",
+         "explanation": "Giải thích chi tiết (DÙNG MARKDOWN LÀM NỔI BẬT: **in đậm**, _in nghiêng_, danh sách, v.v)",
          "keyTerms": [
             { "term": "Từ tiếng anh", "definition": "Định nghĩa tiếng việt" }
-         ]
+         ],
+         "tips": "Lưu ý, mẹo, hoặc chiến thuật cho các bài tương tự (Dùng Markdown)"
       }`;
       
       contents.push(prompt);
@@ -147,9 +147,9 @@ async function startServer() {
         }
       }
 
-      // Call Gemini 3.5 Flash
+      // Call Gemini 2.5 Flash
       const response = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.5-flash",
         contents: contents,
         config: {
            responseMimeType: "application/json"
@@ -160,7 +160,21 @@ async function startServer() {
       if (rawJson.startsWith("```")) {
         rawJson = rawJson.replace(/^```(json)?/i, "").replace(/```$/, "").trim();
       }
-      const parsedData = JSON.parse(rawJson);
+      
+      let parsedData;
+      try {
+        parsedData = JSON.parse(rawJson);
+      } catch (e) {
+        console.error("JSON parse failed, returning fallback", e);
+        parsedData = {
+          question: "Không thể trích xuất tóm tắt câu hỏi.",
+          options: [],
+          correctAnswer: "N/A",
+          explanation: response.text || "Đã có lỗi phân tích.",
+          keyTerms: [],
+          tips: ""
+        };
+      }
 
       res.json(parsedData);
     } catch (error: any) {
