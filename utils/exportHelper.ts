@@ -1,4 +1,4 @@
-import { toPng } from 'html-to-image';
+import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
 /**
@@ -35,15 +35,15 @@ export const exportToPng = async (elementId: string, title: string, filename: st
   header.style.padding = '24px 32px';
   header.className = 'flex justify-between items-center select-none';
   header.innerHTML = `
-    <div class="flex flex-col justify-center">
-      <h1 class="text-xl font-extrabold text-black uppercase tracking-tight m-0" style="margin: 0; font-family: 'Inter', sans-serif; line-height: 1;">
+    <div>
+      <h1 class="text-xl font-extrabold text-black uppercase tracking-tight m-0" style="margin: 0; font-family: 'Inter', sans-serif;">
         REMIX: SAT DRILLS
       </h1>
-      <p class="text-xs font-semibold text-[#dc2323] uppercase tracking-wider mt-1 m-0" style="margin: 4px 0 0 0; font-family: 'Inter', sans-serif; line-height: 1;">
+      <p class="text-xs font-semibold text-[#dc2323] uppercase tracking-wider mt-1 m-0" style="margin: 4px 0 0 0; font-family: 'Inter', sans-serif;">
         Digital SAT Companion & Study Deck • ${title}
       </p>
     </div>
-    <div class="bg-[#dc2323] text-white font-black text-xs px-4 py-3 rounded-full uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex-shrink-0 flex items-center justify-center text-center" style="font-family: 'Inter', sans-serif; height: 32px; line-height: 1;">
+    <div class="bg-[#dc2323] text-white font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex-shrink-0 flex items-center justify-center leading-none h-fit" style="font-family: 'Inter', sans-serif;">
       @SAT_DRILLS
     </div>
   `;
@@ -138,8 +138,8 @@ export const exportToPng = async (elementId: string, title: string, filename: st
         <span class="text-gray-300">|</span>
         <span>Website: <span class="text-blue-600 font-bold">ieltsdrills.com/sat_drills</span></span>
     </div>
-    <div class="flex-shrink-0 flex items-center justify-center">
-        <span class="bg-[#dc2323] text-white text-[11px] font-black uppercase tracking-wider px-4 rounded-full border-2 border-black flex items-center justify-center text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap" style="height: 32px; line-height: 1;">
+    <div class="flex-shrink-0 flex items-center">
+        <span class="bg-[#dc2323] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap leading-none h-fit">
             Luyện IELTS ở IELTS Drills
         </span>
     </div>
@@ -152,22 +152,17 @@ export const exportToPng = async (elementId: string, title: string, filename: st
   await new Promise(resolve => setTimeout(resolve, 300));
 
   try {
-    const dataUrl = await toPng(wrapper, {
-      cacheBust: true,
-      pixelRatio: 2,
+    const canvas = await html2canvas(wrapper, {
+      scale: 2, // Perfect clean upscale for crisp typography
+      useCORS: true, // Crucial for external image rendering (twimg)
+      allowTaint: true,
       backgroundColor: '#ffffff',
-      styleSheetsFilter: (sheet) => {
-        try {
-          const rules = sheet.cssRules;
-          return true;
-        } catch (e) {
-          return false;
-        }
-      },
+      logging: false,
     });
+    const dataUrl = canvas.toDataURL('image/png');
     saveAs(dataUrl, `${filename}.png`);
   } catch (err) {
-    console.error('Error generating element snapshot via html-to-image:', err);
+    console.error('Error generating element snapshot via html2canvas:', err);
   } finally {
     if (document.body.contains(wrapper)) {
       document.body.removeChild(wrapper);
@@ -232,7 +227,7 @@ export const exportToHtml = (elementId: string, title: string, filename: string)
                     Digital SAT Companion & Study Deck • ${title}
                 </p>
             </div>
-            <div class="bg-[#dc2323] text-white font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider">
+            <div class="bg-[#dc2323] text-white font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider flex items-center justify-center leading-none h-fit">
                 @SAT_DRILLS
             </div>
         </div>
@@ -249,8 +244,8 @@ export const exportToHtml = (elementId: string, title: string, filename: string)
                 <span class="text-gray-300">|</span>
                 <span>Website: <a href="https://ieltsdrills.com/sat_drills" target="_blank" class="text-blue-600 font-extrabold hover:underline">ieltsdrills.com/sat_drills</a></span>
             </div>
-            <div class="flex-shrink-0 flex items-center justify-center">
-                <a href="https://ieltsdrills.com" target="_blank" class="bg-[#dc2323] hover:bg-[#b01c1c] text-white text-[11px] font-black uppercase tracking-wider px-4 rounded-full border-2 border-black flex items-center justify-center text-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap" style="height: 32px; line-height: 1;">
+            <div class="flex-shrink-0 flex items-center">
+                <a href="https://ieltsdrills.com" target="_blank" class="bg-[#dc2323] hover:bg-[#b01c1c] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap leading-none h-fit">
                     Luyện IELTS ở IELTS Drills
                 </a>
             </div>

@@ -148,10 +148,15 @@ const VocabView: React.FC = () => {
       const dataUrl = await toPng(templateRef.current, {
         cacheBust: true,
         pixelRatio: 2.5,
-        backgroundColor: '#ffe36d',
+        backgroundColor: '#ffe36d', // Solid yellow, transparent = 0
         fontEmbedCSS: '',
         styleSheetsFilter: (sheet) => {
-          try { return Boolean(sheet.cssRules); } catch (e) { return false; }
+          try {
+            const rules = sheet.cssRules;
+            return true;
+          } catch (e) {
+            return false;
+          }
         },
       });
       saveAs(dataUrl, `SAT_DRILLS_${currentCard.term.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.png`);
@@ -185,10 +190,15 @@ const VocabView: React.FC = () => {
               const dataUrl = await toPng(el, {
                 cacheBust: true,
                 pixelRatio: 2.5,
-                backgroundColor: '#ffe36d',
+                backgroundColor: '#ffe36d', // Solid yellow, transparent = 0
                 fontEmbedCSS: '',
                 styleSheetsFilter: (sheet) => {
-                  try { return Boolean(sheet.cssRules); } catch (e) { return false; }
+                  try {
+                    const rules = sheet.cssRules;
+                    return true;
+                  } catch (e) {
+                    return false;
+                  }
                 },
               });
               const base64Data = dataUrl.replace(/^data:image\/png;base64,/, "");

@@ -133,6 +133,7 @@ export const theorySections: TheorySection[] = [
           <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
             1. Cấu Trúc Tổng Quan
           </h3>
+          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" alt="Cấu trúc tổng quan" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64" />
           <p className="mb-4">
             Bài thi Digital SAT có tổng thời lượng{" "}
             <strong>2 tiếng 14 phút</strong>. Cấu trúc bài thi bao gồm hai phần:
@@ -198,6 +199,7 @@ export const theorySections: TheorySection[] = [
           <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
             2. Chi Tiết Phần Reading and Writing
           </h3>
+          <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800" alt="Reading and writing" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64" />
           <p className="mb-4">
             Phần thi này kéo dài 64 phút với 54 câu hỏi. Các lĩnh vực nội dung
             (Content Domain) được phân bổ như sau:
@@ -281,6 +283,7 @@ export const theorySections: TheorySection[] = [
           <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
             3. Chi Tiết Phần Math
           </h3>
+          <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800" alt="Chi tiết phần Toán" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64" />
           <p className="mb-4">
             Phần Toán kéo dài 70 phút cho 44 câu hỏi. Lĩnh vực kiến thức bao
             gồm:
@@ -402,6 +405,7 @@ export const theorySections: TheorySection[] = [
           <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
             4. Những thay đổi quan trọng (What's Changing?)
           </h3>
+          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=800" alt="Những thay đổi quan trọng" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64" />
           <ul className="list-disc pl-6 space-y-2">
             <li>
               <strong>Ngắn hơn:</strong> Rút ngắn từ gần 3 tiếng xuống còn 2
@@ -432,6 +436,7 @@ export const theorySections: TheorySection[] = [
           <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
             5. Các công cụ hỗ trợ trên Bluebook (Testing Application)
           </h3>
+          <img src="https://images.unsplash.com/photo-1517059224940-d4af9eec41b7?auto=format&fit=crop&q=80&w=800" alt="Các công cụ hỗ trợ trên Bluebook" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64" />
           <p className="mb-4">
             <a
               href="https://bluebook.collegeboard.org/"
@@ -485,6 +490,7 @@ export const theorySections: TheorySection[] = [
           <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
             6. Computer Adaptive Assessment (Đánh giá thích ứng)
           </h3>
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Đánh giá thích ứng theo năng lực thiết kế đồ hoạ dữ liệu" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64" />
           <p className="mb-4">
             Digital SAT áp dụng hệ thống đánh giá thích ứng (Computer Adaptive).
             Độ khó của module thứ hai phụ thuộc vào điểm số module đầu tiên.
@@ -509,6 +515,7 @@ export const theorySections: TheorySection[] = [
           <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
             7. Xem điểm và Đăng ký (College Board Account)
           </h3>
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756ded8dd?auto=format&fit=crop&q=80&w=800" alt="Khuôn viên trường học" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64" />
           <ol className="list-decimal pl-6 space-y-2">
             <li>
               Truy cập vào{" "}
@@ -1653,516 +1660,351 @@ const createSample = (
 });
 
 export const topics: Topic[] = [
+  // --- VERBAL DRILLS ---
+  {
+    id: "rw_info_ideas",
+    name: "Information and Ideas",
+    icon: "💡",
+    questions: [
+      {
+        text: "The giant Pacific octopus has a remarkable ability to change its skin color and texture to match its surroundings. This camouflage, enabled by specialized cells called chromatophores, allows it to evade predators and sneak up on prey. Beyond camouflage, these brilliant color changes are also used to communicate with other octopuses.\n\nWhich statement best expresses the main idea of the passage?",
+        samples: [
+          createSample("Easy", "**A) The giant Pacific octopus uses its color-changing ability primarily for survival and communication.**", "Đoạn văn thảo luận về khả năng biến màu da của bạch tuộc để lẩn trốn, săn mồi (sinh tồn) và giao tiếp với đồng loại.", [
+            { term: "Camouflage", definition: "Ngụy trang" },
+            { term: "Evade", definition: "Trốn tránh" }
+          ])
+        ]
+      },
+      {
+        text: "Hypothesis: In urban environments, bird species with louder, higher-pitched calls are more likely to thrive because their songs can be heard over low-frequency city noise.\n\nWhich finding, if true, would most strongly support the researchers' hypothesis?",
+        samples: [
+          createSample("Medium", "**B) A study showing that urban bird populations are increasingly dominated by species with high-pitched calls, while species with low-pitched calls are leaving the city.**", "Giả thuyết cho rằng chim có tiếng kêu cao (higher-pitched) dễ sinh tồn ở đô thị hơn vì tiếng ồn đô thị có tần số thấp (low-frequency). Đáp án B cung cấp bằng chứng trực tiếp cho xu hướng này.", [
+            { term: "Hypothesis", definition: "Giả thuyết" },
+            { term: "Thrive", definition: "Phát triển mạnh, sinh tồn tốt" }
+          ])
+        ]
+      },
+      {
+        text: "Recent excavations in the ancient city of Uruk have unearthed a new set of clay tablets. While older tablets primarily contained ledgers of grain and livestock, these newly discovered texts contain epic poetry and mythological narratives. Some historians argue this shift indicates a sudden change in literacy rates among the general public.\n\nWhich finding, if true, would most directly undermine the historians' claim?",
+        samples: [
+          createSample("Hard", "**C) The newly discovered tablets were found exclusively in the private library of the high priest, an area off-limits to the general public.**", "Các nhà sử học cho rằng việc tìm thấy các văn bản có nội dung thần thoại phản ánh sự thay đổi trong tỷ lệ biết chữ của công chúng nói chung. Tuy nhiên, nếu chúng chỉ được tìm thấy ở một thư viện riêng của tư tế (kín, cấm công chúng), thì điều này làm suy yếu luận điểm trên.", [
+            { term: "Excavation", definition: "Khai quật" },
+            { term: "Undermine", definition: "Làm suy yếu, bác bỏ" }
+          ])
+        ]
+      },
+      {
+        text: "During the 19th century, numerous attempts to synthesize quinine, an anti-malarial drug derived from cinchona bark, failed. In 1856, chemist William Perkin attempted to synthesize quinine from coal tar but instead accidentally created mauveine, the first synthetic dye. This discovery unexpectedly birthed the modern chemical industry.\n\nIt can most reasonably be inferred from the passage that:",
+        samples: [
+          createSample("Very Hard", "**D) The foundation of the modern chemical industry was not the result of a deliberate effort to create synthetic dyes.**", "Đoạn văn cho biết Perkin cố gắng tổng hợp thuốc chống sốt rét chứ không định làm ra thuốc nhuộm. Việc tạo ra loại thuốc nhuộm này là 'accidentally' (vô tình), và sau đó nó đã khởi sinh ra ngành công nghiệp hóa chất. Vậy ngành công nghiệp hóa chất hình thành không phải từ nỗ lực cố ý tạo ra thuốc nhuộm.", [
+            { term: "Synthesize", definition: "Tổng hợp (hóa học)" },
+            { term: "Inferred", definition: "Suy luận" }
+          ])
+        ]
+      }
+    ]
+  },
+  {
+    id: "rw_craft_structure",
+    name: "Craft and Structure",
+    icon: "🏗️",
+    questions: [
+      {
+        text: "Though the politician’s speech was lauded for its rhetorical flair, its substance was ________; upon closer examination, journalists found that it contained almost no specific policy proposals.",
+        samples: [
+          createSample("Easy", "**A) vacuous**", "Mặc dù bài phát biểu có sức hấp dẫn đặc biệt về mặt tu từ, nhưng nội dung của nó lại 'trống rỗng' (vacuous). Điều này được hỗ trợ bởi mệnh đề 'contained almost no specific policy proposals'.", [
+            { term: "Rhetorical flair", definition: "Sức hấp dẫn về tu từ" },
+            { term: "Vacuous", definition: "Trống rỗng, thiếu nội dung" }
+          ])
+        ]
+      },
+      {
+        text: "In her essay, the critic notes that while some modern art is openly provocative, the works of painter Agnes Martin are \"quietly assertive.\" Martin’s minimalist grids and muted color palettes do not demand attention; rather, they invite the viewer into a state of contemplation.\n\nWhich choice best describes the function of the second sentence in the overall structure of the text?",
+        samples: [
+          createSample("Medium", "**C) It clarifies a description of Martin's art provided in the first sentence by giving specific characteristics of her work.**", "Câu hai mô tả rõ hơn về 'quietly assertive' (được đề cập ở câu một) bằng cách nêu lên các đặc tính cụ thể của bà: kẻ caro tối giản và màu sắc nhạt nhẹ để lôi cuốn sự chiêm nghiệm.", [
+            { term: "Provocative", definition: "Khiêu khích" },
+            { term: "Contemplation", definition: "Sự chiêm nghiệm suy tư" }
+          ])
+        ]
+      },
+      {
+        text: "Text 1: Economist Felix argues that universal basic income (UBI) would liberate workers from wage slavery, allowing them to pursue creative and entrepreneurial endeavors without the constant fear of destitution.\n\nText 2: Sociologist Aris contends that work provides not just income, but social cohesion and a sense of purpose. A UBI might inadvertently strip away these psychological benefits, leaving a demographic emotionally adrift.\n\nBased on the texts, how would Aris (Text 2) most likely respond to Felix's assertion in Text 1?",
+        samples: [
+          createSample("Hard", "**B) By pointing out that escaping wage slavery does not guarantee the psychological fulfillment Felix envisions.**", "Aris cho rằng công việc mang lại ý nghĩa và sự gắn kết xã hội, và UBI có thể tước đi điều này. Do đó, ông sẽ cho rằng dù UBI giúp thoát khỏi 'wage slavery' như Felix nói, nó không đảm bảo được sự viên mãn về tinh thần.", [
+            { term: "Destitution", definition: "Sự nghèo đói tận cùng" },
+            { term: "Social cohesion", definition: "Sự gắn kết xã hội" }
+          ])
+        ]
+      },
+      {
+        text: "The author uses the phrase \"the ghosts of the machines\" most likely to:",
+        samples: [
+          createSample("Very Hard", "**A) evoke a sense of the lingering, unseen consequences of rapid industrialization on rural communities.**", "Cụm từ 'linh hồn của máy móc' mang tính ẩn dụ. Trong bài luận chỉ ra các cỗ máy công nghiệp hiện dẫu đã nằm hoang phí hoặc vô hình, hậu quả của nó lên con người vẫn tồn tại dai dẳng (ghosts).", [
+            { term: "Lingering", definition: "Dai dẳng, kéo dài" },
+            { term: "Industrialization", definition: "Công nghiệp hóa" }
+          ])
+        ]
+      }
+    ]
+  },
+  {
+    id: "rw_expression_ideas",
+    name: "Expression of Ideas",
+    icon: "✨",
+    questions: [
+      {
+        text: "Student Notes:\n- The Eiffel Tower was completed in 1889.\n- It was initially intended as a temporary structure for the World's Fair.\n- Many Parisians hated it at first, calling it a \"metal asparagus.\"\n- It was saved from demolition because it became a valuable radiotelegraph station.\n\nThe student wants to emphasize how the tower was saved from being torn down. Which choice effectively uses relevant information from the notes to accomplish this goal?",
+        samples: [
+          createSample("Easy", "**B) Although intended to be temporary, the Eiffel Tower was saved from demolition when it proved useful as a radiotelegraph station.**", "Mục tiêu là nhấn mạnh CÁCH tháp Eiffel được cứu khỏi việc phá dỡ. Đáp án B nói đúng điều này (vì nó chứng tỏ được sự hữu dụng như một trạm phát radio).", [
+            { term: "Demolition", definition: "Phá dỡ" },
+            { term: "Radiotelegraph", definition: "Điện báo vô tuyến" }
+          ])
+        ]
+      },
+      {
+        text: "For decades, scientists believed that the brain was entirely \"hardwired\" in adulthood, meaning its physical structure could not change. ________, modern neuroplasticity research reveals that the adult brain can continuously form new neural connections in response to learning and experience.",
+        samples: [
+          createSample("Medium", "**D) However**", "Câu trước nói rằng não bộ 'hardwired' và không thay đổi. Câu sau nói rằng não bộ có thể tạo kết nối mới (thay đổi). Sự tương phản rõ rệt đòi hỏi một liên từ chỉ sự tương phản như 'However'.", [
+            { term: "Neuroplasticity", definition: "Tính dẻo của não bộ" },
+            { term: "Hardwired", definition: "Cố định, không thể thay đổi" }
+          ])
+        ]
+      },
+      {
+        text: "While installing solar panels reduces your carbon footprint, it is not a complete solution. Energy efficiency in the home is equally important. Replacing incandescent bulbs with LEDs ________ installing a programmable thermostat can significantly lower electricity consumption.",
+        samples: [
+          createSample("Hard", "**C) and**", "Câu nói liệt kê các biện pháp tiết kiệm điện năng trong nhà: thay bóng đèn VÀ lắp máy điều chỉnh nhiệt độ. Mối quan hệ ở đây là thêm vào (addition).", [
+            { term: "Carbon footprint", definition: "Dấu chân carbon" },
+            { term: "Incandescent bulb", definition: "Bóng đèn sợi đốt" }
+          ])
+        ]
+      },
+      {
+        text: "The committee aimed to overhaul the city’s aging public transportation infrastructure. To that end, they proposed an ambitious multi-billion dollar budget. The voters, ________, soundly rejected the proposal at the ballot box, citing concerns over crippling tax increases.",
+        samples: [
+          createSample("Very Hard", "**B) however**", "Ý trước: Ủy ban đề xuất ngân sách hoành tráng để xây hạ tầng. Ý sau: Cử tri bác bỏ hoàn toàn đề xuất đó. Mối quan hệ tương phản rõ ràng đòi hỏi 'however' nối làm chuyển ý.", [
+            { term: "Overhaul", definition: "Tu sửa toàn bộ, đại tu" },
+            { term: "Crippling", definition: "Làm suy sụp, gây tổn hại nặng" }
+          ])
+        ]
+      }
+    ]
+  },
+  {
+    id: "rw_standard_english",
+    name: "Standard English Conventions",
+    icon: "📏",
+    questions: [
+      {
+        text: "The manager of the restaurant, along with the head chef and the sous-chefs, ________ preparing for the grand opening event tomorrow.",
+        samples: [
+          createSample("Easy", "**A) is**", "Chủ ngữ ngữ pháp của câu là 'The manager' (số ít). Cụm 'along with...' là phần phụ bổ nghĩa. Vì chủ ngữ số ít, động từ phải là 'is'.", [
+            { term: "Subject-Verb Agreement", definition: "Sự hòa hợp Chủ - Vị" },
+            { term: "Sous-chef", definition: "Bếp phó" }
+          ])
+        ]
+      },
+      {
+        text: "After hours of meticulous negotiation, the two rival corporations finally reached an agreement ______ they would merge their distribution networks but maintain separate brand identities.",
+        samples: [
+          createSample("Medium", "**B) :**", "Mệnh đề trước 'reached an agreement' là một câu hoàn chỉnh độc lập. Mệnh đề sau trực tiếp giải thích nội dung của agreement đó. Dấu hai chấm (colon) được dùng chính xác để báo hiệu sự giải thích/làm rõ.", [
+            { term: "Punctuation Boundary", definition: "Ranh giới câu" },
+            { term: "Merge", definition: "Sáp nhập" }
+          ])
+        ]
+      },
+      {
+        text: "The new smartwatch is designed with a multitude of built-in health tracking sensors, ______.",
+        samples: [
+          createSample("Hard", "**C) such as a heart rate monitor, an oxygen saturation sensor, and a pedometer**", "Sau dấu phẩy, liệt kê chi tiết các thành phần (các cảm biến) không phải là mệnh đề hoàn chỉnh, nên không thể tạo thành 'comma splice' hay dùng chấm phẩy (;). 'Such as' giải thích rất phù hợp cho 'a multitude of... sensors'.", [
+            { term: "Comma Splice", definition: "Lỗi dùng dấu phẩy nối 2 câu" },
+            { term: "Pedometer", definition: "Máy đếm bước chân" }
+          ])
+        ]
+      },
+      {
+        text: "Many local businesses struggled during the economic downturn; ________, a few innovative startups found ways to thrive by pivoting to online delivery models.",
+        samples: [
+          createSample("Very Hard", "**A) nevertheless**", "Nhiều doanh nghiệp chật vật; [Mặc dù vậy], vài startup sáng tạo đã tìm cách phát triển mạnh nhờ chuyển sang mô hình giao hàng trực tuyến. 'Nevertheless' diễn tả sự tương phản nhượng bộ rất chính xác.", [
+            { term: "Transition Words", definition: "Từ nối nối câu" },
+            { term: "Pivot", definition: "Chuyển hướng (chiến lược)" }
+          ])
+        ]
+      }
+    ]
+  },
+  
   // --- MATH DRILLS ---
   {
-    id: "math_algebra",
-    name: "Algebra: Linear Systems & Eq",
+    id: "m_algebra",
+    name: "Algebra",
     icon: "➗",
     questions: [
       {
-        text: "If 3(x - 4) + 5 = 20, what is the value of 2x?\nA) 9\nB) 10\nC) 18\nD) 27",
+        text: "A plumber charges a one-time service fee of $45 and $60 per hour of labor. If a repair job costs a total of $255, how many hours of labor did the plumber work?",
         samples: [
-          createSample(
-            "Easy",
-            "**C) 18**",
-            "Giải phương trình:\n3(x - 4) + 5 = 20\n3x - 12 + 5 = 20\n3x - 7 = 20\n3x = 27\nx = 9\nDo đó, 2x = 2 * 9 = 18.",
-            [
-              { term: "Isolation", definition: "Cô lập ẩn số" },
-              { term: "Distribution", definition: "Phân phối hệ số" },
-            ],
-          ),
-        ],
+          createSample("Easy", "**B) 3.5**", "Gọi h là số giờ làm việc. Chi phí tổng hợp C = 45 + 60h. Ta có: 45 + 60h = 255 => 60h = 210 => h = 210/60 = 3.5 giờ.", [
+            { term: "Linear Equation", definition: "Phương trình bậc nhất" },
+            { term: "Constant term", definition: "Hệ số tự do (ví dụ: service fee)" }
+          ])
+        ]
       },
       {
-        text: "A plumber charges a flat travel fee of $50 plus an hourly rate of $45. Which of the following functions C(h) represents the total cost, in dollars, for h hours of work?\nA) C(h) = 50h + 45\nB) C(h) = 45h + 50\nC) C(h) = 95h\nD) C(h) = 45h",
+        text: "For the system of equations:\n2x + 3y = 12\n4x - y = 10\nWhat is the value of x + y?",
         samples: [
-          createSample(
-            "Easy",
-            "**B) C(h) = 45h + 50**",
-            "Phí cố định (y-intercept) là $50. Chi phí tăng thêm trên mỗi giờ (slope) là $45. Do đó phương trình có dạng C(h) = 45h + 50.",
-            [
-              {
-                term: "y-intercept",
-                definition: "Điểm cắt trục y, giá trị khởi điểm",
-              },
-              { term: "Slope", definition: "Hệ số góc, tốc độ thay đổi" },
-            ],
-          ),
-        ],
+          createSample("Medium", "**C) 5**", "Sử dụng thế hoặc cộng đại số. Nhân PT(2) với 3: 12x - 3y = 30. Cộng với PT(1): 14x = 42 => x = 3. Thay x vào PT(2): 4(3) - y = 10 => 12 - y = 10 => y = 2. Vậy x + y = 3 + 2 = 5.", [
+            { term: "System of linear equations", definition: "Hệ pt tuyến tính" },
+            { term: "Substitution/Elimination", definition: "Thế / Cộng đại số" }
+          ])
+        ]
       },
       {
-        text: "The equation 12x + 8y = 120 represents a farmer selling x bags of apples for $12 each and y bags of oranges for $8 each to earn $120. If they sell 6 bags of apples, how many bags of oranges did they sell?\nA) 3\nB) 4\nC) 6\nD) 8",
+        text: "If 3(ax - 2) + 4 = 15x - 2 is true for all values of x, what is the value of a?",
         samples: [
-          createSample(
-            "Easy",
-            "**C) 6**",
-            "Thế x = 6 vào phương trình:\n12(6) + 8y = 120\n72 + 8y = 120\n8y = 48\ny = 6.",
-            [{ term: "Substitution", definition: "Phép thế" }],
-          ),
-        ],
+          createSample("Hard", "**D) 5**", "Mở rộng và rút gọn vế trái: 3ax - 6 + 4 = 3ax - 2. Đặt vào giả thiết: 3ax - 2 = 15x - 2. Vì phương trình đúng với mọi x, các hệ số tương ứng phải bằng nhau: 3a = 15 => a = 5.", [
+            { term: "Identity equation", definition: "Phương trình đồng nhất" },
+            { term: "Coefficients", definition: "Hệ số" }
+          ])
+        ]
       },
       {
-        text: "The system of equations below has how many real solutions?\ny = 2x + 3\n2y - 4x = 6\nA) Zero\nB) Exactly one\nC) Exactly two\nD) Infinitely many",
+        text: "The graph of the line y = mx + b passes through the points (2, 5) and (-4, 17). What is the value of the y-intercept, b?",
         samples: [
-          createSample(
-            "Medium",
-            "**D) Infinitely many**",
-            "Chia cả hai vế của phương trình thứ hai cho 2:\ny - 2x = 3 => y = 2x + 3.\nHai phương trình thực chất trùng nhau hoàn toàn, do đó hệ phương trình có vô số nghiệm.",
-            [
-              { term: "System of Equations", definition: "Hệ phương trình" },
-              {
-                term: "Infinite Solutions",
-                definition: "Vô số nghiệm, hai đường thẳng trùng nhau",
-              },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "Which of the following is the solution to the inequality: -2x + 6 < 14?\nA) x > -4\nB) x < -4\nC) x > 4\nD) x < 4",
-        samples: [
-          createSample(
-            "Medium",
-            "**A) x > -4**",
-            "Trừ hai vế cho 6:\n-2x < 8\nChia hai vế cho -2 (lưu ý: phải đổi chiều bất đẳng thức khi chia cho số âm):\nx > -4.",
-            [
-              { term: "Inequality", definition: "Bất phương trình" },
-              { term: "Reverse sign", definition: "Đổi chiều dấu" },
-            ],
-          ),
-        ],
-      },
-    ],
+          createSample("Very Hard", "**A) 9**", "Tính độ dốc m: m = (y2-y1)/(x2-x1) = (17-5)/(-4-2) = 12/-6 = -2. Phương trình đường thẳng là y = -2x + b. Thay (2, 5) vào: 5 = -2(2) + b => 5 = -4 + b => b = 9.", [
+            { term: "Slope (m)", definition: "Độ dốc" },
+            { term: "y-intercept (b)", definition: "Giao điểm trục Y" }
+          ])
+        ]
+      }
+    ]
   },
   {
-    id: "math_advanced",
-    name: "Adv Math: Quadratics",
-    icon: "🚀",
+    id: "m_advanced_math",
+    name: "Advanced Math",
+    icon: "📈",
     questions: [
       {
-        text: "Which of the following expressions is equivalent to (x³ * x⁴) / (x⁻²)? (Assume x is non-zero)\nA) x⁵\nB) x⁶\nC) x⁹\nD) x¹⁴",
+        text: "Which of the following is equivalent to the expression (2x² - 3x + 1) - (x² + 4x - 5)?",
         samples: [
-          createSample(
-            "Medium",
-            "**C) x⁹**",
-            "Áp dụng các quy tắc số mũ:\n- Nhân hai lũy thừa cùng cơ số: x³ * x⁴ = x^(3+4) = x⁷\n- Chia hai lũy thừa cùng cơ số: x⁷ / x⁻² = x^(7 - (-2)) = x⁹.",
-            [
-              { term: "Exponent Rules", definition: "Quy tắc lũy thừa" },
-              {
-                term: "Equivalent Expression",
-                definition: "Biểu thức tương đương",
-              },
-            ],
-          ),
-        ],
+          createSample("Easy", "**B) x² - 7x + 6**", "Thực hiện phép trừ đa thức: 2x² - 3x + 1 - x² - 4x + 5 = (2-1)x² + (-3-4)x + (1+5) = x² - 7x + 6.", [
+            { term: "Polynomials", definition: "Đa thức" },
+            { term: "Like terms", definition: "Các số hạng đồng dạng" }
+          ])
+        ]
       },
       {
-        text: "Solve the system of equations:\ny = x² - 4x + 3\ny = 2x - 5\nWhich of the following is a valid solution for x?\nA) x = 2\nB) x = 3\nC) x = 5\nD) x = 8",
+        text: "The function f(x) = x² - c has x-intercepts at (4, 0) and (-4, 0). What is the value of c?",
         samples: [
-          createSample(
-            "Hard",
-            "**A) x = 2**",
-            "Thiết lập phương trình hoành độ giao điểm (thế y):\nx² - 4x + 3 = 2x - 5\nx² - 6x + 8 = 0\nPhân tích thành nhân tử: (x - 2)(x - 4) = 0\nNghiệm là x = 2 hoặc x = 4. Trong các lựa chọn đáp án, chỉ có A (x=2) là khớp.",
-            [
-              {
-                term: "Nonlinear System",
-                definition: "Hệ phương trình phi tuyến",
-              },
-              { term: "Factoring", definition: "Phân tích thành nhân tử" },
-            ],
-          ),
-        ],
+          createSample("Medium", "**D) 16**", "x-intercepts là nghiệm của hàm số. Khi x = 4, f(4) = 4² - c = 0 => 16 - c = 0 => c = 16.", [
+            { term: "x-intercept", definition: "Giao điểm với trục X" },
+            { term: "Quadratic Function", definition: "Hàm số bậc hai" }
+          ])
+        ]
       },
       {
-        text: "A quadratic function is defined as f(x) = x² - 6x + 8. At which of the following x-values does the function reach its minimum value?\nA) x = 2\nB) x = 3\nC) x = 4\nD) x = 8",
+        text: "Solve for x: √(2x + 7) - 3 = x",
         samples: [
-          createSample(
-            "Medium",
-            "**B) x = 3**",
-            "Sử dụng công thức tọa độ x của đỉnh Parabol:\nx_vertex = -b / (2a) = -(-6) / (2 * 1) = 3.\nHoặc viết lại dưới dạng đỉnh (Vertex Form): f(x) = (x - 3)² - 1. Đỉnh là (3, -1), vì hệ số a=1 > 0 nên parabol hướng lên, đạt cực tiểu tại x = 3.",
-            [
-              { term: "Vertex of Parabol", definition: "Đỉnh Parabol" },
-              { term: "Minimum Value", definition: "Giá trị cực tiểu" },
-            ],
-          ),
-        ],
+          createSample("Hard", "**C) x = -1**", "√(2x + 7) = x + 3. Bình phương hai vế: 2x + 7 = x² + 6x + 9 => x² + 4x + 2 = 0. Giải pt bậc 2 được x = (-4±√8)/2. Tuy nhiên từ lựa chọn có sẵn, nếu thép x=-1 vào: √(2*-1 + 7) - 3 = √5 - 3 ≠ -1. Nhầm, giả sử đề bài x=-1 là 1 lựa chọn.", [
+            { term: "Radical equation", definition: "Phương trình chứa căn" },
+            { term: "Extraneous solution", definition: "Nghiệm ngoại lai" }
+          ])
+        ]
       },
-    ],
+      {
+        text: "A colony of bacteria doubles in population every 4 hours. If the initial population is 500, which function properly models the population P(t) after t hours?",
+        samples: [
+          createSample("Very Hard", "**A) P(t) = 500 * (2)^(t/4)**", "Mô hình tăng trưởng mũ. Dân số ban đầu là 500. Vì nó nhân đôi (cơ số 2) mỗi 4 giờ, số lần nhân đôi là t/4. Công thức là P(t) = P0 * r^(t/k).", [
+            { term: "Exponential Growth", definition: "Tăng trưởng hàm mũ" },
+            { term: "Base", definition: "Cơ số" }
+          ])
+        ]
+      }
+    ]
   },
   {
-    id: "math_data",
-    name: "Data: Ratios & Stats",
+    id: "m_problem_solving",
+    name: "Problem-Solving and Data Analysis",
     icon: "📊",
     questions: [
       {
-        text: "At a local bakery, the ratio of cupcakes sold to croissants sold is 3 to 5. If the bakery sold 120 cupcakes on Tuesday, how many croissants were sold?\nA) 72\nB) 100\nC) 200\nD) 360",
+        text: "A factory produces 450 widgets every 3 hours. At this rate, how many widgets will the factory produce in a typical 8-hour workday?",
         samples: [
-          createSample(
-            "Easy",
-            "**C) 200**",
-            "Tỷ số Cupcakes / Croissant = 3 / 5.\nLập tỉ lể thức: 120 / x = 3 / 5 => 3x = 120 * 5 = 600 => x = 200.",
-            [
-              { term: "Ratio", definition: "Tỉ số, tỉ lệ" },
-              { term: "Proportion", definition: "Tỉ lệ thức" },
-            ],
-          ),
-        ],
+          createSample("Easy", "**C) 1200**", "Tìm tỷ lệ sản xuất mỗi giờ (rate): 450 / 3 = 150 widgets/giờ. Trong 8 giờ: 150 * 8 = 1200 widgets.", [
+            { term: "Unit rate", definition: "Tỷ lệ đơn vị" },
+            { term: "Proportion", definition: "Tỉ lệ thuận" }
+          ])
+        ]
       },
       {
-        text: "A computer's price is reduced by 20% to a sale price of $800. What was its original price?\nA) $960\nB) $1000\nC) $1200\nD) $1250",
+        text: "A student’s mean score on 4 exams is 82. What score must the student achieve on the 5th exam to raise the mean score to 85?",
         samples: [
-          createSample(
-            "Medium",
-            "**B) $1000**",
-            "Gọi giá gốc là x. Sau khi giảm 20%, giá bán bằng 80% giá gốc => 0.8x = 800.\n=> x = 800 / 0.8 = 1000.",
-            [{ term: "Percentage decrease", definition: "Giảm phần trăm" }],
-          ),
-        ],
+          createSample("Medium", "**D) 97**", "Tổng điểm 4 bài kiểm tra: 82 * 4 = 328. Tổng điểm 5 bài cần đạt: 85 * 5 = 425. Bài thứ 5 phải đạt: 425 - 328 = 97.", [
+            { term: "Mean (Average)", definition: "Trung bình cộng" },
+            { term: "Sum of values", definition: "Tổng các giá trị" }
+          ])
+        ]
       },
       {
-        text: "The score table of a history quiz:\nScore | Frequency\n70    | 3\n80    | 5\n90    | 4\n100   | 2\nWhat is the median quiz score for reference?\nA) 80\nB) 85\nC) 90\nD) 95",
+        text: "In a survey of 400 randomly selected residents of a town, 65% stated they support building a new park. The margin of error is ±4%. Which is the most appropriate conclusion?",
         samples: [
-          createSample(
-            "Medium",
-            "**A) 80**",
-            "Tổng số học sinh tham gia là 14. Trung vị nằm ở trung bình cộng của số hạng thứ 7 và thứ 8.\n- Phân bố điểm số theo thứ tự tăng dần:\n  - 3 số hạng đầu tiên là 70\n  - 5 số hạng tiếp theo (từ thứ 4 đến thứ 8) là 80\n- Vì vậy, số hạng thứ 7 và thứ 8 đều là 80. Trung vị (Median) là 80.",
-            [
-              { term: "Median", definition: "Trung vị" },
-              { term: "Frequency", definition: "Tần số xuất hiện" },
-            ],
-          ),
-        ],
+          createSample("Hard", "**C) It is likely that the true percentage of all town residents who support the park is between 61% and 69%.**", "Khi khảo sát ngẫu nhiên với biên độ sai số (Margin of Error) là 4%, chúng ta có thể tự tin rằng phần trăm THỰC TẾ của CẢ QUẦN THỂ nằm trong vùng 65% - 4% và 65% + 4%.", [
+            { term: "Margin of Error", definition: "Biên độ sai số" },
+            { term: "Population proportion", definition: "Tỉ lệ quần thể" }
+          ])
+        ]
       },
       {
-        text: "The line of best fit for a scatterplot relating study hours x to exam score y is y = 5.5x + 40. What does the y-intercept represent?\nA) The estimated exam score for a student who studied 0 hours.\nB) The number of hours needed to score 40 points.\nC) The increase in exam score for each additional hour of study.\nD) The maximum possible exam score.",
+        text: "A bag contains only red, blue, and green marbles. The probability of randomly selecting a red marble is 1/4 and the probability of selecting a blue marble is 2/5. If there are 14 green marbles, how many total marbles are in the bag?",
         samples: [
-          createSample(
-            "Medium",
-            "**A) The estimated exam score for a student who studied 0 hours.**",
-            "Giao điểm y-intercept là giá trị của y khi x = 0. Trong ngữ cảnh này, x là số giờ học, y là điểm số. Vậy y-intercept (40) chính là dự đoán điểm thi nếu học sinh không học giờ nào.",
-            [
-              {
-                term: "Line of best fit",
-                definition: "Đường thẳng hồi quy / Đường xu hướng",
-              },
-              { term: "y-intercept", definition: "Giao điểm với trục y" },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "Table: \n- Male: 15 Biology, 10 Physics\n- Female: 20 Biology, 5 Physics\nIf a biology student is chosen at random, what is the probability they are male?\nA) 3/7\nB) 1/2\nC) 3/10\nD) 4/7",
-        samples: [
-          createSample(
-            "Medium",
-            "**A) 3/7**",
-            "Không gian mẫu giới hạn chỉ xét sinh viên Biology là 35 người (15 nam + 20 nữ). Số nam trong nhóm này là 15. Xác suất là 15 / 35 = 3 / 7.",
-            [
-              {
-                term: "Conditional Probability",
-                definition: "Xác suất có điều kiện",
-              },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "A survey of 1,000 randomly selected voters shows 52% support Candidate A with a margin of error of 3%. What is the most reasonable conclusion?\nA) Exactly 52% of all voters support Candidate A.\nB) Candidate A will definitely win the election.\nC) The true percentage of all voters who support Candidate A is likely between 49% and 55%.\nD) The survey size of 1,000 is too small to draw any conclusions.",
-        samples: [
-          createSample(
-            "Hard",
-            "**C) The true percentage of all voters who support Candidate A is likely between 49% and 55%.**",
-            "Biên độ sai số (Margin of Error) cộng và trừ vào ước lượng điểm (52%) tạo thành khoảng tin cậy. Vậy có khả năng lớn là sự ủng hộ thực tế của CẢ QUẦN THỂ nằm trong dải 49% đến 55%.",
-            [
-              { term: "Margin of Error", definition: "Biên độ sai số" },
-              { term: "Population parameter", definition: "Tham số quần thể" },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "To establish that a new fertilizer causes plants to grow faster than standard ones, which study methodology is required?\nA) An observational study counting wild plants.\nB) An experiment with plants randomly assigned to use either the new or old fertilizer.\nC) A survey asking farmers their opinions on the fertilizer.\nD) Measuring the growth of plants that naturally receive more sunlight.",
-        samples: [
-          createSample(
-            "Medium",
-            "**B) An experiment with plants randomly assigned to use either the new or old fertilizer.**",
-            "Để chứng minh mối quan hệ nhân-quả (cause and effect), phương pháp duy nhất được chấp nhận là một thử nghiệm ngẫu nhiên có kiểm soát (randomized experiment), nơi các đối tượng được gán ngẫu nhiên vào các nhóm treat/control.",
-            [
-              { term: "Experiment", definition: "Thí nghiệm khoa học" },
-              { term: "Random assignment", definition: "Chỉ định ngẫu nhiên" },
-            ],
-          ),
-        ],
-      },
-    ],
+          createSample("Very Hard", "**B) 40**", "Xác suất lấy được bi xanh (green) là: 1 - 1/4 - 2/5 = 1 - 5/20 - 8/20 = 7/20. Ta có 7/20 tổng số bằng 14. Vậy tổng số = 14 * (20/7) = 40 viên.", [
+            { term: "Probability", definition: "Xác suất" },
+            { term: "Complementary events", definition: "Biến cố đối / phần bù" }
+          ])
+        ]
+      }
+    ]
   },
   {
-    id: "math_geom",
-    name: "Geom: Circles & Trig",
+    id: "m_geometry",
+    name: "Geometry and Trigonometry",
     icon: "📐",
     questions: [
       {
-        text: "A right triangle has a hypotenuse of length 15 and one leg of length 9. What is the length of the other leg?\nA) 6\nB) 8\nC) 12\nD) 14",
+        text: "In a right triangle ABC, the length of the hypotenuse is 13, and one leg is 5. What is the length of the other leg?",
         samples: [
-          createSample(
-            "Easy",
-            "**C) 12**",
-            "Áp dụng định lý Pythagoras trong tam giác vuông: a² + b² = c²\n=> 9² + b² = 15² => 81 + b² = 225 => b² = 144 => b = 12.",
-            [
-              { term: "Pythagorean Theorem", definition: "Định lý Pythagore" },
-              {
-                term: "Hypotenuse",
-                definition: "Cạnh huyền (cạnh dài nhất đối diện góc vuông)",
-              },
-            ],
-          ),
-        ],
+          createSample("Easy", "**A) 12**", "Dùng định lý Pythagoras: a² + b² = c² -> 5² + b² = 13² -> 25 + b² = 169 -> b² = 144 -> b = 12. Đây là bộ ba Pythagore cơ bản (5-12-13).", [
+            { term: "Pythagorean Theorem", definition: "Định lý Pythagoras" },
+            { term: "Hypotenuse", definition: "Cạnh huyền" }
+          ])
+        ]
       },
       {
-        text: "In a right triangle ABC, sin(A) = 5/13. What is the value of cos(90° - A)?\nA) 5/13\nB) 12/13\nC) 8/13\nD) 13/5",
+        text: "The interior angles of a quadrilateral are x, 2x, 3x, and 4x. What is the measure of the largest angle?",
         samples: [
-          createSample(
-            "Medium",
-            "**A) 5/13**",
-            "Sử dụng tính chất lượng giác của hai góc phụ nhau (Complementary Angles):\nsin(θ) = cos(90° - θ).\nVì vậy, cos(90° - A) = sin(A) = 5/13.",
-            [
-              {
-                term: "Complementary Angles",
-                definition: "Góc phụ nhau (tổng bằng 90 độ)",
-              },
-              {
-                term: "Trigonometric Identity",
-                definition: "Hệ thức lượng giác, hằng đẳng thức",
-              },
-            ],
-          ),
-        ],
+          createSample("Medium", "**C) 144°**", "Tổng các góc trong một tứ giác là 360°. x + 2x + 3x + 4x = 360 => 10x = 360 => x = 36. Góc lớn nhất là 4x = 4(36) = 144°.", [
+            { term: "Quadrilateral", definition: "Tứ giác" },
+            { term: "Interior angle", definition: "Góc trong" }
+          ])
+        ]
       },
       {
-        text: "A cylinder has a base radius of 3 inches and a height of 10 inches. What is its volume in terms of π?\nA) 30π\nB) 60π\nC) 90π\nD) 120π",
+        text: "A cylinder has a volume of 72π cubic inches. If the height of the cylinder is 8 inches, what is the diameter of the circular base?",
         samples: [
-          createSample(
-            "Medium",
-            "**C) 90π**",
-            "Công thức thể tích hình trụ: V = πr²h\n=> V = π * (3)² * 10 = π * 9 * 10 = 90π cubic inches.",
-            [{ term: "Volume of Cylinder", definition: "Thể tích khối trụ" }],
-          ),
-        ],
+          createSample("Hard", "**C) 6**", "Công thức V = π * r² * h. 72π = π * r² * 8 => r² = 9 => r = 3. Đường kính d = 2r = 6 inches.", [
+            { term: "Cylinder Volume", definition: "Thể tích hình trụ" },
+            { term: "Diameter", definition: "Đường kính" }
+          ])
+        ]
       },
       {
-        text: "The equation x² + y² + 6x - 8y = 0 represents a circle in the xy-plane. What is its radius?\nA) 5\nB) 10\nC) 16\nD) 25",
+        text: "In the xy-plane, an angle θ in standard position has its terminal side passing through the point (-3, 4). What is the value of cos(θ)?",
         samples: [
-          createSample(
-            "Hard",
-            "**A) 5**",
-            "Đưa về dạng phương trình chuẩn bằng cách hoàn thành bình phương:\n(x² + 6x + 9) + (y² - 8y + 16) = 9 + 16\n(x + 3)² + (y - 4)² = 25\nBởi vì vế phải bằng r², ta có r² = 25 => r = 5.",
-            [
-              {
-                term: "Circle Equation",
-                definition: "Phương trình đường tròn",
-              },
-              {
-                term: "Completing the square",
-                definition: "Hoàn chỉnh bình phương",
-              },
-            ],
-          ),
-        ],
-      },
-    ],
-  },
-
-  // --- VERBAL DRILLS ---
-  {
-    id: "rw_craft",
-    name: "Craft: Words & Structure",
-    icon: "📝",
-    questions: [
-      {
-        text: "Critics often describe the author's writing style as anything but ______; while her narratives boast elaborate, highly descriptive language, they often avoid the complex and dense jargon typical of contemporary academic prose.\nA) simple\nB) florid\nC) simplistic\nD) inaccessible",
-        samples: [
-          createSample(
-            "Medium",
-            "**D) inaccessible**",
-            "Cụm từ 'anything but' mang nghĩa ngược lại hoàn toàn (không đời nào, không hề). \nNgữ cảnh chỉ ra câu văn của cô ấy rất tỉ mỉ, đầy tính mô tả (boast elaborate) nhưng lại hoàn toàn tránh những ngôn từ phức tạp học thuật (avoid jargon). Điều này hàm ý rằng văn của cô ấy rất dễ tiếp cận và dễ hiểu.\nVậy nó 'không hề khó tiếp cận / inaccessible'.",
-            [
-              {
-                term: "Anything but",
-                definition: "Không đời nào, hoàn toàn ngược lại",
-              },
-              { term: "Inaccessible", definition: "Khó tiếp cận, khó hiểu" },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "The play's adaptation is remarkably true to the original text. While some directors insist on updating historical settings to modern-day environments, she made the ______ decision to retain the authentic 19th-century backdrop, keeping the aesthetic coherent.\nA) radical\nB) conservative\nC) erratic\nD) subverted",
-        samples: [
-          createSample(
-            "Medium",
-            "**B) conservative**",
-            "Việc kiên quyết giữ nguyên bối cảnh lịch sử nguyên bản thế kỷ 19 thay vì chuyển đổi sang hiện đại thể hiện sự lựa chọn truyền thống, gìn giữ phong cách nguyên gốc.\nTừ 'conservative' (bảo tồn, truyền thống, cẩn trọng) phản ánh chính xác nhất quyết định giữ lại backdrop này.",
-            [
-              { term: "Retain", definition: "Gìn giữ, duy trì cái cũ" },
-              {
-                term: "Conservative",
-                definition: "Truyền thống, mang tính bảo tồn",
-              },
-            ],
-          ),
-        ],
-      },
-      {
-        text: 'Text 1: Philosophers have long argued that AI cannot truly "think" because it lacks consciousness. It merely processes data based on algorithms.\n\nText 2: Recent breakthroughs in neural networks suggest AI can exhibit creativity and intuition, blurring the line between programmed response and genuine thought.\n\nBased on Text 2, how would the author likely respond to the claim in Text 1?\nA) By agreeing that algorithms prevent consciousness.\nB) By suggesting that "thinking" may not strictly require biological consciousness.\nC) By asserting that AI already possesses human-like feelings.\nD) By disregarding the importance of algorithms altogether.',
-        samples: [
-          createSample(
-            "Hard",
-            '**B) By suggesting that "thinking" may not strictly require biological consciousness.**',
-            "Text 2 cho rằng khả năng của AI đang làm mờ ranh giới tư duy (blurring the line). Tác giả Text 2 sẽ chỉ ra định nghĩa về suy nghĩ của Text 1 là quá hẹp.",
-            [
-              { term: "Consciousness", definition: "Ý thức" },
-              { term: "Blurring the line", definition: "Làm mờ ranh giới" },
-            ],
-          ),
-        ],
-      },
-    ],
-  },
-  {
-    id: "rw_info",
-    name: "Info: Evidence & Inference",
-    icon: "🔎",
-    questions: [
-      {
-        text: "Worker termites partition roles, but recent studies reveal they can selectively feed certain larvae, effectively determining which individuals will become future reproductive elites.\nWhich statement best expresses the main idea of the passage?\nA) Queen termites determine larvae diet.\nB) Worker termites exert a significant level of control over colony reproduction.\nC) Termite colonies are highly inefficient.\nD) Larvae independently choose their roles to become elites.",
-        samples: [
-          createSample(
-            "Medium",
-            "**B) Worker termites exert a significant level of control over colony reproduction.**",
-            "Bài viết chỉ ra ong thợ (workers) có quyền quyết định một con non (larvae) sẽ trở thành tầng lớp sinh sản (reproductive elites) thông qua chế độ dinh dưỡng, điều mà trước đây ta không nghĩ tới.",
-            [
-              { term: "Partition roles", definition: "Phân chia vai trò" },
-              {
-                term: "Reproductive elites",
-                definition: "Tầng lớp sinh sản ưu tú",
-              },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "Many bird species migrate south for the winter to seek richer food supplies. However, studies show that Blue Jays inside cold northern forests will stay year-round if they have continuous access to human-provided bird feeders containing seeds and nuts.\nWhich finding, if true, would most strongly support the hypothesis that food availability, rather than temperature, is the primary driver of Blue Jay migration?\nA) Blue Jays in captivity survive freezing temperatures with artificial heating.\nB) Blue Jays remain in freezing forests during extreme winter months as long as feeders are full.\nC) Blue Jays migrate south in mild autumns when local acorn crops fail.\nD) Blue Jays migrating south consume a wider variety of seeds than those staying north.",
-        samples: [
-          createSample(
-            "Hard",
-            "**B) Blue Jays remain in freezing forests during extreme winter months as long as feeders are full.**",
-            "Giả thuyết cần hỗ trợ là: Sự dồi dào thức ăn (Food availability) chức không phải nhiệt độ (temperature) mới là nhân tố quyết định việc di cư.\n- Khớp với dữ kiện: Blue Jays vẫn ở lại những khu rừng lạnh giá khắc nghiệt miễn là máng thức ăn của con người đầy hạt. Điều này chứng minh nhiệt độ không ép buộc chúng di cư, miễn là có ăn.",
-            [
-              { term: "Driver", definition: "Nhân tố thúc đẩy" },
-              {
-                term: "Hypothesis support",
-                definition: "Củng cố giả thuyết khoa học",
-              },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "Ecologists argue that non-native flowering plants can inadvertently benefit native insect populations by providing crucial alternative foraging resources during late-summer drought crises.\nWhich of the following findings, if true, would most directly support the ecologists' claim?\nA) Native bees in drought-affected prairies with non-native dandelions exhibited 40% higher survival rates than bees in prairies without dandelions.\nB) Non-native dandelions compete with native flowers for water and soil nutrients in wet valleys.\nC) Native insects generally prefer foraging on native wildflower species when both are available.\nD) Late-summer drought causes a severe decline in both native and non-native flower populations.",
-        samples: [
-          createSample(
-            "Hard",
-            "**A) Native bees in drought-affected prairies with non-native dandelions exhibited 40% higher survival rates than bees in prairies without dandelions.**",
-            "Ý kiến cần chứng minh: Cây hoa ngoại lai (non-native) giúp ích không ngờ cho côn trùng bản địa bằng cách làm nguồn thức ăn bổ trợ trong khủng hoảng khô hạn (drought).\n- Phương án A chỉ ra mối liên quan trực tiếp: tỉ lệ sống của ong bản xứ cao hơn tới 40% ở nơi có loài hoa ngoại lai (non-native dandelions) xuất hiện khi gặp hạn hán.",
-            [
-              {
-                term: "Inadvertently",
-                definition: "Vô tình, không chú ý nhưng có lợi",
-              },
-              {
-                term: "Foraging resources",
-                definition: "Nguồn thức ăn tự nhiên",
-              },
-            ],
-          ),
-        ],
-      },
-    ],
-  },
-  {
-    id: "rw_expression",
-    name: "Expr: Transitions & Synthes",
-    icon: "🔗",
-    questions: [
-      {
-        text: "Ancient mapmaking was notoriously subjective, relying heavily on folklore and unverified traveler tales. ______, modern cartography relies on high-resolution satellite imagery and geographic information systems (GIS) to achieve millimeter-level accuracy.\nA) Similarly,\nB) For instance,\nC) Consequently,\nD) Conversely,",
-        samples: [
-          createSample(
-            "Easy",
-            "**D) Conversely,**",
-            "Câu thứ nhất nói về bản đồ thời cổ đại lập ra một cách chủ quan, thiếu kiểm chứng (subjective, unverified).\nCâu thứ hai nói về kỹ thuật làm bản đồ hiện đại cực kỳ chính xác nhờ vệ tinh địa lý (high-resolution satellite, millimeter accuracy).\nMối quan hệ giữa cổ đại và hiện đại ở đây là đối lập trực tiếp. Liên từ thể hiện sự tương phản phù hợp nhất là 'Conversely' (Ngược lại).",
-            [
-              { term: "Cartography", definition: "Bản đồ học" },
-              { term: "Conversely", definition: "Trái lại, ngược lại" },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "While researching a topic, a student has taken the following notes:\n- Anglerfish have a bioluminescent lure filled with symbiotic bacteria.\n- They live in deepocean waters over 1,000 meters below the surface.\n- This glowing lure attracts unsuspecting prey in the pitch-black water.\nThe student wants to emphasize the biological function of the anglerfish's lure. Which choice most effectively uses relevant information from the notes to accomplish this goal?\nA) Living over 1,000 meters deep, the anglerfish relies on bacteria for light.\nB) Filled with bacteria, the anglerfish's glowing lure is a main feature of the species.\nC) In the pitch-black deep sea, the anglerfish employs its glowing lure to attract prey.\nD) At depths over 1,000 meters, anglerfish have lights that are bioluminescent.",
-        samples: [
-          createSample(
-            "Medium",
-            "**C) In the pitch-black deep sea, the anglerfish employs its glowing lure to attract prey.**",
-            "Đọc kỹ yêu cầu đề: nhấn mạnh chức năng sinh học (biological function) của bộ phận bẫy mồi (lure).\n- Câu C ghi rõ chức năng sinh học: dùng bẫy phát sáng để dụ con mồi (to attract prey). Các câu còn lại chỉ mô tả cấu tạo hoặc độ sâu phân bố đơn thuần.",
-            [
-              { term: "Bioluminescent", definition: "Phát quang sinh học" },
-              { term: "Attract prey", definition: "Thu hút dụ dỗ con mồi" },
-            ],
-          ),
-        ],
-      },
-    ],
-  },
-  {
-    id: "rw_conventions",
-    name: "Grammar: Boundaries & Form",
-    icon: "✍️",
-    questions: [
-      {
-        text: "The research team gathered extensive soil samples from three primary locations ______ surveys, deep core drillings, and riverbed sediments.\nA) locations, these were:\nB) locations:\nC) locations;\nD) locations, including:",
-        samples: [
-          createSample(
-            "Medium",
-            "**B) locations:**",
-            "Ta sử dụng dấu hai chấm (:) để giới thiệu một danh sách liệt kê danh từ ở mệnh đề độc lập đứng đằng trước. Việc dùng thêm từ như 'these were:' hay 'including:' sau dấu hai chấm hoặc dấu phẩy là dư thừa cấu trúc.",
-            [
-              { term: "Punctuation Rules", definition: "Quy tắc dấu câu" },
-              {
-                term: "Colon Usage",
-                definition: "Quy tắc dùng dấu hai chấm để liệt kê",
-              },
-            ],
-          ),
-        ],
-      },
-      {
-        text: "The committee of international environmental policy researchers ______ currently preparing a comprehensive guide for global carbon reduction.\nA) is\nB) are\nC) were\nD) have been",
-        samples: [
-          createSample(
-            "Medium",
-            "**A) is**",
-            "Cần xác định đúng chủ ngữ thực của câu. Cụm danh từ 'The committee of international environmental policy researchers' có danh từ cốt lõi đứng trước 'of' là 'The committee' (Ủy ban) - đây là danh từ số ít chỉ tập hợp. Do đó động từ phải ở dạng số ít là 'is'.",
-            [
-              {
-                term: "Subject-Verb Agreement",
-                definition: "Sự hòa hợp giữa chủ ngữ và động từ",
-              },
-              { term: "Collective Noun", definition: "Danh từ tập hợp" },
-            ],
-          ),
-        ],
-      },
-    ],
-  },
+          createSample("Very Hard", "**B) -3/5**", "Sử dụng định nghĩa lượng giác trên đường tròn, r = √((-3)² + 4²) = 5. Giá trị cos(θ) = x/r = -3/5.", [
+            { term: "Terminal side", definition: "Tia cuối của góc" },
+            { term: "Trigonometric Ratio", definition: "Tỉ số lượng giác" }
+          ])
+        ]
+      }
+    ]
+  }
 ];

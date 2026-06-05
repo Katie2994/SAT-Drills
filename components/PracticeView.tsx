@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { expandedTopics as topics } from '../data/expanded_drills';
+import { topics } from '../data/content';
 import { speakText } from '../services/audioService';
 import { SampleResponse } from '../types';
 import FormattedText from './FormattedText';
@@ -105,10 +105,10 @@ const PracticeView: React.FC = () => {
             {/* Question Header */}
             <div className="bg-white border-b border-gray-100 p-6 md:p-8">
               <div className="flex justify-between items-start mb-6">
-                <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-flex items-center justify-center leading-none h-fit">
                   Question {currentQuestionIndex + 1} of {selectedTopic.questions.length}
                 </span>
-                <span className="text-xs text-[#dc2323] bg-[#fffdf0] px-3 py-1 rounded-full uppercase tracking-widest font-bold border border-[#ffe36d]">Difficulty: {solution.difficulty}</span>
+                <span className="text-xs text-[#dc2323] bg-[#fffdf0] px-3 py-1 rounded-full uppercase tracking-widest font-bold border border-[#ffe36d] inline-flex items-center justify-center leading-none h-fit">Difficulty: {solution.difficulty}</span>
               </div>
               <div className="flex items-start gap-4">
                 <div className="text-lg md:text-xl text-[#21242c] leading-relaxed font-serif flex-grow">

@@ -41,7 +41,7 @@ const ResourcesView: React.FC = () => {
             <span>
               SAT - Vocab Focus <span className="text-[#dc2323] font-medium ml-2">(Verbal Section)</span>
             </span>
-            <span className="text-xs bg-[#fffdf0] text-[#dc2323] border border-[#ffe36d] px-3 py-1 rounded-full uppercase font-mono font-bold tracking-wider select-none">
+            <span className="text-xs bg-[#fffdf0] text-[#dc2323] border border-[#ffe36d] px-3 py-1 rounded-full uppercase font-mono font-bold tracking-wider select-none inline-flex items-center justify-center leading-none h-fit">
               RESOURCE DECK
             </span>
           </h3>
@@ -169,7 +169,7 @@ const ResourcesView: React.FC = () => {
         {/* Recommended Prep Hubs Card */}
         <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-10 mb-12">
           <h3 className="text-xl md:text-2xl font-bold border-b border-gray-200 pb-5 mb-6 text-[#21242c] flex items-center gap-3">
-            SAT Test Prep Websites <span className="bg-[#dc2323] text-white text-xs px-3 py-1 rounded-full shadow-sm">RECOMMENDED</span>
+            SAT Test Prep Websites <span className="bg-[#dc2323] text-white text-xs px-3 py-1 rounded-full shadow-sm inline-flex items-center justify-center leading-none h-fit">RECOMMENDED</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
              <a href="https://www.oneprep.co/" target="_blank" rel="noopener noreferrer" className="bg-white p-5 border border-gray-200 hover:border-[#dc2323] shadow-sm hover:shadow-md transition-all rounded-xl flex items-center justify-between group">

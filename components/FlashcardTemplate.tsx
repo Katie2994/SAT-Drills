@@ -90,9 +90,9 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
               </div>
 
               {card.topic && (
-                <div className="mt-6 flex items-start gap-4 max-w-full">
-                  <span className="text-slate-300 text-[20px] mt-3.5 font-extrabold tracking-wider uppercase whitespace-nowrap shrink-0">🌍 Subject</span>
-                  <div className="text-[26px] font-black tracking-wider uppercase bg-[#dc2323] text-white border-4 border-black px-8 py-4 rounded-[20px] inline-block shadow-[6px_6px_0px_0px_#000000] break-words">
+                <div className="mt-6 flex items-center gap-4 max-w-full">
+                  <span className="text-slate-300 text-[20px] font-extrabold tracking-wider uppercase whitespace-nowrap shrink-0">🌍 Subject</span>
+                  <div className="text-[20px] font-black tracking-wider uppercase bg-[#dc2323] text-white border-4 border-black px-6 py-3 rounded-full inline-flex items-center justify-center shadow-[6px_6px_0px_0px_#000000] whitespace-nowrap leading-none w-fit">
                      {card.topic}
                   </div>
                 </div>
