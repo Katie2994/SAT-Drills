@@ -1,0 +1,8 @@
+{
+  "name": "SAT Drills 2026",
+  "description": "Interactive study companion for Digital SAT. Features high-utility vocabulary, grammar rules, and reading comprehension drills based on Khan Academy syllabus.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
