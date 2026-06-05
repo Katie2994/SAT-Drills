@@ -1,4 +1,4 @@
-import html2canvas from 'html2canvas';
+import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
 
 /**
@@ -152,17 +152,22 @@ export const exportToPng = async (elementId: string, title: string, filename: st
   await new Promise(resolve => setTimeout(resolve, 300));
 
   try {
-    const canvas = await html2canvas(wrapper, {
-      scale: 2, // Perfect clean upscale for crisp typography
-      useCORS: true, // Crucial for external image rendering (twimg)
-      allowTaint: true,
+    const dataUrl = await toPng(wrapper, {
+      cacheBust: true,
+      pixelRatio: 2,
       backgroundColor: '#ffffff',
-      logging: false,
+      styleSheetsFilter: (sheet) => {
+        try {
+          const rules = sheet.cssRules;
+          return true;
+        } catch (e) {
+          return false;
+        }
+      },
     });
-    const dataUrl = canvas.toDataURL('image/png');
     saveAs(dataUrl, `${filename}.png`);
   } catch (err) {
-    console.error('Error generating element snapshot via html2canvas:', err);
+    console.error('Error generating element snapshot via html-to-image:', err);
   } finally {
     if (document.body.contains(wrapper)) {
       document.body.removeChild(wrapper);

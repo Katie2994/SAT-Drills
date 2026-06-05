@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Upload, FileImage, Search, Settings, HelpCircle, Loader2, Download, Link as LinkIcon, Type, Eye, BookOpen, CheckCircle2, ChevronDown, Facebook, X, Image as ImageIcon, Archive } from 'lucide-react';
-import html2canvas from 'html2canvas';
+import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
 import ReactMarkdown from 'react-markdown';
@@ -34,7 +34,8 @@ const AIDrillSolverView: React.FC = () => {
     // Image Export States
     const [showExportOptions, setShowExportOptions] = useState(false);
     const [exportPlatform, setExportPlatform] = useState<'1080x1080' | '1080x1350'>('1080x1080'); // Instagram square vs tall
-    const [exportFontSize, setExportFontSize] = useState<'sm' | 'md' | 'lg'>('md');
+    const [exportFontSize, setExportFontSize] = useState<number>(20);
+    const [activeExportCard, setActiveExportCard] = useState<number>(1);
     
     const card1Ref = useRef<HTMLDivElement>(null);
     const card2Ref = useRef<HTMLDivElement>(null);
@@ -104,23 +105,25 @@ const AIDrillSolverView: React.FC = () => {
         }
     };
 
-    const getCanvasFromRef = async (ref: React.RefObject<HTMLDivElement>) => {
+    const getPngFromRef = async (ref: React.RefObject<HTMLDivElement>) => {
          if (!ref.current) return null;
-         return await html2canvas(ref.current, {
-             useCORS: true,
-             scale: 2,
-             backgroundColor: '#f8f9fa'
+         return await toPng(ref.current, {
+             cacheBust: true,
+             pixelRatio: 2,
+             backgroundColor: '#f8f9fa',
+             fontEmbedCSS: '',
+             styleSheetsFilter: (sheet) => {
+               try { return Boolean(sheet.cssRules); } catch (e) { return false; }
+             },
          });
     };
 
     const downloadSingleImage = async (ref: React.RefObject<HTMLDivElement>, name: string) => {
         try {
             setLoading(true);
-            const canvas = await getCanvasFromRef(ref);
-            if (canvas) {
-                canvas.toBlob((blob) => {
-                    if (blob) saveAs(blob, `SAT_Drill_${name}_${Date.now()}.png`);
-                });
+            const dataUrl = await getPngFromRef(ref);
+            if (dataUrl) {
+                saveAs(dataUrl, `SAT_Drill_${name}_${Date.now()}.png`);
             }
         } catch (e) {
             console.error(e);
@@ -143,10 +146,10 @@ const AIDrillSolverView: React.FC = () => {
             
             for (const item of refs) {
                 if (item.ref.current) {
-                    const canvas = await getCanvasFromRef(item.ref);
-                    if (canvas) {
-                        const blob = await new Promise<Blob | null>(res => canvas.toBlob(res));
-                        if (blob) zip.file(`${item.name}.png`, blob);
+                    const dataUrl = await getPngFromRef(item.ref);
+                    if (dataUrl) {
+                        const base64Data = dataUrl.replace(/^data:image\/png;base64,/, "");
+                        zip.file(`${item.name}.png`, base64Data, { base64: true });
                     }
                 }
             }
@@ -415,15 +418,16 @@ const AIDrillSolverView: React.FC = () => {
                            </div>
                            <div className="flex items-center gap-2 border-l-2 border-black pl-6">
                                <span className="text-sm font-bold text-gray-500 uppercase">Cỡ Chữ:</span>
-                               <select 
-                                  value={exportFontSize} 
-                                  onChange={e => setExportFontSize(e.target.value as any)}
-                                  className="bg-gray-100 border-2 border-black rounded-lg px-3 py-1 font-bold outline-none"
-                               >
-                                  <option value="sm">Nhỏ</option>
-                                  <option value="md">Vừa</option>
-                                  <option value="lg">Lớn</option>
-                               </select>
+                               <div className="flex items-center">
+                                   <button onClick={() => setExportFontSize(s => Math.max(12, s - 2))} className="bg-gray-200 border-2 border-black border-r-0 rounded-l-lg px-3 py-1 font-black hover:bg-gray-300">-</button>
+                                   <input 
+                                      type="number"
+                                      value={exportFontSize} 
+                                      onChange={e => setExportFontSize(Number(e.target.value) || 20)}
+                                      className="bg-gray-100 border-2 border-black px-2 py-1 font-bold outline-none w-16 text-center"
+                                   />
+                                   <button onClick={() => setExportFontSize(s => Math.min(60, s + 2))} className="bg-gray-200 border-2 border-black border-l-0 rounded-r-lg px-3 py-1 font-black hover:bg-gray-300">+</button>
+                               </div>
                            </div>
                         </div>
                         <div className="flex gap-4">
@@ -436,8 +440,15 @@ const AIDrillSolverView: React.FC = () => {
                         </div>
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[1920px] mx-auto w-full pb-20">
-                        <ExportCard index={1} title="Câu Hỏi" disabled={loading} onDownload={() => downloadSingleImage(card1Ref, "Question")}>
+                    <div className="grid grid-cols-1 max-w-[1920px] mx-auto w-full pb-20 justify-center">
+                        <div className="flex gap-4 justify-center mb-8">
+                            <button onClick={() => setActiveExportCard(1)} className={`py-2 px-6 rounded-xl font-bold uppercase transition-all shadow-[4px_4px_0px_0px_#000000] border-2 border-black ${activeExportCard === 1 ? 'bg-[#ffe36d] text-black translate-y-1 shadow-none' : 'bg-white text-gray-500 hover:bg-gray-100'}`}>1. Câu Hỏi</button>
+                            <button onClick={() => setActiveExportCard(2)} className={`py-2 px-6 rounded-xl font-bold uppercase transition-all shadow-[4px_4px_0px_0px_#000000] border-2 border-black ${activeExportCard === 2 ? 'bg-[#ffe36d] text-black translate-y-1 shadow-none' : 'bg-white text-gray-500 hover:bg-gray-100'}`}>2. Đáp Án</button>
+                            <button onClick={() => setActiveExportCard(3)} className={`py-2 px-6 rounded-xl font-bold uppercase transition-all shadow-[4px_4px_0px_0px_#000000] border-2 border-black ${activeExportCard === 3 ? 'bg-[#ffe36d] text-black translate-y-1 shadow-none' : 'bg-white text-gray-500 hover:bg-gray-100'}`}>3. Khái Niệm</button>
+                            <button onClick={() => setActiveExportCard(4)} className={`py-2 px-6 rounded-xl font-bold uppercase transition-all shadow-[4px_4px_0px_0px_#000000] border-2 border-black ${activeExportCard === 4 ? 'bg-[#ffe36d] text-black translate-y-1 shadow-none' : 'bg-white text-gray-500 hover:bg-gray-100'}`}>4. TIPS</button>
+                        </div>
+                        <div className="relative flex justify-center items-start">
+                        <ExportCard index={1} title="Câu Hỏi" disabled={loading} onDownload={() => downloadSingleImage(card1Ref, "Question")} isActive={activeExportCard === 1}>
                             <CardTemplate 
                                ref={card1Ref} 
                                title="DEBAI & LUA CHON" 
@@ -464,7 +475,7 @@ const AIDrillSolverView: React.FC = () => {
                             </CardTemplate>
                         </ExportCard>
 
-                        <ExportCard index={2} title="Đáp Án & Giải Thích" disabled={loading} onDownload={() => downloadSingleImage(card2Ref, "Explanation")}>
+                        <ExportCard index={2} title="Đáp Án & Giải Thích" disabled={loading} onDownload={() => downloadSingleImage(card2Ref, "Explanation")} isActive={activeExportCard === 2}>
                             <CardTemplate 
                                ref={card2Ref} 
                                title="LOI GIAI CHI TIET" 
@@ -482,7 +493,7 @@ const AIDrillSolverView: React.FC = () => {
                             </CardTemplate>
                         </ExportCard>
 
-                        <ExportCard index={3} title="Key Concepts" disabled={loading} onDownload={() => downloadSingleImage(card3Ref, "KeyConcepts")}>
+                        <ExportCard index={3} title="Key Concepts" disabled={loading} onDownload={() => downloadSingleImage(card3Ref, "KeyConcepts")} isActive={activeExportCard === 3}>
                             <CardTemplate 
                                ref={card3Ref} 
                                title="KHAI NIEM & TU VUNG" 
@@ -505,7 +516,7 @@ const AIDrillSolverView: React.FC = () => {
                             </CardTemplate>
                         </ExportCard>
 
-                        <ExportCard index={4} title="Lưu ý" disabled={loading} onDownload={() => downloadSingleImage(card4Ref, "Tips")}>
+                        <ExportCard index={4} title="Lưu ý" disabled={loading} onDownload={() => downloadSingleImage(card4Ref, "Tips")} isActive={activeExportCard === 4}>
                             <CardTemplate 
                                ref={card4Ref} 
                                title="GOC LUU Y & TIPS" 
@@ -523,6 +534,7 @@ const AIDrillSolverView: React.FC = () => {
                                 </div>
                             </CardTemplate>
                         </ExportCard>
+                        </div>
                     </div>
                 </div>
             )}
@@ -530,15 +542,24 @@ const AIDrillSolverView: React.FC = () => {
     );
 };
 
-const ExportCard = ({ index, title, children, disabled, onDownload }: { index: number, title: string, children: React.ReactNode, disabled: boolean, onDownload: () => void }) => (
-    <div className="flex flex-col gap-4">
+const ExportCard = ({ index, title, children, disabled, onDownload, isActive }: { index: number, title: string, children: React.ReactNode, disabled: boolean, onDownload: () => void, isActive?: boolean }) => {
+    if (!isActive) {
+        return (
+            <div className="absolute left-[-9999px] top-0 opacity-0 pointer-events-none z-[-10]">
+                 {children}
+            </div>
+        );
+    }
+    
+    return (
+    <div className="flex flex-col gap-4 max-w-full">
         <div className="flex justify-between items-center bg-gray-900 border-2 border-gray-700 p-4 rounded-xl">
             <span className="text-white font-bold whitespace-nowrap overflow-hidden text-ellipsis mr-2">#{index}: {title}</span>
-            <button onClick={onDownload} disabled={disabled} className="text-black bg-white border border-gray-400 font-bold p-2 rounded-lg hover:bg-gray-100 flexshrink-0">
+            <button onClick={onDownload} disabled={disabled} className="text-black bg-white border border-gray-400 font-bold p-2 px-4 rounded-lg hover:bg-gray-100 flex-shrink-0 cursor-pointer">
                 Lưu
             </button>
         </div>
-        <div className="relative w-full aspect-[4/5] bg-gray-800 rounded-xl overflow-hidden border-2 border-gray-600 custom-scrollbar flex justify-center origin-top transform">
+        <div className="relative w-full aspect-[4/5] bg-gray-800 rounded-xl overflow-hidden border-2 border-gray-600 flex justify-center origin-top transform">
             <div className="overflow-auto w-full h-full custom-scrollbar flex justify-center p-2">
                 <div style={{ transform: 'scale(0.35)', transformOrigin: 'top center' }}>
                      {children}
@@ -546,23 +567,19 @@ const ExportCard = ({ index, title, children, disabled, onDownload }: { index: n
             </div>
         </div>
     </div>
-);
+)};
 
 const CardTemplate = React.forwardRef<HTMLDivElement, { 
     title: string; 
     subtitle: string; 
     platform: '1080x1080' | '1080x1350'; 
-    fontSize: 'sm' | 'md' | 'lg';
+    fontSize: number;
     type: 'question' | 'explanation' | 'concepts' | 'tips';
     children: React.ReactNode;
 }>(({ title, subtitle, platform, fontSize, type, children }, ref) => {
     
     const w = 1080;
     const h = platform === '1080x1080' ? 1080 : 1350;
-    
-    let fontClass = "text-xl";
-    if (fontSize === 'md') fontClass = "text-[26px]";
-    if (fontSize === 'lg') fontClass = "text-[32px]";
     
     // Background colors similar to flashcards
     const bgColors = {
@@ -577,7 +594,7 @@ const CardTemplate = React.forwardRef<HTMLDivElement, {
     return (
         <div 
             ref={ref} 
-            style={{ width: `${w}px`, height: `${h}px` }} 
+            style={{ width: `${w}px`, height: `${h}px`, fontSize: `${fontSize}px` }} 
             className={`font-sans p-12 flex flex-col ${cardBgColor} relative overflow-hidden flex-shrink-0 box-border`}
         >
             {/* Background Grid Pattern */}
