@@ -180,7 +180,7 @@ const HomeView: React.FC<HomeViewProps> = ({ setView }) => {
           <div>
             <div className="flex items-center gap-2 text-slate-800 font-mono text-xs font-black uppercase mb-4">
               <Award className="w-5 h-5 text-[#ffe36d] fill-[#ffe36d] stroke-[2px]" />
-              <span>HỒ SƠ THỰC TẬP SINH</span>
+              <span>HỒ SƠ THÍ SINH</span>
             </div>
 
             <div className="flex items-baseline gap-2">
@@ -313,10 +313,10 @@ const HomeView: React.FC<HomeViewProps> = ({ setView }) => {
             <div className="flex flex-col gap-3 mt-4">
               <button
                 onClick={() => setView(ViewState.VOCAB)}
-                className="w-full bg-[#20273a] hover:bg-[#2c3650] border-2 border-black p-3.5 rounded-xl flex items-center justify-between text-left font-extrabold text-xs text-white transition-colors group"
+                className="w-full bg-[#20273a] hover:bg-[#2c3650] border-2 border-black p-4 md:p-5 rounded-xl flex items-center justify-between text-left font-extrabold text-sm md:text-base text-white transition-colors group"
               >
-                <span>Từ Vựng Flashcards Di Động</span>
-                <ArrowRight className="w-4 h-4 text-[#ffe36d] group-hover:translate-x-1 transition-transform stroke-[2.5px]" />
+                <span>Từ Vựng Flashcards Siêu Thiết Yếu</span>
+                <ArrowRight className="w-5 h-5 text-[#ffe36d] group-hover:translate-x-1 transition-transform stroke-[2.5px]" />
               </button>
             </div>
           </div>
@@ -348,10 +348,10 @@ const HomeView: React.FC<HomeViewProps> = ({ setView }) => {
             <div className="flex flex-col gap-3 mt-4">
               <button
                 onClick={() => setView(ViewState.PRACTICE)}
-                className="w-full bg-white hover:bg-[#fffdf0] text-black border-2 border-black p-3.5 rounded-xl flex items-center justify-between text-left font-black text-xs transition-colors group"
+                className="w-full bg-white hover:bg-[#fffdf0] text-black border-2 border-black p-4 md:p-5 rounded-xl flex items-center justify-between text-left font-black text-sm md:text-base transition-colors group"
               >
                 <span>Ngân Hàng Drills Tổng Hợp</span>
-                <ArrowRight className="w-4 h-4 text-[#dc2323] group-hover:translate-x-1 transition-transform stroke-[3px]" />
+                <ArrowRight className="w-5 h-5 text-[#dc2323] group-hover:translate-x-1 transition-transform stroke-[3px]" />
               </button>
             </div>
           </div>
