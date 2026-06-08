@@ -42,16 +42,16 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
   const activeSection = theorySections.find(s => s.id === activeSectionId);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start animate-fade-in font-sans">
-      {/* Left Col: Navigation */}
-      <div className="lg:col-span-3">
-        <div className="bg-white border border-gray-200 shadow-sm rounded-xl p-5 lg:sticky lg:top-24">
+    <div className="flex flex-col gap-6 items-start animate-fade-in font-sans w-full content-wrapper">
+      {/* Top Navigation */}
+      <div className="w-full bg-white border border-gray-200 shadow-sm rounded-xl p-4 lg:sticky lg:top-20 z-10">
+        <div className="flex flex-col md:flex-row gap-4 justify-between md:items-center">
           
           {/* Category Toggle */}
-          <div className="flex gap-2 mb-6 bg-gray-100 p-1 rounded-lg">
+          <div className="flex gap-2 flex-shrink-0 bg-gray-100 p-1 rounded-lg">
             <button
               onClick={() => handleCategoryChange('Overview')}
-              className={`flex-1 py-2.5 text-sm font-semibold rounded-md transition-all flex flex-col items-center gap-1 ${
+              className={`px-4 py-2.5 text-sm font-semibold rounded-md transition-all flex items-center gap-2 ${
                 activeCategory === 'Overview'
                   ? 'bg-white text-[#dc2323] shadow-sm'
                   : 'text-gray-500 hover:text-gray-700'
@@ -62,7 +62,7 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
             </button>
             <button
               onClick={() => handleCategoryChange('Verbal')}
-              className={`flex-1 py-2.5 text-sm font-semibold rounded-md transition-all flex flex-col items-center gap-1 ${
+              className={`px-4 py-2.5 text-sm font-semibold rounded-md transition-all flex items-center gap-2 ${
                 activeCategory === 'Verbal'
                   ? 'bg-white text-[#dc2323] shadow-sm'
                   : 'text-gray-500 hover:text-gray-700'
@@ -73,7 +73,7 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
             </button>
             <button
               onClick={() => handleCategoryChange('Math')}
-              className={`flex-1 py-2.5 text-sm font-semibold rounded-md transition-all flex flex-col items-center gap-1 ${
+              className={`px-4 py-2.5 text-sm font-semibold rounded-md transition-all flex items-center gap-2 ${
                 activeCategory === 'Math'
                   ? 'bg-white text-[#dc2323] shadow-sm'
                   : 'text-gray-500 hover:text-gray-700'
@@ -84,40 +84,31 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
             </button>
           </div>
 
-          <h3 className="text-xs font-bold text-gray-400 uppercase mb-4 tracking-wider px-2">
-            Modules
-          </h3>
-          <nav className="space-y-1">
-            {filteredSections.map(section => (
-              <button
-                key={section.id}
-                onClick={() => setActiveSectionId(section.id)}
-                className={`w-full text-left px-4 py-3 text-sm font-semibold flex justify-between items-center rounded-lg transition-all ${
-                  activeSectionId === section.id 
-                    ? 'bg-[#dc2323] text-white shadow-sm' 
-                    : 'bg-transparent text-gray-700 hover:bg-gray-50'
-                }`}
-              >
-                <div className="flex items-center gap-3 truncate">
-                  <span className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${activeSectionId === section.id ? 'bg-white' : 'bg-gray-300'}`}>
-                  </span>
-                  <span className="truncate whitespace-normal leading-tight">{section.title}</span>
-                </div>
-              </button>
-            ))}
-          </nav>
-
-          <div className="mt-8 bg-[#fffdf0] p-4 rounded-xl border border-[#ffe36d] text-sm text-[#b91c1c] leading-relaxed flex gap-3 items-start">
-            <Lightbulb className="w-5 h-5 flex-shrink-0 text-[#dc2323]" />
-            <span>
-              <strong>Tip:</strong> {activeCategory === 'Overview' ? 'Nắm rõ cấu trúc bài thi là bước đầu tiên để chinh phục Digital SAT.' : activeCategory === 'Verbal' ? 'Read the question stem BEFORE the passage.' : 'Check if Desmos can solve the equation for you.'}
-            </span>
+          {/* Module Navigation (Horizontal) */}
+          <div className="flex-1 w-full overflow-x-auto hide-scrollbar">
+            <nav className="flex gap-2 min-w-max pr-2">
+              {filteredSections.map(section => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveSectionId(section.id)}
+                  className={`whitespace-nowrap px-4 py-2.5 text-sm font-semibold flex items-center gap-2 rounded-lg transition-all ${
+                    activeSectionId === section.id 
+                      ? 'bg-[#dc2323] text-white shadow-sm' 
+                      : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-transparent hover:border-gray-200'
+                  }`}
+                >
+                  <span className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${activeSectionId === section.id ? 'bg-white' : 'bg-gray-400'}`}></span>
+                  {section.title}
+                </button>
+              ))}
+            </nav>
           </div>
+
         </div>
       </div>
 
-      {/* Right Col: Content Visualizer */}
-      <div className="lg:col-span-9">
+      {/* Main Content Area */}
+      <div className="w-full">
         <div className="bg-white border border-gray-200 shadow-sm rounded-2xl min-h-[500px] flex flex-col overflow-hidden">
           {/* Content Header */}
           <div className="bg-white border-b border-gray-100 p-6 md:p-8 flex items-center justify-between">

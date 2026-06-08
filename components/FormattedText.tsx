@@ -16,8 +16,8 @@ const FormattedText: React.FC<FormattedTextProps> = ({ text, className = '', noH
     return lines.map((line, lineIdx) => {
       const trimmed = line.trim();
       
-      // Heuristic: If a line starts with "A) ", "B) ", etc., give it indentation
-      const isOption = /^[A-D]\)\s/.test(trimmed);
+      // Heuristic: If a line starts with "A) ", "(A) ", "A. ", etc., give it indentation
+      const isOption = /^(\(|)[A-D](\)|\.)\s/i.test(trimmed);
       
       let lineClass = 'min-h-[1.5em] text-gray-800 leading-relaxed';
       if (trimmed === '') {
@@ -30,8 +30,8 @@ const FormattedText: React.FC<FormattedTextProps> = ({ text, className = '', noH
         return <div key={lineIdx} className={lineClass} />;
       }
 
-      // Parse bold markers: **text**
-      const parts = line.split(/(\*\*[^*]+\*\*)/g);
+      // Parse bold markers: **text** and underline <u>text</u>
+      const parts = line.split(/(\*\*[^*]+\*\*|<u>.*?<\/u>)/g);
 
       return (
         <div key={lineIdx} className={lineClass}>
@@ -41,6 +41,13 @@ const FormattedText: React.FC<FormattedTextProps> = ({ text, className = '', noH
                 <strong key={partIdx} className={`font-black text-gray-900 ${noHighlight ? '' : 'bg-gray-100 px-1 rounded-sm'}`}>
                   {part.slice(2, -2)}
                 </strong>
+              );
+            }
+            if (part.startsWith('<u>') && part.endsWith('</u>')) {
+              return (
+                <span key={partIdx} className="underline underline-offset-4 decoration-current decoration-1">
+                  {part.slice(3, -4)}
+                </span>
               );
             }
             return <span key={partIdx}>{part}</span>;

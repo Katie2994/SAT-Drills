@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ViewState } from './types';
 import Header from './components/Header';
 import HomeView from './components/HomeView';
@@ -14,6 +14,47 @@ const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewState>(ViewState.HOME);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [theoryCategory, setTheoryCategory] = useState<'Overview' | 'Verbal' | 'Math'>('Overview');
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // Initialize state from URL on first mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tab = urlParams.get('tab');
+    const category = urlParams.get('category');
+    
+    if (tab) {
+      const match = Object.values(ViewState).find(v => v.toLowerCase() === tab.toLowerCase());
+      if (match) {
+        setCurrentView(match as ViewState);
+      }
+    }
+    
+    if (category) {
+      const validCategories = ['Overview', 'Verbal', 'Math'];
+      const match = validCategories.find(c => c.toLowerCase() === category.toLowerCase());
+      if (match) {
+        setTheoryCategory(match as 'Overview' | 'Verbal' | 'Math');
+      }
+    }
+    setIsInitialized(true);
+  }, []);
+
+  // Sync state to URL when values change
+  useEffect(() => {
+    if (!isInitialized) return;
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('tab', currentView.toLowerCase());
+    
+    if (currentView === ViewState.LEARN) {
+      urlParams.set('category', theoryCategory.toLowerCase());
+    } else {
+      urlParams.delete('category');
+    }
+    
+    const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+    window.history.replaceState({}, '', newUrl);
+  }, [currentView, theoryCategory, isInitialized]);
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {

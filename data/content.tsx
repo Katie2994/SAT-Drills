@@ -515,7 +515,7 @@ export const theorySections: TheorySection[] = [
           <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
             7. Xem điểm và Đăng ký (College Board Account)
           </h3>
-          <img src="https://images.unsplash.com/photo-1541339907198-e08756ded8dd?auto=format&fit=crop&q=80&w=800" alt="Khuôn viên trường học" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64" />
+          <img src="https://gray-wtoc-prod.gtv-cdn.com/resizer/v2/X7JKH7HNGJCBBET3MIPXI2JNWM.jpg?auth=5527d61eac40d81977446089bcbd64c4a967c34b1ce07416c905bd7f52ea2b77&width=800&height=450&smart=true" alt="College Board Logo" className="w-full h-auto rounded-xl mb-6 shadow-sm object-cover max-h-64 bg-white p-2" />
           <ol className="list-decimal pl-6 space-y-2">
             <li>
               Truy cập vào{" "}
@@ -708,6 +708,45 @@ export const theorySections: TheorySection[] = [
           <ExampleBox
             question={`The critic's review was anything but ______; she praised the film's cinematography but decimated its screenplay, leaving the director with a mix of pride and shame.\nA) scathing\nB) unmitigated\nC) ambivalent\nD) complimentary`}
             solution={`**Đáp án: B) unmitigated**\n\n**Giải thích chi tiết:**\n- "praised cinematography", "decimated screenplay" → Review là mixed (hỗn hợp khen chê).\n- "anything but X" = "Hoàn toàn KHÔNG phải X". \n- Vậy X phải là một khái niệm tuyệt đối 1 chiều. "unmitigated" = tuyệt đối. Review này hoàn toàn không tuyệt đối (mà mixed) → Chọn B.\n\n**Common trap:** Thấy "ambivalent" ≈ "mixed feelings" liền chọn ngay, nhưng "anything but ambivalent" = "không hề lưỡng lự" → Ngược nghĩa của passage.`}
+          />
+        </section>
+
+        <section>
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            4. Phân tích thơ (Poetry)
+          </h3>
+          <p className="mb-4">
+            Đối với nhiều sĩ tử, thơ ca luôn là một "bức tường" khó vượt qua do ngôn ngữ ẩn dụ đầy tính biểu tượng. Dù bạn đã từng làm quen với thơ hay chưa, thì việc nắm vững kỹ năng giải mã và phân tích thơ là một lợi thế cực kỳ quan trọng để đạt điểm cao.
+            Trong định dạng DSAT, các câu hỏi về thơ thách thức khả năng phân tích tu từ. Mỗi đoạn đoạn thơ chỉ ứng với 1 câu hỏi, việc rèn luyện tư duy phân tích nhanh nhạy là chìa khóa giúp bạn làm chủ thời gian.
+          </p>
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+            <strong>3 Dạng Câu Hỏi Thường Gặp</strong>
+            <ul className="list-disc pl-5 mt-2 space-y-2 text-base">
+              <li>
+                <strong>Author's Purpose:</strong> Tác giả viết dòng này để làm gì?
+                <br/><span className="text-gray-600 italic">Chiến lược: Đừng sa đà vào chi tiết vụn vặt ngay từ đầu. Hãy nhìn vào bức tranh toàn cảnh của bài thơ và đặt câu hỏi: "Tác giả thực sự muốn khẳng định điều gì?"</span>
+              </li>
+              <li>
+                <strong>Words in Context:</strong> Từ này trong ngữ cảnh bài thơ mang nghĩa gì (thường là nghĩa đen hoặc nghĩa bóng rất rõ ràng).
+                <br/><span className="text-gray-600 italic">Chiến lược: Hãy phân tích phần được hỏi trong bối cảnh của các câu/từ xung quanh nó để tìm ra sắc thái sắc nét nhất.</span>
+              </li>
+              <li>
+                <strong>Function:</strong> Câu/dòng thơ này đóng vai trò gì trong cấu trúc chung của đoạn trích?
+                <br/><span className="text-gray-600 italic">Chiến lược: Đọc kỹ câu trước và sau phần được chỉ định để xác định nó giới thiệu, nhấn mạnh, hay thay đổi nhịp điệu/hình ảnh của bài thơ.</span>
+              </li>
+            </ul>
+          </div>
+          <ExampleBox
+            question={"Ví dụ 1: Author's Purpose\n\n\"Because I could not stop for Death –\nHe kindly stopped for me –\nThe Carriage held but just Ourselves –\nAnd Immortality.\nWe slowly drove – He knew no haste\nAnd I had put away\nMy labor and my leisure too,\nFor His Civility –\"\n\nWhich choice best states the main purpose of the text?\n(A) To reject the permanence of death.\n(B) To recount a journey taken with friends.\n(C) To assert the immortality of the speaker.\n(D) To illustrate that death is an inevitable destination for all."}
+            solution={`**Đáp án: (D)**\n\n**Phân tích:**\n- Việc nhân hóa "Cái chết" (Death) đến đón người kể cho thấy sự tất yếu.\n- Việc ngồi trên xe ngựa cùng sự bất tử (Immortality) mà không vội vàng (He knew no haste) cho thấy một hành trình định mệnh.\n- Người kể từ bỏ mọi công việc và thời gian cá nhân (labor and leisure) khi cái chết đến, khẳng định sự tất yếu của quy luật tự nhiên.`}
+          />
+          <ExampleBox
+            question={"Ví dụ 2: Words in Context\n\n\"The sun descending in the west,\nThe evening star does shine;\nThe birds are silent in their nest,\nAnd I must seek for mine.\"\n\nAs used in the text, what does the word \"seek\" most nearly mean?\n(A) Hide\n(B) Look for\n(C) Ignore\n(D) Abandon"}
+            solution={`**Đáp án: (B)**\n\n**Phân tích:**\n- Trong bài thơ, khi chim chóc đã về yên trong tổ ("birds are silent in their nest"), người kể cũng phải đi tìm kiếm ("seek") chỗ nghỉ ngơi của chính mình.\n- "Look for" là cụm từ mang nghĩa đen sát nhất với từ "seek" trong bối cảnh này.`}
+          />
+          <ExampleBox
+            question={"Ví dụ 3: Function\n\n<u>One by one he subdued his father’s trees</u>\nBy riding them down over and over again\nUntil he took the stiffness out of them...\n\nWhich choice best describes the function of the underlined portion in the text as a whole?\n(A) To indicate that the trees were dead and brittle.\n(B) To illustrate the extent to which the boy climbed the trees.\n(C) To draw a contrast between the trees and the boy.\n(D) To expose the vulnerability of the trees."}
+            solution={`**Đáp án: (B)**\n\n**Phân tích:**\n- Đoạn chức năng này nằm trong ngữ cảnh trèo lên chúng "lần này đến lần khác" (over and over again) cho đến khi cây mất đi sự cứng cáp.\n- Dòng thơ này đóng vai trò nhấn mạnh bề dày, sự thường xuyên và cường độ hoạt động mà cậu bé đã bỏ ra để khuất phục những cái cây.`}
           />
         </section>
       </div>
@@ -986,7 +1025,7 @@ export const theorySections: TheorySection[] = [
           </p>
           <div className="border border-gray-200 rounded-lg p-2 bg-white">
             <img 
-              src="/mathreference.png" 
+              src="https://pbs.twimg.com/media/HKR2fTyaEAAEKpw?format=jpg&name=4096x4096" 
               alt="SAT Math Reference Sheet" 
               className="w-full h-auto rounded"
             />

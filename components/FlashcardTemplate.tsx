@@ -106,7 +106,9 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
             </div>
             
             {/* Expanded elegant floating icon with NO background pill container */}
-            <div className="w-[230px] h-[230px] shrink-0 flex items-center justify-center text-[175px] select-none leading-none rotate-[15deg] pt-4 animate-bounce-slow">
+            <div className={`w-[230px] h-[230px] shrink-0 flex flex-wrap items-center justify-center select-none leading-none rotate-[15deg] pt-4 animate-bounce-slow text-center ${
+              [...(card.icon || "📖")].length >= 3 ? "text-[95px] gap-2" : [...(card.icon || "📖")].length === 2 ? "text-[115px] gap-3" : "text-[175px]"
+            }`}>
               {card.icon || "📖"}
             </div>
           </div>
