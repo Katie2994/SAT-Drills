@@ -89,19 +89,39 @@ const ResourcesView: React.FC = () => {
                 <div className="bg-blue-100 p-2.5 rounded-xl border border-blue-200">
                   <Feather className="w-5 h-5 text-blue-700" />
                 </div>
-                <h4 className="font-bold text-blue-900 text-lg">3. Practice Vocab</h4>
+                <h4 className="font-bold text-blue-900 text-lg">3. Practice Craft and Structure</h4>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <a href="https://test-ninjas.com/sat-vocabulary-practice" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl border border-blue-100 bg-white hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 transition-all group">
                   <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Test Ninjas Vocab Practice Hub</p>
                   <span className="text-xs font-bold text-blue-400 uppercase tracking-wider group-hover:text-blue-600 inline-flex items-center gap-1">Practice <ArrowUpRight className="w-3 h-3" /></span>
                 </a>
                 <a href="https://www.cracksat.net/digital/reading-writing/test9.html" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl border border-blue-100 bg-white hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 transition-all group">
-                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 9</p>
+                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 9 (Vocab)</p>
                   <span className="text-xs font-bold text-blue-400 uppercase tracking-wider group-hover:text-blue-600 inline-flex items-center gap-1">CRACKSAT <ArrowUpRight className="w-3 h-3" /></span>
                 </a>
                 <a href="https://www.cracksat.net/digital/reading-writing/test10.html" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl border border-blue-100 bg-white hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 transition-all group">
-                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 10</p>
+                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 10 (Vocab)</p>
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider group-hover:text-blue-600 inline-flex items-center gap-1">CRACKSAT <ArrowUpRight className="w-3 h-3" /></span>
+                </a>
+                <a href="https://www.cracksat.net/digital/reading-writing/test151.html" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl border border-blue-100 bg-white hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 transition-all group">
+                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 151 (Poetry)</p>
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider group-hover:text-blue-600 inline-flex items-center gap-1">CRACKSAT <ArrowUpRight className="w-3 h-3" /></span>
+                </a>
+                <a href="https://www.cracksat.net/digital/reading-writing/test152.html" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl border border-blue-100 bg-white hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 transition-all group">
+                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 152 (Poetry)</p>
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider group-hover:text-blue-600 inline-flex items-center gap-1">CRACKSAT <ArrowUpRight className="w-3 h-3" /></span>
+                </a>
+                <a href="https://www.cracksat.net/digital/reading-writing/test153.html" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl border border-blue-100 bg-white hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 transition-all group">
+                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 153 (Poetry)</p>
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider group-hover:text-blue-600 inline-flex items-center gap-1">CRACKSAT <ArrowUpRight className="w-3 h-3" /></span>
+                </a>
+                <a href="https://www.cracksat.net/digital/reading-writing/test154.html" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl border border-blue-100 bg-white hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 transition-all group">
+                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 154 (Poetry)</p>
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider group-hover:text-blue-600 inline-flex items-center gap-1">CRACKSAT <ArrowUpRight className="w-3 h-3" /></span>
+                </a>
+                <a href="https://www.cracksat.net/digital/reading-writing/test155.html" target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl border border-blue-100 bg-white hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 transition-all group">
+                  <p className="font-medium text-blue-950 group-hover:text-blue-700 transition-colors line-clamp-2 mb-2">Reading and Writing Practice Test 155 (Poetry)</p>
                   <span className="text-xs font-bold text-blue-400 uppercase tracking-wider group-hover:text-blue-600 inline-flex items-center gap-1">CRACKSAT <ArrowUpRight className="w-3 h-3" /></span>
                 </a>
               </div>
