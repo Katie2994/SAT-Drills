@@ -37,7 +37,7 @@ export const exportToPng = async (elementId: string, title: string, filename: st
   header.innerHTML = `
     <div>
       <h1 class="text-xl font-extrabold text-black uppercase tracking-tight m-0" style="margin: 0; font-family: 'Inter', sans-serif;">
-        REMIX: SAT DRILLS
+        SAT DRILLS
       </h1>
       <p class="text-xs font-semibold text-[#dc2323] uppercase tracking-wider mt-1 m-0" style="margin: 4px 0 0 0; font-family: 'Inter', sans-serif;">
         Digital SAT Companion & Study Deck • ${title}
@@ -134,7 +134,7 @@ export const exportToPng = async (elementId: string, title: string, filename: st
   footer.className = 'flex flex-row justify-between items-center text-xs text-gray-600 font-sans tracking-tight whitespace-nowrap select-none gap-4';
   footer.innerHTML = `
     <div class="flex items-center gap-2 text-xs text-gray-600">
-        <span class="font-bold">© 2026 REMIX: SAT DRILLS</span>
+        <span class="font-bold">© 2026 SAT DRILLS</span>
         <span class="text-gray-300">|</span>
         <span>Website: <span class="text-blue-600 font-bold">ieltsdrills.com/sat_drills</span></span>
     </div>
@@ -195,7 +195,7 @@ export const exportToHtml = (elementId: string, title: string, filename: string)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} - REMIX: SAT DRILLS</title>
+    <title>${title} - SAT DRILLS</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -221,7 +221,7 @@ export const exportToHtml = (elementId: string, title: string, filename: string)
         <div class="bg-[#fffdf0] border-b-[5px] border-black p-6 md:p-8 flex justify-between items-center select-none">
             <div>
                 <h1 class="text-xl md:text-2xl font-extrabold text-black uppercase tracking-tight">
-                    REMIX: SAT DRILLS
+                    SAT DRILLS
                 </h1>
                 <p class="text-xs font-semibold text-[#dc2323] uppercase tracking-wider mt-1">
                     Digital SAT Companion & Study Deck • ${title}
@@ -240,7 +240,7 @@ export const exportToHtml = (elementId: string, title: string, filename: string)
         <!-- Balanced, Guaranteed Single-Row Footer with Red Highlight Pill -->
         <div class="bg-gray-50 border-t border-gray-200 px-8 py-5 flex flex-row justify-between items-center text-xs text-gray-600 font-sans tracking-tight whitespace-nowrap select-none gap-4">
             <div class="flex items-center gap-2">
-                <span class="font-bold">© 2026 REMIX: SAT DRILLS</span>
+                <span class="font-bold">© 2026 SAT DRILLS</span>
                 <span class="text-gray-300">|</span>
                 <span>Website: <a href="https://ieltsdrills.com/sat_drills" target="_blank" class="text-blue-600 font-extrabold hover:underline">ieltsdrills.com/sat_drills</a></span>
             </div>
