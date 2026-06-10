@@ -21,7 +21,7 @@ const CollapsibleExplanation: React.FC<CollapsibleExplanationProps> = ({ answer,
       {isOpen && (
         <div className="p-4 bg-white border-t border-gray-200">
           <div className="mb-4">
-            <span className="font-bold text-green-600 text-lg">Đáp án: {answer}</span>
+            <span className="font-bold text-[#dc2323] text-lg">Đáp án: {answer}</span>
           </div>
           <div className="space-y-3 text-gray-700">
             {children}

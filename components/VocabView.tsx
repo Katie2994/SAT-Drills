@@ -218,7 +218,7 @@ const VocabView: React.FC = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto animate-fade-in font-sans relative">
+    <div className="max-w-3xl mx-auto animate-fade-in font-sans relative flex flex-col h-full w-full justify-between overflow-hidden py-1">
       {/* Hidden container for image extraction */}
       <div className="absolute top-[-9999px] left-[-9999px]">
         {currentCard && <FlashcardTemplate ref={templateRef} card={currentCard} index={currentIndex + 1} />}
@@ -233,391 +233,390 @@ const VocabView: React.FC = () => {
         </div>
       </div>
 
-      <div className="text-center mb-6">
-        <h2 className="text-3xl font-extrabold text-[#21242c] uppercase tracking-tight">
+      <div className="text-center mb-1 flex items-center justify-between px-2 gap-4 flex-wrap">
+        <h2 className="text-lg md:text-xl font-black text-[#21242c] uppercase tracking-tight">
           Vocabulary Drill
         </h2>
-        <p className="text-sm font-semibold text-gray-500 mt-2 bg-white inline-block px-3 py-1 rounded-full border border-gray-200 shadow-sm">
-          {filteredList.length > 0 ? `${currentIndex + 1} of ${filteredList.length} items` : '0 items'}
+        <p className="text-xs font-bold text-gray-500 bg-white inline-block px-2.5 py-1 rounded-full border border-gray-200 shadow-sm">
+          {filteredList.length > 0 ? `${currentIndex + 1} / ${filteredList.length} items` : '0 items'}
         </p>
-        
-        {/* Bento Control Panel */}
-        <div className="mt-6 max-w-2xl mx-auto bg-white rounded-2xl border border-gray-200/80 p-5 shadow-sm space-y-4 text-left">
-          {/* Row 1: Search Input & Type Filter Tabs */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-            {/* Search Input (7 cols on md) */}
-            <div className="md:col-span-7 relative">
-               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-4.5 w-4.5 text-gray-400" />
-               </div>
-               <input
-                 type="text"
-                 value={searchQuery}
-                 onChange={(e) => { setSearchQuery(e.target.value); setCurrentIndex(0); }}
-                 placeholder="Search terms, definitions, examples..."
-                 className="block w-full pl-9 pr-3 py-2 border border-gray-200 rounded-xl leading-5 bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#dc2323] focus:border-[#dc2323] focus:outline-none transition-all sm:text-xs text-sm"
-               />
-            </div>
+      </div>
 
-            {/* Segmented Controls (5 cols on md) */}
-            <div className="md:col-span-5 flex p-0.5 bg-gray-100 rounded-xl border border-gray-250">
-              <button 
-                onClick={() => handleFilterChange('all')} 
-                className={`flex-1 text-center py-1.5 text-xs font-bold rounded-lg transition-all ${filter === 'all' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
-              >
-                All
-              </button>
-              <button 
-                onClick={() => handleFilterChange('vocab')} 
-                className={`flex-1 text-center py-1.5 text-xs font-bold rounded-lg transition-all ${filter === 'vocab' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
-              >
-                Vocab
-              </button>
-              <button 
-                onClick={() => handleFilterChange('concept')} 
-                className={`flex-1 text-center py-1.5 text-xs font-bold rounded-lg transition-all ${filter === 'concept' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
-              >
-                Math
-              </button>
-            </div>
+      {/* Bento Control Panel */}
+      <div className="mt-1 w-full bg-white rounded-xl border border-gray-200/80 p-2 shadow-sm space-y-1.5 text-left text-xs">
+        {/* Row 1: Search Input & Type Filter Tabs */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-1.5 items-center">
+          {/* Search Input (7 cols on md) */}
+          <div className="md:col-span-7 relative">
+             <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
+                <Search className="h-3.5 w-3.5 text-gray-400" />
+             </div>
+             <input
+               type="text"
+               value={searchQuery}
+               onChange={(e) => { setSearchQuery(e.target.value); setCurrentIndex(0); }}
+               placeholder="Search terms, definitions..."
+               className="block w-full pl-8 pr-3 py-1 border border-gray-200 rounded-lg bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:ring-1 focus:ring-[#dc2323] focus:border-[#dc2323] focus:outline-none transition-all text-xs"
+             />
           </div>
 
-          {/* Row 2: Selected Categories/Topics */}
-          <div className="pt-3 border-t border-gray-100">
-            {filter === 'all' && (
-              <div className="space-y-4">
-                {/* Unified view with side-by-side grids */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                      <span>📖</span> Vocab Subjects:
-                    </div>
-                    <div className="flex flex-wrap gap-1">
+          {/* Segmented Controls (5 cols on md) */}
+          <div className="md:col-span-5 flex p-0.5 bg-gray-100 rounded-lg border border-gray-200">
+            <button 
+              onClick={() => handleFilterChange('all')} 
+              className={`flex-1 text-center py-0.5 text-[10px] font-bold rounded-md transition-all ${filter === 'all' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+            >
+              All
+            </button>
+            <button 
+              onClick={() => handleFilterChange('vocab')} 
+              className={`flex-1 text-center py-0.5 text-[10px] font-bold rounded-md transition-all ${filter === 'vocab' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+            >
+              Vocab
+            </button>
+            <button 
+              onClick={() => handleFilterChange('concept')} 
+              className={`flex-1 text-center py-0.5 text-[10px] font-bold rounded-md transition-all ${filter === 'concept' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+            >
+              Math
+            </button>
+          </div>
+        </div>
+
+        {/* Row 2: Selected Categories/Topics */}
+        <div className="pt-1.5 border-t border-gray-100">
+          {filter === 'all' && (
+            <div className="space-y-2">
+              {/* Unified view with side-by-side grids */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div>
+                  <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-gray-400 mb-1">
+                    <span>📖</span> Vocab Subjects:
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    <button
+                      onClick={() => { setSelectedTopic("All Areas"); setCurrentIndex(0); }}
+                      className={`px-1.5 py-0.5 text-[9px] font-semibold rounded border transition-all ${
+                        selectedTopic === "All Areas"
+                          ? "bg-gray-900 text-white border-black shadow-xs"
+                          : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"
+                      }`}
+                    >
+                      All Areas
+                    </button>
+                    {VERBAL_TOPICS.map((topic) => (
                       <button
-                        onClick={() => { setSelectedTopic("All Areas"); setCurrentIndex(0); }}
-                        className={`px-2 py-0.5 text-xxs font-semibold rounded-md border transition-all ${
-                          selectedTopic === "All Areas"
-                            ? "bg-gray-900 text-white border-black shadow-xs"
-                            : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"
+                        key={topic}
+                        onClick={() => { setSelectedTopic(topic); setCurrentIndex(0); }}
+                        className={`px-1.5 py-0.5 text-[9px] font-semibold rounded border transition-all ${
+                          selectedTopic === topic
+                            ? "bg-[#dc2323] text-white border-[#dc2323] shadow-xs"
+                            : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-200"
                         }`}
                       >
-                        All Areas
+                        {topic}
                       </button>
-                      {VERBAL_TOPICS.map((topic) => (
-                        <button
-                          key={topic}
-                          onClick={() => { setSelectedTopic(topic); setCurrentIndex(0); }}
-                          className={`px-2 py-0.5 text-xxs font-semibold rounded-md border transition-all ${
-                            selectedTopic === topic
-                              ? "bg-[#dc2323] text-white border-[#dc2323] shadow-xs"
-                              : "bg-gray-55 text-gray-600 border-gray-200 hover:bg-gray-200"
-                          }`}
-                        >
-                          {topic}
-                        </button>
-                      ))}
-                    </div>
+                    ))}
                   </div>
+                </div>
 
-                  <div>
-                    <div className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                      <span>📐</span> Math & Formulas:
-                    </div>
-                    <div className="flex flex-wrap gap-1">
-                      {MATH_TOPICS.map((topic) => (
-                        <button
-                          key={topic}
-                          onClick={() => { setSelectedTopic(topic); setCurrentIndex(0); }}
-                          className={`px-2 py-0.5 text-xxs font-semibold rounded-md border transition-all ${
-                            selectedTopic === topic
-                              ? "bg-[#dc2323] text-white border-[#dc2323] shadow-xs"
-                              : "bg-gray-55 text-gray-600 border-gray-200 hover:bg-gray-200"
-                          }`}
-                        >
-                          {topic}
-                        </button>
-                      ))}
-                    </div>
+                <div>
+                  <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-gray-400 mb-1">
+                    <span>📐</span> Math / Formulas:
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {MATH_TOPICS.map((topic) => (
+                      <button
+                        key={topic}
+                        onClick={() => { setSelectedTopic(topic); setCurrentIndex(0); }}
+                        className={`px-1.5 py-0.5 text-[9px] font-semibold rounded border transition-all ${
+                          selectedTopic === topic
+                            ? "bg-[#dc2323] text-white border-[#dc2323] shadow-xs"
+                            : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-200"
+                        }`}
+                      >
+                        {topic}
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
-            )}
-
-            {filter === 'vocab' && (
-              <div>
-                <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 mt-1">
-                  <span>📖</span> Academic Vocabulary Subjects:
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  <button
-                    onClick={() => { setSelectedTopic("All Areas"); setCurrentIndex(0); }}
-                    className={`px-3 py-1 text-xs font-bold rounded-lg border transition-all ${
-                      selectedTopic === "All Areas"
-                        ? "bg-gray-900 text-white border-black"
-                        : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"
-                    }`}
-                  >
-                    All Areas
-                  </button>
-                  {VERBAL_TOPICS.map((topic) => (
-                    <button
-                      key={topic}
-                      onClick={() => { setSelectedTopic(topic); setCurrentIndex(0); }}
-                      className={`px-3 py-1 text-xs font-bold rounded-lg border transition-all ${
-                        selectedTopic === topic
-                          ? "bg-[#dc2323] text-white border-[#dc2323]"
-                          : "bg-gray-55 text-gray-600 border-gray-200 hover:bg-gray-200"
-                      }`}
-                    >
-                      {topic}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {filter === 'concept' && (
-              <div>
-                <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 mt-1">
-                  <span>📐</span> Mathematics Sub-Subjects:
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  <button
-                    onClick={() => { setSelectedTopic("All Areas"); setCurrentIndex(0); }}
-                    className={`px-3 py-1 text-xs font-bold rounded-lg border transition-all ${
-                      selectedTopic === "All Areas"
-                        ? "bg-gray-900 text-white border-black"
-                        : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"
-                    }`}
-                  >
-                    All Math Areas
-                  </button>
-                  {MATH_TOPICS.map((topic) => (
-                    <button
-                      key={topic}
-                      onClick={() => { setSelectedTopic(topic); setCurrentIndex(0); }}
-                      className={`px-3 py-1 text-xs font-bold rounded-lg border transition-all ${
-                        selectedTopic === topic
-                          ? "bg-[#dc2323] text-white border-[#dc2323]"
-                          : "bg-gray-55 text-gray-600 border-gray-200 hover:bg-gray-200"
-                      }`}
-                    >
-                      {topic}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Row 3: Swipeable Alphabet Ribbon */}
-          <div className="pt-3 border-t border-gray-100">
-            <div className="flex items-center justify-between text-left mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-gray-400">🔤 Alphabet Index (Tra cứu nhanh):</span>
-              {selectedLetter !== "All" && (
-                <button 
-                  onClick={() => { setSelectedLetter("All"); setCurrentIndex(0); }}
-                  className="text-xs text-[#dc2323] font-bold hover:underline"
-                >
-                  Clear Letter
-                </button>
-              )}
             </div>
-            
-            {/* Horizontal elegant scrollbar-none belt */}
-            <div className="flex gap-1 overflow-x-auto select-none py-1.5 w-full scrollbar-none" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-              <button
-                onClick={() => { setSelectedLetter("All"); setCurrentIndex(0); }}
-                className={`px-2.5 py-1 text-xxs font-extrabold rounded-full transition-all flex-shrink-0 ${
-                  selectedLetter === "All"
-                    ? "bg-[#ffe36d] text-black ring-1 ring-black/30 shadow-xs"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                A-Z
-              </button>
-              {ALPHABET.filter(l => l !== "All").map((letter) => (
+          )}
+
+          {filter === 'vocab' && (
+            <div>
+              <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-gray-400 mb-1">
+                <span>📖</span> Academic Vocabulary Subjects:
+              </div>
+              <div className="flex flex-wrap gap-1">
                 <button
-                  key={letter}
-                  onClick={() => { setSelectedLetter(letter); setCurrentIndex(0); }}
-                  className={`w-6 h-6 flex items-center justify-center text-xxs font-extrabold rounded-full transition-all flex-shrink-0 ${
-                    selectedLetter === letter
-                      ? "bg-[#ffe36d] text-black ring-1 ring-black/30 font-black shadow-xs"
-                      : "bg-gray-55 text-gray-500 hover:bg-gray-200 hover:text-gray-800"
+                  onClick={() => { setSelectedTopic("All Areas"); setCurrentIndex(0); }}
+                  className={`px-1.5 py-0.5 text-[9px] font-bold rounded border transition-all ${
+                    selectedTopic === "All Areas"
+                      ? "bg-gray-900 text-white border-black"
+                      : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"
                   }`}
                 >
-                  {letter}
+                  All Areas
                 </button>
-              ))}
+                {VERBAL_TOPICS.map((topic) => (
+                  <button
+                    key={topic}
+                    onClick={() => { setSelectedTopic(topic); setCurrentIndex(0); }}
+                    className={`px-1.5 py-0.5 text-[9px] font-bold rounded border transition-all ${
+                      selectedTopic === topic
+                        ? "bg-[#dc2323] text-white border-[#dc2323]"
+                        : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-200"
+                    }`}
+                  >
+                    {topic}
+                  </button>
+                ))}
+              </div>
             </div>
+          )}
+
+          {filter === 'concept' && (
+            <div>
+              <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-gray-400 mb-1 font-sans">
+                <span>📐</span> Mathematics Sub-Subjects:
+              </div>
+              <div className="flex flex-wrap gap-1">
+                <button
+                  onClick={() => { setSelectedTopic("All Areas"); setCurrentIndex(0); }}
+                  className={`px-1.5 py-0.5 text-[9px] font-bold rounded border transition-all ${
+                    selectedTopic === "All Areas"
+                      ? "bg-gray-900 text-white border-black"
+                      : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"
+                  }`}
+                >
+                  All Math Areas
+                </button>
+                {MATH_TOPICS.map((topic) => (
+                  <button
+                    key={topic}
+                    onClick={() => { setSelectedTopic(topic); setCurrentIndex(0); }}
+                    className={`px-1.5 py-0.5 text-[9px] font-bold rounded border transition-all ${
+                      selectedTopic === topic
+                        ? "bg-[#dc2323] text-white border-[#dc2323]"
+                        : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-200"
+                    }`}
+                  >
+                    {topic}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Row 3: Swipeable Alphabet Ribbon */}
+        <div className="pt-1.5 border-t border-gray-100">
+          <div className="flex items-center justify-between text-left mb-0.5">
+            <span className="text-[9px] font-bold uppercase tracking-wider text-gray-400">🔤 Alphabet Index:</span>
+            {selectedLetter !== "All" && (
+              <button 
+                onClick={() => { setSelectedLetter("All"); setCurrentIndex(0); }}
+                className="text-[9px] text-[#dc2323] font-bold hover:underline"
+              >
+                Clear Letter
+              </button>
+            )}
+          </div>
+          
+          <div className="flex gap-1 overflow-x-auto select-none py-0.5 w-full scrollbar-none" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <button
+              onClick={() => { setSelectedLetter("All"); setCurrentIndex(0); }}
+              className={`px-2 py-0.5 text-[9px] font-extrabold rounded-full transition-all flex-shrink-0 ${
+                selectedLetter === "All"
+                  ? "bg-[#ffe36d] text-black ring-1 ring-black/30 shadow-xs"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+            >
+              A-Z
+            </button>
+            {ALPHABET.filter(l => l !== "All").map((letter) => (
+              <button
+                key={letter}
+                onClick={() => { setSelectedLetter(letter); setCurrentIndex(0); }}
+                className={`w-4 h-4 flex items-center justify-center text-[9px] font-extrabold rounded-full transition-all flex-shrink-0 ${
+                  selectedLetter === letter
+                    ? "bg-[#ffe36d] text-black ring-1 ring-black/30 font-black shadow-xs"
+                    : "bg-gray-50 text-gray-500 hover:bg-gray-200 hover:text-gray-800"
+                }`}
+              >
+                {letter}
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="flex justify-end gap-3 mb-4">
+      <div className="flex justify-end gap-2 my-1.5 flex-wrap">
         <button 
           onClick={downloadCurrentFlashcard}
           disabled={isDownloading || !currentCard}
-          className="flex items-center gap-2 bg-[#ffe36d] text-black px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:brightness-95 transition-all disabled:opacity-50 border border-yellow-400"
+          className="flex items-center gap-1 bg-[#ffe36d] text-black px-2.5 py-1 rounded-lg text-[10px] font-bold shadow-sm hover:brightness-95 transition-all disabled:opacity-50 border border-yellow-400"
           title="Tải thẻ này dạng ảnh PNG"
         >
-          <Download className="w-4 h-4" />
-          {isDownloading ? 'Downloading...' : 'Download Image'}
+          <Download className="w-3.5 h-3.5" />
+          {isDownloading ? 'Downloading...' : 'Image'}
         </button>
         <button 
           onClick={downloadCurrentHtml}
           disabled={isDownloading || !currentCard}
-          className="flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:bg-gray-600 transition-all disabled:opacity-50"
+          className="flex items-center gap-1 bg-gray-700 text-white px-2.5 py-1 rounded-lg text-[10px] font-bold shadow-sm hover:bg-gray-600 transition-all disabled:opacity-50"
           title="Tải thẻ này dạng file HTML"
         >
-          <FileCode className="w-4 h-4" />
-          Download HTML
+          <FileCode className="w-3.5 h-3.5" />
+          HTML
         </button>
         <button 
           onClick={downloadAllFlashcards}
           disabled={isDownloading || filteredList.length === 0}
-          className="flex items-center gap-2 bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-bold border border-gray-200 hover:bg-gray-50 transition-all shadow-sm"
+          className="flex items-center gap-1 bg-white text-gray-700 px-2.5 py-1 rounded-lg text-[10px] font-bold border border-gray-200 hover:bg-gray-50 transition-all shadow-sm"
           title="Downloads the first 50 filtered cards inside a zip file."
         >
-          <Archive className="w-4 h-4" />
-          Download Filtered
+          <Archive className="w-3.5 h-3.5" />
+          Zip (Max 50)
         </button>
       </div>
 
       {filteredList.length > 0 && currentCard ? (
-        <div id="vocab-active-card-container-wrap" className="w-full">
+        <div id="vocab-active-card-container-wrap" className="w-full flex-1 flex flex-col min-h-[180px] max-h-[360px] mb-2">
           <div 
-            className="relative min-h-[420px] w-full mb-8 perspective-1000 group"
+            className="relative flex-1 w-full perspective-1000 group animate-fade-in"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEndEvent}
           >
-          <div 
-            className={`relative w-full h-full cursor-pointer transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}
-            onClick={() => setIsFlipped(!isFlipped)}
-            style={{ transformStyle: 'preserve-3d', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
-          >
-            {/* Front */}
             <div 
-              className="absolute w-full h-full bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center p-8 backface-hidden min-h-[420px]"
-              style={{ backfaceVisibility: 'hidden' }}
+              className={`relative w-full h-full cursor-pointer transition-transform duration-500`}
+              onClick={() => setIsFlipped(!isFlipped)}
+              style={{ transformStyle: 'preserve-3d', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
             >
-              <div className="absolute top-6 left-6 flex gap-2">
-                <span className="bg-red-50 text-[#dc2323] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-red-200">
-                  {currentCard.type}
-                </span>
-                {currentCard.topic && (
-                  <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold capitalize border border-gray-200">
-                    {currentCard.topic}
+              {/* Front */}
+              <div 
+                className="absolute w-full h-full bg-white border-2 border-black rounded-2xl shadow-[4px_4px_0px_0px_#000000] flex flex-col items-center justify-center p-4 md:p-6 backface-hidden"
+                style={{ backfaceVisibility: 'hidden' }}
+              >
+                <div className="absolute top-3 left-4 flex gap-1">
+                  <span className="bg-red-50 text-[#dc2323] px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border border-red-200">
+                    {currentCard.type}
                   </span>
-                )}
-              </div>
-              
-              {/* Audio Button Front */}
-              <div className="absolute top-6 right-6">
-                <button 
-                  onClick={(e) => handleAudioClick(e, currentCard.term)}
-                  className="p-2.5 bg-gray-50 rounded-full hover:bg-[#dc2323] hover:text-white transition-colors border border-gray-200 shadow-sm text-gray-500"
-                  title="Listen to term"
-                >
-                  <Volume2 className="w-5 h-5" />
-                </button>
-              </div>
-              
-              {/* ICON Display */}
-              {currentCard.icon && (
-                <div className="text-6xl mb-6 filter drop-shadow-sm opacity-90 animate-fade-in">
-                  {currentCard.icon}
+                  {currentCard.topic && (
+                    <span className="bg-gray-100 text-gray-700 px-2.5 py-0.5 rounded-full text-[10px] font-semibold capitalize border border-gray-200">
+                      {currentCard.topic}
+                    </span>
+                  )}
                 </div>
-              )}
-              
-              <h3 className="text-2xl md:text-4xl font-black text-[#21242c] text-center tracking-tight leading-tight break-words max-w-full">
-                {currentCard.term}
-              </h3>
-              
-              <div className="absolute bottom-6 flex items-center gap-2 text-[#dc2323] font-semibold text-sm bg-red-50 border border-red-200 px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                <RotateCw className="w-4 h-4" /> 
-                <span>Click to flip and reveal</span>
-              </div>
-            </div>
-
-            {/* Back description card */}
-            <div 
-              className="absolute w-full h-full bg-[#1a202c] border-2 border-black rounded-2xl shadow-md flex flex-col items-center justify-center p-8 text-white backface-hidden min-h-[420px]"
-              style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-            >
-               {/* Inner badge info */}
-               <div className="absolute top-4 left-6 flex gap-2">
-                 {currentCard.topic && (
-                   <span className="text-xs bg-red-650/40 text-red-300 px-3 py-1 rounded-full border border-red-500/20 font-mono">
-                     🎓 {currentCard.topic}
-                   </span>
-                 )}
-               </div>
-
-               <h4 className="text-xl md:text-2xl font-bold text-center mt-4 mb-4 leading-relaxed max-w-[95%]">
-                 {currentCard.definition}
-               </h4>
-               
-               {/* Synonyms & Antonyms displayed side-by-side */}
-               <div className="flex flex-wrap gap-2 justify-center mb-3">
-                 {currentCard.synonym && (
-                   <div className="bg-yellow-400 text-black px-3 py-1.5 rounded-xl text-xs font-bold shadow-sm">
-                     Synonym: {currentCard.synonym}
-                   </div>
-                 )}
-                 {currentCard.antonym && (
-                   <div className="bg-gray-700 text-white border border-gray-600 px-3 py-1.5 rounded-xl text-xs font-bold shadow-sm">
-                     Antonym: {currentCard.antonym}
-                   </div>
-                 )}
-               </div>
-
-               {currentCard.example && (
-                 <div className="bg-black/20 p-4 rounded-xl border border-white/10 w-full max-w-lg relative mt-2 text-center">
-                   <p className="text-gray-200 text-sm italic pr-6 leading-relaxed">"{currentCard.example}"</p>
-                   <button 
-                      onClick={(e) => handleAudioClick(e, currentCard.example || "")}
-                      className="absolute top-3 right-3 text-white/40 hover:text-white transition-colors p-1"
-                      title="Listen to example"
-                   >
-                     <Volume2 className="w-4 h-4" />
-                   </button>
-                 </div>
-               )}
-               
-               {currentCard.note && (
-                  <div className="mt-4 flex items-center gap-2 text-[#ffe36d] text-xs bg-black/40 px-3 py-1.5 rounded-full border border-white/10 font-bold">
-                    <Lightbulb className="w-3.5 h-3.5" />
-                    <span>{currentCard.note}</span>
+                
+                {/* Audio Button Front */}
+                <div className="absolute top-3 right-4">
+                  <button 
+                    onClick={(e) => handleAudioClick(e, currentCard.term)}
+                    className="p-1.5 bg-gray-50 rounded-full hover:bg-[#dc2323] hover:text-white transition-colors border border-gray-200 shadow-sm text-gray-500"
+                    title="Listen to term"
+                  >
+                    <Volume2 className="w-4 h-4" />
+                  </button>
+                </div>
+                
+                {/* ICON Display */}
+                {currentCard.icon && (
+                  <div className="text-3xl md:text-4xl mb-3 filter drop-shadow-sm opacity-90 animate-fade-in">
+                    {currentCard.icon}
                   </div>
-               )}
+                )}
+                
+                <h3 className="text-lg md:text-2xl font-black text-[#21242c] text-center tracking-tight leading-tight break-words max-w-full px-2">
+                  {currentCard.term}
+                </h3>
+                
+                <div className="absolute bottom-3 flex items-center gap-1 text-[#dc2323] font-bold text-[10px] bg-red-50 border border-red-200 px-2.5 py-1 rounded-full opacity-60 group-hover:opacity-100 transition-opacity">
+                  <RotateCw className="w-3.5 h-3.5" /> 
+                  <span>Click to reveal definition</span>
+                </div>
+              </div>
+
+              {/* Back description card */}
+              <div 
+                className="absolute w-full h-full bg-[#1a202c] border-2 border-black rounded-2xl shadow-[4px_4px_0px_0px_#000000] flex flex-col items-center justify-center p-4 md:p-6 text-white backface-hidden"
+                style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+              >
+                 {/* Inner badge info */}
+                 <div className="absolute top-3 left-4 flex gap-1">
+                   {currentCard.topic && (
+                     <span className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-full border border-red-500/20 font-mono">
+                       🎓 {currentCard.topic}
+                     </span>
+                   )}
+                 </div>
+
+                 <h4 className="text-sm md:text-base font-bold text-center mt-2 mb-2 leading-relaxed max-w-[95%] text-gray-100">
+                   {currentCard.definition}
+                 </h4>
+                 
+                 {/* Synonyms & Antonyms displayed side-by-side */}
+                 <div className="flex flex-wrap gap-1.5 justify-center mb-2">
+                   {currentCard.synonym && (
+                     <div className="bg-yellow-400 text-black px-2 py-1 rounded-xl text-[10px] font-bold shadow-sm">
+                       Synonym: {currentCard.synonym}
+                     </div>
+                   )}
+                   {currentCard.antonym && (
+                     <div className="bg-gray-700 text-white border border-gray-600 px-2 py-1 rounded-xl text-[10px] font-bold shadow-sm">
+                       Antonym: {currentCard.antonym}
+                     </div>
+                   )}
+                 </div>
+
+                 {currentCard.example && (
+                   <div className="bg-black/20 p-2.5 rounded-xl border border-white/10 w-full max-w-lg relative mt-1 text-center">
+                     <p className="text-gray-300 text-xs italic pr-5 leading-normal">"{currentCard.example}"</p>
+                     <button 
+                        onClick={(e) => handleAudioClick(e, currentCard.example || "")}
+                        className="absolute top-2 right-2 text-white/40 hover:text-white transition-colors p-0.5"
+                        title="Listen to example"
+                     >
+                       <Volume2 className="w-3.5 h-3.5" />
+                     </button>
+                   </div>
+                 )}
+                 
+                 {currentCard.note && (
+                    <div className="mt-2 flex items-center gap-1 text-[#ffe36d] text-[10px] bg-black/40 px-2 py-1 rounded-full border border-white/10 font-bold">
+                      <Lightbulb className="w-3 h-3" />
+                      <span>{currentCard.note}</span>
+                    </div>
+                 )}
+              </div>
             </div>
           </div>
         </div>
-       </div>
       ) : (
-        <div className="min-h-[400px] w-full flex items-center justify-center bg-gray-50 border border-gray-200 rounded-2xl mb-8 border-dashed">
-           <p className="text-gray-500 font-medium">No results match your selected search or filter criteria.</p>
+        <div className="flex-1 min-h-[180px] w-full flex items-center justify-center bg-gray-50 border border-gray-200 rounded-2xl mb-2 border-dashed">
+           <p className="text-gray-500 font-medium text-xs">No results match your selected search or filter criteria.</p>
         </div>
       )}
 
       {/* Control Buttons */}
-      <div className="flex justify-between items-center mt-6 px-4">
+      <div className="w-full flex justify-between items-center py-1.5 px-2 border-t border-gray-200 bg-[#f7f7f7] z-30 mt-auto">
         <button 
           onClick={prevCard}
           disabled={filteredList.length === 0}
-          className="flex items-center gap-2 bg-white text-gray-700 px-5 py-2.5 font-bold border border-gray-200 rounded-full hover:bg-gray-50 shadow-sm transition-all disabled:opacity-50"
+          className="flex items-center gap-1.5 bg-white text-gray-750 px-4 py-1.5 text-xs font-bold border border-gray-200 rounded-full hover:bg-gray-50 shadow-sm transition-all disabled:opacity-50"
         >
-          <ArrowLeft className="w-4 h-4" /> Previous
+          <ArrowLeft className="w-3.5 h-3.5" /> Prev
         </button>
         
         <button 
           onClick={nextCard}
           disabled={filteredList.length === 0}
-          className="flex items-center gap-2 bg-[#ffe36d] text-[#21242c] px-5 py-2.5 font-bold rounded-full hover:brightness-95 shadow-sm transition-all border border-yellow-400 disabled:opacity-50"
+          className="flex items-center gap-1.5 bg-[#ffe36d] text-[#21242c] px-4 py-1.5 text-xs font-bold rounded-full hover:brightness-95 shadow-sm transition-all border border-yellow-400 disabled:opacity-50"
         >
-          Next <ArrowRight className="w-4 h-4" />
+          Next <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>

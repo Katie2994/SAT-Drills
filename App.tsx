@@ -100,13 +100,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f7f7] text-[#21242c] font-sans flex flex-col selection:bg-brand-yellow selection:text-brand-black">
+    <div className={`bg-[#f7f7f7] text-[#21242c] font-sans flex flex-col selection:bg-brand-yellow selection:text-brand-black ${currentView === ViewState.VOCAB ? 'h-screen w-full overflow-hidden' : 'min-h-screen'}`}>
       <Header currentView={currentView} setView={handleSetViewAndCategory} />
 
       {/* Main Content */}
-      <main className="flex-grow w-full max-w-6xl mx-auto px-4 py-8 md:py-12">
+      <main className={`flex-1 w-full mx-auto flex flex-col ${currentView === ViewState.VOCAB ? 'max-w-7xl px-4 py-2 overflow-hidden h-full justify-between' : 'max-w-6xl px-4 py-8 md:py-12'}`}>
         {/* Intro / Header Text for the current page */}
-        {currentView !== ViewState.HOME && (
+        {currentView !== ViewState.HOME && currentView !== ViewState.VOCAB && (
           <div className="mb-8 md:mb-12 text-center max-w-3xl mx-auto animate-fade-in">
              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#21242c] mb-4 tracking-tight">
                {currentView === ViewState.LEARN && <span>Kiến thức nền tảng <span className="text-brand-red font-light mx-2">|</span> Math & English</span>}
@@ -175,46 +175,54 @@ const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12 border-t-[5px] border-black font-sans mt-auto select-none">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-             <button onClick={() => setCurrentView(ViewState.HOME)} className="flex items-center gap-3 mb-4 hover:opacity-80 transition-opacity">
-               <img 
-                 src="https://pbs.twimg.com/media/G9_w8N1aUAENd0l?format=jpg&name=large" 
-                 alt="SAT Drills Logo" 
-                 className="w-10 h-10 object-cover border border-gray-600 rounded-lg p-0.5 bg-white"
-                 referrerPolicy="no-referrer"
-               />
-               <span className="font-bold text-xl tracking-tight text-white font-display">SAT DRILLS 2026</span>
-             </button>
-             
-             <div className="text-sm font-semibold flex items-center gap-2 text-gray-300">
-               <span>Website:</span>
-               <a href="https://ieltsdrills.com/sat_drills" target="_blank" rel="noopener noreferrer" className="text-[#ffe36d] hover:underline font-extrabold">
-                 ieltsdrills.com/sat_drills
-               </a>
-             </div>
-          </div>
+      <footer className={`bg-slate-900 text-white border-t-[5px] border-black font-sans select-none ${currentView === ViewState.VOCAB ? 'py-3 text-xs w-full' : 'py-12 mt-auto'}`}>
+        <div className={`max-w-6xl mx-auto px-4 flex ${currentView === ViewState.VOCAB ? 'flex-row justify-between items-center w-full gap-4' : 'flex-col md:flex-row justify-between items-center gap-8'}`}>
+          <div className={`flex ${currentView === ViewState.VOCAB ? 'flex-row items-center gap-4 text-left' : 'flex-col items-center md:items-start text-center md:text-left'}`}>
+             <button onClick={() => setCurrentView(ViewState.HOME)} className={`flex items-center gap-2 hover:opacity-80 transition-opacity ${currentView === ViewState.VOCAB ? 'mb-0' : 'mb-4'}`}>
+                 <img 
+                   src="https://pbs.twimg.com/media/G9_w8N1aUAENd0l?format=jpg&name=large" 
+                   alt="SAT Drills Logo" 
+                   className={`object-cover border border-gray-600 rounded-lg p-0.5 bg-white ${currentView === ViewState.VOCAB ? 'w-6 h-6' : 'w-10 h-10'}`}
+                   referrerPolicy="no-referrer"
+                 />
+                 <span className={`font-bold tracking-tight text-white font-display ${currentView === ViewState.VOCAB ? 'text-sm' : 'text-xl'}`}>SAT DRILLS</span>
+               </button>
+               
+               <div className={`font-semibold flex items-center gap-1 text-gray-300 ${currentView === ViewState.VOCAB ? 'text-[11px]' : 'text-sm'}`}>
+                 <span className={currentView === ViewState.VOCAB ? 'hidden sm:inline' : ''}>Website:</span>
+                 <a href="https://ieltsdrills.com/sat_drills" target="_blank" rel="noopener noreferrer" className="text-[#ffe36d] hover:underline font-extrabold">
+                   ieltsdrills.com/sat_drills
+                 </a>
+               </div>
+            </div>
 
-          <div className="flex flex-col items-center md:items-end text-sm text-center md:text-right gap-4">
-            <a 
-              href="https://ieltsdrills.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-[#dc2323] hover:bg-[#b01c1c] text-white text-xs font-black uppercase tracking-wider px-6 py-3 rounded-full border-2 border-black inline-block shadow-[4px_4px_0px_0px_#ffffff] transition-all whitespace-nowrap"
-            >
-              Luyện IELTS ở IELTS Drills
-            </a>
-            
-            <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider font-mono">
-              Khan Academy / College Board Standard Syllabus
+            <div className={`flex items-center text-center md:text-right ${currentView === ViewState.VOCAB ? 'flex-row gap-3' : 'flex-col items-center md:items-end gap-4'}`}>
+              <a 
+                href="https://ieltsdrills.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`bg-[#dc2323] hover:bg-[#b01c1c] text-white font-black uppercase tracking-wider rounded-full border border-black inline-block transition-all whitespace-nowrap ${currentView === ViewState.VOCAB ? 'text-[10px] px-3 py-1.5 shadow-[2px_2px_0px_0px_#ffffff]' : 'text-xs px-6 py-3 border-2 shadow-[4px_4px_0px_0px_#ffffff]'}`}
+              >
+                Luyện IELTS
+              </a>
+              
+              <div className={`text-gray-400 uppercase tracking-wider font-mono ${currentView === ViewState.VOCAB ? 'text-[9px] hidden md:inline-block' : 'text-xs mt-1'}`}>
+                Khan Academy / College Board
+              </div>
+
+              {currentView === ViewState.VOCAB && (
+                <div className="text-[10px] text-gray-500 hidden sm:inline-block">
+                  © 2026 SAT DRILLS
+                </div>
+              )}
             </div>
           </div>
-        </div>
-        <div className="text-center mt-12 pt-8 border-t border-slate-800 text-sm text-gray-500">
-          © 2026 SAT DRILLS. All rights reserved.
-        </div>
-      </footer>
+          {currentView !== ViewState.VOCAB && (
+            <div className="text-center mt-12 pt-8 border-t border-slate-800 text-sm text-gray-500">
+              © 2026 SAT DRILLS. All rights reserved.
+            </div>
+          )}
+        </footer>
       
       {/* Global Widgets */}
       <DesmosWidget />
@@ -222,7 +230,7 @@ const App: React.FC = () => {
       {/* Fullscreen Toggle Button */}
       <button
         onClick={toggleFullscreen}
-        className="fixed bottom-6 left-6 z-50 bg-black text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-300 print:hidden group"
+        className="fixed bottom-24 left-6 z-50 bg-black text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-300 print:hidden group"
         title="Toàn màn hình"
         aria-label="Toggle Fullscreen"
       >

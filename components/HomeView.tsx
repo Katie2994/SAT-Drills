@@ -366,14 +366,14 @@ const HomeView: React.FC<HomeViewProps> = ({ setView }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Desmos Graphing Calculator Highlight Banner (5 Cols) */}
-        <div className="lg:col-span-5 bg-gradient-to-br from-indigo-50 to-purple-50 border-[4px] border-black rounded-[28px] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-[#fffdf0] border-[4px] border-black rounded-[28px] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-2 mb-3 bg-white border border-black rounded-lg px-2.5 py-1 w-fit font-mono text-[10px] font-bold text-indigo-700 shadow-hard-sm">
+            <div className="flex items-center gap-2 mb-3 bg-white border border-black rounded-lg px-2.5 py-1 w-fit font-mono text-[10px] font-bold text-[#dc2323] shadow-hard-sm">
               <Calculator className="w-3.5 h-3.5" />
               DESMOS CALCULATOR INTEGRATION
             </div>
 
-            <h4 className="text-2xl font-display font-black text-indigo-950 uppercase mb-3">
+            <h4 className="text-2xl font-display font-black text-black uppercase mb-3">
               MÁY TÍNH ĐỒ THỊ CHUẨN THI
             </h4>
 
@@ -387,7 +387,7 @@ const HomeView: React.FC<HomeViewProps> = ({ setView }) => {
 
           <button
             onClick={() => setView(ViewState.LEARN, "Math")}
-            className="mt-6 w-full bg-white hover:bg-slate-50 border-2 border-black p-3.5 rounded-xl flex items-center justify-center gap-2 font-black text-xs text-indigo-950 transition-all shadow-hard-sm"
+            className="mt-6 w-full bg-white hover:bg-slate-50 border-2 border-black p-3.5 rounded-xl flex items-center justify-center gap-2 font-black text-xs text-black transition-all shadow-hard-sm"
           >
             <Calculator className="w-4 h-4" />
             <span>MỞ LÝ THUYẾT & DESMOS HƯỚNG DẪN</span>

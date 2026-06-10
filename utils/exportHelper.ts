@@ -136,7 +136,7 @@ export const exportToPng = async (elementId: string, title: string, filename: st
     <div class="flex items-center gap-2 text-xs text-gray-600">
         <span class="font-bold">© 2026 SAT DRILLS</span>
         <span class="text-gray-300">|</span>
-        <span>Website: <span class="text-blue-600 font-bold">ieltsdrills.com/sat_drills</span></span>
+        <span>Website: <span class="text-[#dc2323] font-bold">ieltsdrills.com/sat_drills</span></span>
     </div>
     <div class="flex-shrink-0 flex items-center">
         <span class="bg-[#dc2323] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap leading-none h-fit">
@@ -242,7 +242,7 @@ export const exportToHtml = (elementId: string, title: string, filename: string)
             <div class="flex items-center gap-2">
                 <span class="font-bold">© 2026 SAT DRILLS</span>
                 <span class="text-gray-300">|</span>
-                <span>Website: <a href="https://ieltsdrills.com/sat_drills" target="_blank" class="text-blue-600 font-extrabold hover:underline">ieltsdrills.com/sat_drills</a></span>
+                <span>Website: <a href="https://ieltsdrills.com/sat_drills" target="_blank" class="text-[#dc2323] font-extrabold hover:underline">ieltsdrills.com/sat_drills</a></span>
             </div>
             <div class="flex-shrink-0 flex items-center">
                 <a href="https://ieltsdrills.com" target="_blank" class="bg-[#dc2323] hover:bg-[#b01c1c] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded-full border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all whitespace-nowrap leading-none h-fit">

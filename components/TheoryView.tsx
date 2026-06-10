@@ -44,17 +44,17 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
   return (
     <div className="flex flex-col gap-6 items-start animate-fade-in font-sans w-full content-wrapper">
       {/* Top Navigation */}
-      <div className="w-full bg-white border border-gray-200 shadow-sm rounded-xl p-4 lg:sticky lg:top-20 z-10">
+      <div className="w-full bg-white border border-black/10 shadow-sm rounded-xl p-4 lg:sticky lg:top-20 z-10">
         <div className="flex flex-col md:flex-row gap-4 justify-between md:items-center">
           
           {/* Category Toggle */}
-          <div className="flex gap-2 flex-shrink-0 bg-gray-100 p-1 rounded-lg">
+          <div className="flex gap-2 flex-shrink-0 bg-[#ffe36d]/20 p-1 rounded-lg">
             <button
               onClick={() => handleCategoryChange('Overview')}
               className={`px-4 py-2.5 text-sm font-semibold rounded-md transition-all flex items-center gap-2 ${
                 activeCategory === 'Overview'
                   ? 'bg-white text-[#dc2323] shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-slate-500 hover:text-black/80'
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -65,7 +65,7 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
               className={`px-4 py-2.5 text-sm font-semibold rounded-md transition-all flex items-center gap-2 ${
                 activeCategory === 'Verbal'
                   ? 'bg-white text-[#dc2323] shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-slate-500 hover:text-black/80'
               }`}
             >
               <Book className="w-4 h-4" />
@@ -76,7 +76,7 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
               className={`px-4 py-2.5 text-sm font-semibold rounded-md transition-all flex items-center gap-2 ${
                 activeCategory === 'Math'
                   ? 'bg-white text-[#dc2323] shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-slate-500 hover:text-black/80'
               }`}
             >
               <Calculator className="w-4 h-4" />
@@ -94,10 +94,10 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
                   className={`whitespace-nowrap px-4 py-2.5 text-sm font-semibold flex items-center gap-2 rounded-lg transition-all ${
                     activeSectionId === section.id 
                       ? 'bg-[#dc2323] text-white shadow-sm' 
-                      : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-transparent hover:border-gray-200'
+                      : 'bg-[#fffdf0] text-black/80 hover:bg-[#ffe36d]/20 border border-transparent hover:border-black/10'
                   }`}
                 >
-                  <span className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${activeSectionId === section.id ? 'bg-white' : 'bg-gray-400'}`}></span>
+                  <span className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${activeSectionId === section.id ? 'bg-white' : 'bg-slate-400'}`}></span>
                   {section.title}
                 </button>
               ))}
@@ -109,9 +109,9 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
 
       {/* Main Content Area */}
       <div className="w-full">
-        <div className="bg-white border border-gray-200 shadow-sm rounded-2xl min-h-[500px] flex flex-col overflow-hidden">
+        <div className="bg-white border border-black/10 shadow-sm rounded-2xl min-h-[500px] flex flex-col overflow-hidden">
           {/* Content Header */}
-          <div className="bg-white border-b border-gray-100 p-6 md:p-8 flex items-center justify-between">
+          <div className="bg-white border-b border-slate-100 p-6 md:p-8 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="bg-[#fffaf0] p-3 rounded-xl text-[#dc2323]">
                 <FileText className="w-6 h-6" />
@@ -120,7 +120,7 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
                  <h2 className="text-2xl md:text-3xl font-bold text-[#21242c]">
                   {activeSection?.title}
                 </h2>
-                <span className="text-sm text-gray-500 font-semibold tracking-wide uppercase mt-1 block">
+                <span className="text-sm text-slate-500 font-semibold tracking-wide uppercase mt-1 block">
                   {activeCategory} Domain
                 </span>
               </div>
@@ -144,7 +144,7 @@ const TheoryView: React.FC<TheoryViewProps> = ({ initialCategory = 'Overview', o
                   </button>
                   <button
                     onClick={() => exportToHtml('theory-export-content', `Theory: ${activeSection?.title}`, `SAT_THEORY_${activeSectionId}`)}
-                    className="flex items-center gap-1.5 bg-gray-700 hover:bg-gray-600 text-white text-xs font-bold px-3 py-2 rounded-lg shadow transition-colors"
+                    className="flex items-center gap-1.5 bg-slate-700 hover:bg-slate-600 text-white text-xs font-bold px-3 py-2 rounded-lg shadow transition-colors"
                     title="Tải nội dung lý thuyết hiện tại dạng tập tin HTML"
                   >
                     <FileCode className="w-3.5 h-3.5" />

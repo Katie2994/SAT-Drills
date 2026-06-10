@@ -77,27 +77,27 @@ const ExampleBox = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-gray-50 border-l-4 border-[#DC2323] p-6 my-6 shadow-sm">
+    <div className="bg-[#fffdf0] border-l-4 border-[#DC2323] p-6 my-6 shadow-sm">
       <h5 className="font-bold text-xs uppercase text-[#DC2323] mb-4 tracking-widest flex items-center gap-2">
         <Brain className="w-4 h-4" /> REALISTIC EXCERPT
       </h5>
-      <div className="font-serif text-lg mb-6 text-gray-800 leading-relaxed border-b border-gray-200 pb-4">
+      <div className="font-math text-lg mb-6 text-black leading-relaxed border-b border-black/10 pb-4">
         <FormattedText text={question} />
       </div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full bg-white flex items-center justify-between p-3 border border-gray-200 font-bold text-sm text-gray-800 hover:bg-gray-100 transition-colors uppercase tracking-wide"
+        className="w-full bg-white flex items-center justify-between p-3 border border-black/10 font-bold text-sm text-black hover:bg-[#ffe36d]/20 transition-colors uppercase tracking-wide"
       >
         <span>Xem Đáp án & Giải thích chi tiết</span>
-        {isOpen ? <ChevronUp className="w-5 h-5 text-gray-500" /> : <ChevronDown className="w-5 h-5 text-gray-500" />}
+        {isOpen ? <ChevronUp className="w-5 h-5 text-slate-500" /> : <ChevronDown className="w-5 h-5 text-slate-500" />}
       </button>
       {isOpen && (
-        <div className="bg-white p-4 border border-t-0 border-gray-200">
-          <div className="text-gray-700 text-base">
+        <div className="bg-white p-4 border border-t-0 border-black/10">
+          <div className="text-black/80 text-base">
             <FormattedText text={solution} noHighlight={true} />
           </div>
           {tip && (
-            <div className="mt-4 text-sm text-gray-600 bg-blue-50 p-3 rounded-lg flex gap-2 items-start">
+            <div className="mt-4 text-sm text-black/70 bg-[#fffdf0] p-3 rounded-lg flex gap-2 items-start">
               <span className="font-bold">💡 TIP:</span>
               <span>{tip}</span>
             </div>
@@ -120,7 +120,7 @@ export const theorySections: TheorySection[] = [
     category: "Overview",
     title: "Digital SAT Overview",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">Digital SAT Overview</h2>
           <p className="opacity-90">
@@ -142,17 +142,17 @@ export const theorySections: TheorySection[] = [
           <div className="overflow-x-auto">
             <table className="min-w-full text-left border-collapse">
               <thead>
-                <tr className="bg-gray-100 border-b">
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                <tr className="bg-[#ffe36d]/20 border-b">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Phần Thi (Section)
                   </th>
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Module
                   </th>
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Thời gian
                   </th>
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Số lượng câu hỏi
                   </th>
                 </tr>
@@ -170,7 +170,7 @@ export const theorySections: TheorySection[] = [
                   <td className="py-2 px-4 border">32 phút</td>
                   <td className="py-2 px-4 border">27 câu</td>
                 </tr>
-                <tr className="bg-gray-50 border-b">
+                <tr className="bg-[#fffdf0] border-b">
                   <td className="py-2 px-4 border font-semibold" colSpan={2}>
                     Break (Nghỉ giải lao)
                   </td>
@@ -207,14 +207,14 @@ export const theorySections: TheorySection[] = [
           <div className="overflow-x-auto">
             <table className="min-w-full text-left border-collapse">
               <thead>
-                <tr className="bg-gray-100 border-b">
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                <tr className="bg-[#ffe36d]/20 border-b">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Lĩnh vực (Domain)
                   </th>
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Kỹ năng đánh giá
                   </th>
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Tỷ lệ
                   </th>
                 </tr>
@@ -291,14 +291,14 @@ export const theorySections: TheorySection[] = [
           <div className="overflow-x-auto">
             <table className="min-w-full text-left border-collapse">
               <thead>
-                <tr className="bg-gray-100 border-b">
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                <tr className="bg-[#ffe36d]/20 border-b">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Lĩnh vực (Domain)
                   </th>
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Nội dung / Mô tả
                   </th>
-                  <th className="py-2 px-4 border font-semibold text-gray-700">
+                  <th className="py-2 px-4 border font-semibold text-black/80">
                     Câu hỏi
                   </th>
                 </tr>
@@ -313,7 +313,7 @@ export const theorySections: TheorySection[] = [
                       <li>Systems of 2 linear equations in 2 variables</li>
                       <li>Linear inequalities in 1 or 2 variables</li>
                     </ul>
-                    <p className="mt-2 text-sm text-gray-600">
+                    <p className="mt-2 text-sm text-black/70">
                       Phân tích, thao tác thành thạo và thiết lập phương trình,
                       bất phương trình và hệ phương trình tuyến tính.
                     </p>
@@ -337,7 +337,7 @@ export const theorySections: TheorySection[] = [
                       </li>
                       <li>Nonlinear functions</li>
                     </ul>
-                    <p className="mt-2 text-sm text-gray-600">
+                    <p className="mt-2 text-sm text-black/70">
                       Kiến thức trọng tâm để học các cấp độ toán cao hơn. Phân
                       tích, giải và diễn giải linh hoạt các loại phương trình
                       phi tuyến tính.
@@ -364,7 +364,7 @@ export const theorySections: TheorySection[] = [
                       <li>Inference from sample statistics, margin of error</li>
                       <li>Evaluating statistical claims</li>
                     </ul>
-                    <p className="mt-2 text-sm text-gray-600">
+                    <p className="mt-2 text-sm text-black/70">
                       Sử dụng tư duy định lượng để áp dụng thực tế và phân tích
                       biểu đồ, thống kê.
                     </p>
@@ -387,7 +387,7 @@ export const theorySections: TheorySection[] = [
                       </li>
                       <li>Circles</li>
                     </ul>
-                    <p className="mt-2 text-sm text-gray-600">
+                    <p className="mt-2 text-sm text-black/70">
                       (Lưu ý: PSAT 8/9 không có Trigonometry).
                     </p>
                   </td>
@@ -442,7 +442,7 @@ export const theorySections: TheorySection[] = [
               href="https://bluebook.collegeboard.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 font-bold hover:underline"
+              className="text-[#dc2323] font-bold hover:underline"
             >
               Bluebook™
             </a>{" "}
@@ -464,7 +464,7 @@ export const theorySections: TheorySection[] = [
                 href="https://www.desmos.com/testing/cb-digital-sat/graphing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+                className="text-[#dc2323] hover:underline"
               >
                 Desmos
               </a>{" "}
@@ -523,7 +523,7 @@ export const theorySections: TheorySection[] = [
                 href="https://www.collegeboard.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 font-bold hover:underline"
+                className="text-[#dc2323] font-bold hover:underline"
               >
                 College Board
               </a>{" "}
@@ -550,7 +550,7 @@ export const theorySections: TheorySection[] = [
     category: "Verbal",
     title: "Information & Ideas (26%)",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">
             Information & Ideas (~26%)
@@ -567,7 +567,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> Thường xuất hiện 3–5 câu/section. Đây là “xương sống” của passage: nếu không nắm được main idea, các câu Inference / Evidence phía sau sẽ dễ sai dây chuyền.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> College Board đang kiểm tra xem bạn có tóm tắt được luận điểm cốt lõi trong 1 câu và phân biệt được ý chính với ví dụ minh họa. Học sinh Việt thường chỉ scan keyword, thấy đáp án chứa từ giống passage là chọn, dù ý bị bóp méo.
           </div>
           <p>
@@ -589,7 +589,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> Khoảng 2–4 câu/section liên quan đến việc chọn câu trích/lựa ý minh chứng trực tiếp cho một kết luận hoặc phân tích bảng/biểu đồ để xem dữ liệu có ủng hộ hay phản bác giả thuyết nào.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Kiểm tra khả năng đọc mối quan hệ giữa giả thuyết và dữ liệu. Tránh thói quen “nghe hợp lý là chọn” mà không cần dòng chứng minh rõ ràng.
           </div>
           <p>
@@ -611,7 +611,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> Xuất hiện đều ở mọi passage (3–5 câu/section). Dạng câu khiến học sinh giỏi hay mất điểm do suy diễn quá đà.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Inference là kết luận logic chặt chẽ từ tiền đề đã cho. KHÔNG mang kiến thức ngoài đời vào.
           </div>
           <p>
@@ -637,7 +637,7 @@ export const theorySections: TheorySection[] = [
     category: "Verbal",
     title: "Craft & Structure (28%)",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">Craft & Structure (~28%)</h2>
           <p className="opacity-90">
@@ -652,7 +652,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> 1–2 câu/section nhưng tính phân hóa cao. Là dạng câu “đọc ý người khác về ý người khác”.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Kiểm tra khả năng nắm main claim và so sánh thái độ (ủng hộ, phản bác, hay đồng ý một phần). Không cần phân tích văn học siêu phàm.
           </div>
           <p>
@@ -674,7 +674,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> 1–3 câu/section. Câu hỏi “kiểu giáo viên văn”: Câu này đặt ở đây để làm gì?
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Xem câu là ví dụ minh hoạ, kết luận, hay chuyển ý. Học sinh Việt thường chỉ hiểu "nội dung câu" mà bỏ qua "vai trò của câu đó".
           </div>
           <p>
@@ -696,7 +696,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> Khoảng 3–5 câu/section. Điền từ phù hợp với tone và ngữ cảnh.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Quan trọng là nghĩa chuẩn với phần còn lại của câu. Chú ý các cấu trúc đảo chiều như "anything but X", "far from X".
           </div>
           <p>
@@ -719,20 +719,20 @@ export const theorySections: TheorySection[] = [
             Đối với nhiều sĩ tử, thơ ca luôn là một "bức tường" khó vượt qua do ngôn ngữ ẩn dụ đầy tính biểu tượng. Dù bạn đã từng làm quen với thơ hay chưa, thì việc nắm vững kỹ năng giải mã và phân tích thơ là một lợi thế cực kỳ quan trọng để đạt điểm cao.
             Trong định dạng DSAT, các câu hỏi về thơ thách thức khả năng phân tích tu từ. Mỗi đoạn đoạn thơ chỉ ứng với 1 câu hỏi, việc rèn luyện tư duy phân tích nhanh nhạy là chìa khóa giúp bạn làm chủ thời gian.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>3 Dạng Câu Hỏi Thường Gặp</strong>
             <ul className="list-disc pl-5 mt-2 space-y-2 text-base">
               <li>
                 <strong>Author's Purpose:</strong> Tác giả viết dòng này để làm gì?
-                <br/><span className="text-gray-600 italic">Chiến lược: Đừng sa đà vào chi tiết vụn vặt ngay từ đầu. Hãy nhìn vào bức tranh toàn cảnh của bài thơ và đặt câu hỏi: "Tác giả thực sự muốn khẳng định điều gì?"</span>
+                <br/><span className="text-black/70 italic">Chiến lược: Đừng sa đà vào chi tiết vụn vặt ngay từ đầu. Hãy nhìn vào bức tranh toàn cảnh của bài thơ và đặt câu hỏi: "Tác giả thực sự muốn khẳng định điều gì?"</span>
               </li>
               <li>
                 <strong>Words in Context:</strong> Từ này trong ngữ cảnh bài thơ mang nghĩa gì (thường là nghĩa đen hoặc nghĩa bóng rất rõ ràng).
-                <br/><span className="text-gray-600 italic">Chiến lược: Hãy phân tích phần được hỏi trong bối cảnh của các câu/từ xung quanh nó để tìm ra sắc thái sắc nét nhất.</span>
+                <br/><span className="text-black/70 italic">Chiến lược: Hãy phân tích phần được hỏi trong bối cảnh của các câu/từ xung quanh nó để tìm ra sắc thái sắc nét nhất.</span>
               </li>
               <li>
                 <strong>Function:</strong> Câu/dòng thơ này đóng vai trò gì trong cấu trúc chung của đoạn trích?
-                <br/><span className="text-gray-600 italic">Chiến lược: Đọc kỹ câu trước và sau phần được chỉ định để xác định nó giới thiệu, nhấn mạnh, hay thay đổi nhịp điệu/hình ảnh của bài thơ.</span>
+                <br/><span className="text-black/70 italic">Chiến lược: Đọc kỹ câu trước và sau phần được chỉ định để xác định nó giới thiệu, nhấn mạnh, hay thay đổi nhịp điệu/hình ảnh của bài thơ.</span>
               </li>
             </ul>
           </div>
@@ -761,7 +761,7 @@ export const theorySections: TheorySection[] = [
     category: "Verbal",
     title: "Expression of Ideas (20%)",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">
             Expression of Ideas (~20%)
@@ -776,7 +776,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> 1–2 câu/section. Dạng kết hợp bullets để hoàn thành mục tiêu cụ thể. Dễ lấy trọn điểm.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Mấu chốt là chọn câu đúng MỤC TIÊU (purpose) yêu cầu, KHÔNG phải nhét nhiều thông tin nhất.
           </div>
           <p>
@@ -798,7 +798,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> 2–4 câu/section. Điền từ nối cho hai câu.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Bạn không cần từ vựng hiếm, chỉ cần xác định quan hệ là Addition, Contrast, Cause-Effect, hay Example.
           </div>
           <p>
@@ -824,7 +824,7 @@ export const theorySections: TheorySection[] = [
     category: "Verbal",
     title: "Standard Conventions (26%)",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">Conventions (~26%)</h2>
           <p className="opacity-90">Boundaries (Punctuation) • Form, Structure, and Sense</p>
@@ -837,7 +837,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> Khoảng 3–5 câu/section. Rất dễ ăn điểm nếu vững nguyên lý mảnh vỡ (Fragment) và tách mệnh đề độc lập (Comma Splice).
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Bạn có "nhìn thấy khung xương" câu không? Học sinh Việt thường đặt phẩy theo nhịp thở mà không dựa trên S-V thật.
           </div>
           <p>
@@ -859,7 +859,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề & tầm quan trọng:</strong> Xuất hiện 4–6 câu/section (Subject-Verb, Pronouns, Modifier, Tense). Ngữ pháp truyền thống nhưng lồng trong văn cảnh.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Xác định đâu là Chủ Ngữ Thật. Các cụm giới từ "of X", "in Y" hay đánh lừa làm bạn chia động từ sai.
           </div>
           <p>
@@ -885,7 +885,7 @@ export const theorySections: TheorySection[] = [
     category: "Verbal",
     title: "Grammar Lectures",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6 rounded-xl shadow-sm">
           <h2 className="text-3xl font-bold mb-2">Grammar Bytes Lectures</h2>
           <p className="opacity-90 leading-relaxed font-medium">
@@ -971,7 +971,7 @@ export const theorySections: TheorySection[] = [
           ].map((lecture, idx) => (
             <section
               key={idx}
-              className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white p-6 rounded-2xl border border-black/10 shadow-sm hover:shadow-md transition-shadow"
             >
               <h3 className="font-bold text-xl md:text-2xl mb-4 text-[#dc2323] flex items-center gap-3">
                 <span className="bg-[#fffdf0] text-[#dc2323] border border-[#ffe36d] w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full text-lg shadow-sm">
@@ -980,7 +980,7 @@ export const theorySections: TheorySection[] = [
                 {lecture.title}
               </h3>
               <div
-                className="relative w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-inner border border-gray-100 bg-gray-50 flex items-center justify-center"
+                className="relative w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-inner border border-slate-100 bg-[#fffdf0] flex items-center justify-center"
                 style={{ aspectRatio: "402/327" }}
               >
                 <iframe
@@ -1006,7 +1006,7 @@ export const theorySections: TheorySection[] = [
     category: "Math",
     title: "Math Reference & Grid-Ins",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">
             Math Reference & Grid-ins
@@ -1023,7 +1023,7 @@ export const theorySections: TheorySection[] = [
           <p className="mb-4">
             Bảng công thức này luôn được cung cấp sẵn trên ứng dụng thi Bluebook. Hãy ghi nhớ vị trí và các công thức có sẵn để tra cứu nhanh khi làm bài.
           </p>
-          <div className="border border-gray-200 rounded-lg p-2 bg-white">
+          <div className="border border-black/10 rounded-lg p-2 bg-white">
             <img 
               src="https://pbs.twimg.com/media/HKR2fTyaEAAEKpw?format=jpg&name=4096x4096" 
               alt="SAT Math Reference Sheet" 
@@ -1039,7 +1039,7 @@ export const theorySections: TheorySection[] = [
           <p className="mb-4">
             Đối với các câu hỏi tự điền đáp án (Student-produced response), hãy lưu ý quy tắc nhập đáp án của College Board:
           </p>
-          <ul className="list-disc pl-6 space-y-2 mb-6 text-gray-700">
+          <ul className="list-disc pl-6 space-y-2 mb-6 text-black/80">
             <li>If you find more than one correct answer, enter <strong>only one</strong> answer.</li>
             <li>You can enter up to 5 characters for a positive answer and up to 6 characters (including the negative sign) for a negative answer.</li>
             <li>If your answer is a fraction that doesn't fit in the provided space, enter the decimal equivalent.</li>
@@ -1050,34 +1050,34 @@ export const theorySections: TheorySection[] = [
 
           <h4 className="font-bold text-lg mb-3">Ví dụ nhập đáp án hợp lệ & không hợp lệ</h4>
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse border border-gray-300">
+            <table className="w-full text-left border-collapse border border-black/20">
               <thead>
-                <tr className="bg-gray-100">
-                  <th className="border border-gray-300 px-4 py-2 font-bold">Answer</th>
-                  <th className="border border-gray-300 px-4 py-2 font-bold">Acceptable ways to enter answer</th>
-                  <th className="border border-gray-300 px-4 py-2 font-bold text-red-600">Unacceptable (will NOT receive credit)</th>
+                <tr className="bg-[#ffe36d]/20">
+                  <th className="border border-black/20 px-4 py-2 font-bold">Answer</th>
+                  <th className="border border-black/20 px-4 py-2 font-bold">Acceptable ways to enter answer</th>
+                  <th className="border border-black/20 px-4 py-2 font-bold text-red-600">Unacceptable (will NOT receive credit)</th>
                 </tr>
               </thead>
-              <tbody className="text-base text-gray-700">
+              <tbody className="text-base text-black/80">
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-mono">3.5</td>
-                  <td className="border border-gray-300 px-4 py-2">3.5<br/>3.50</td>
-                  <td className="border border-gray-300 px-4 py-2 text-red-600">3 1/2</td>
+                  <td className="border border-black/20 px-4 py-2 font-mono">3.5</td>
+                  <td className="border border-black/20 px-4 py-2">3.5<br/>3.50</td>
+                  <td className="border border-black/20 px-4 py-2 text-red-600">3 1/2</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-mono">7/2</td>
-                  <td className="border border-gray-300 px-4 py-2">7/2<br/>3.5</td>
-                  <td className="border border-gray-300 px-4 py-2 text-red-600">3 1/2</td>
+                  <td className="border border-black/20 px-4 py-2 font-mono">7/2</td>
+                  <td className="border border-black/20 px-4 py-2">7/2<br/>3.5</td>
+                  <td className="border border-black/20 px-4 py-2 text-red-600">3 1/2</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-mono">2/3</td>
-                  <td className="border border-gray-300 px-4 py-2">2/3<br/>.6666<br/>.6667<br/>0.666<br/>0.667</td>
-                  <td className="border border-gray-300 px-4 py-2 text-red-600">0.66<br/>.66<br/>0.67<br/>.67</td>
+                  <td className="border border-black/20 px-4 py-2 font-mono">2/3</td>
+                  <td className="border border-black/20 px-4 py-2">2/3<br/>.6666<br/>.6667<br/>0.666<br/>0.667</td>
+                  <td className="border border-black/20 px-4 py-2 text-red-600">0.66<br/>.66<br/>0.67<br/>.67</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-mono">-1/3</td>
-                  <td className="border border-gray-300 px-4 py-2">-1/3<br/>-.3333<br/>-0.333</td>
-                  <td className="border border-gray-300 px-4 py-2 text-red-600">-.33<br/>-0.33</td>
+                  <td className="border border-black/20 px-4 py-2 font-mono">-1/3</td>
+                  <td className="border border-black/20 px-4 py-2">-1/3<br/>-.3333<br/>-0.333</td>
+                  <td className="border border-black/20 px-4 py-2 text-red-600">-.33<br/>-0.33</td>
                 </tr>
               </tbody>
             </table>
@@ -1095,7 +1095,7 @@ export const theorySections: TheorySection[] = [
     category: "Math",
     title: "Algebra (35%)",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">Algebra (~35%)</h2>
           <p className="opacity-90">
@@ -1110,7 +1110,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> Xuất hiện rất nhiều, từ dễ đến trung bình-khá. Nhiều câu gài thêm “giá trị của 2x, 3x+1” để kiểm tra xem bạn không dừng ở x.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> College Board muốn xem bạn có tuân thủ thứ tự thao tác (phân phối → gom hạng tử → cô lập x) và xử lý gọn các bước hay không.
           </div>
           <p>
@@ -1132,7 +1132,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> Hầu như test nào cũng có, nhất là word problems với slope & intercept. Điểm số dễ nếu bạn gắn slope/intercept với ngữ cảnh thực tế (cost, distance, etc.).
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             - Slope m = “tăng bao nhiêu y” khi x tăng thêm 1 đơn vị.
             - Intercept b = giá trị của y khi x = 0 (điểm xuất phát/cố định).
@@ -1157,7 +1157,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> Thường làm nền tảng cho hệ phương trình hoặc mô tả quan hệ hai đại lượng trong thực tế (ví dụ: budget, total items).
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             Dạng tổng quát Ax + By = C. Trong các bài word problems, 
             A và B thường là "giá" hoặc "kích thước" của mỗi loại, x và y là số lượng, C là tổng chi phí/tổng số.
@@ -1181,7 +1181,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> 2–3 câu/section. Một số câu chỉ hỏi giá trị 1 biến, nên không cần tìm cả cặp (x, y).
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Hệ 2 phương trình tuyến tính = giao điểm 2 đường thẳng. Có thể giải bằng cộng đại số, thế, hoặc dùng graph (trong Bluebook).
           </div>
           <p>
@@ -1203,7 +1203,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> 1–3 câu/section; có thể là bất phương trình 1 ẩn hoặc vùng nghiệm trên trục số/biểu đồ. Một lỗi kinh điển: quên đổi chiều bất đẳng thức khi nhân/chia với số âm.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Bất phương trình được giải gần như hệt phương trình, chỉ khác: khi nhân/chia hai vế với số âm, phải đảo chiều dấu. Nghiệm là một khoảng giá trị.
           </div>
           <p>
@@ -1229,7 +1229,7 @@ export const theorySections: TheorySection[] = [
     category: "Math",
     title: "Advanced Math (35%)",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">Advanced Math (~35%)</h2>
           <p className="opacity-90">
@@ -1244,7 +1244,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> Khoảng 3–5 câu/section. Thường yêu cầu thu gọn đa thức/lũy thừa, phân tích nhân tử (factor), hoặc so sánh 2 biểu thức.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             College Board muốn xem bạn có nắm chắc luật mũ và phân phối hay không (ví dụ: aᵐ·aⁿ = aᵐ⁺ⁿ, (aᵐ)ⁿ = aᵐⁿ) và có thể rút gọn biểu thức mà không làm "biến chất" miền giá trị.
           </div>
@@ -1267,7 +1267,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> 2–3 câu/section. Dạng quen: giao điểm giữa 1 đường thẳng và 1 parabol, hoặc giải phương trình phi tuyến 1 ẩn.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             Giao điểm = nghiệm của phương trình bậc hai: (quadratic) = (linear). Số nghiệm (0,1,2) khớp với số giao điểm parabol–đường thẳng.
           </div>
@@ -1290,7 +1290,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> 3–5 câu/section. Trọng tâm: Đọc được vertex (h, k) từ dạng f(x) = a(x - h)² + k, biết parabol quay lên/quay xuống → k là min hay max.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             Vertex form: f(x) = a(x - h)² + k. Đỉnh: (h, k).
             - a &gt; 0 → parabola mở lên → k là giá trị nhỏ nhất (min).
@@ -1315,7 +1315,7 @@ export const theorySections: TheorySection[] = [
           <p>
             <strong>Vị trí trên đề:</strong> Khoảng 3–5 câu/section. Hàm mũ tăng: nhân với cùng một tỉ lệ &gt; 1 mỗi bước. Hàm mũ giảm: nhân với cùng một tỉ lệ 0 &lt; b &lt; 1 mỗi bước.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> <br/>
             - Growth (tăng): N(t) = N₀ · bᵗ hoặc N₀ · (1 + r)ᵗ với b &gt; 1.<br/>
             - Decay (giảm): N(t) = N₀ · bᵗ hoặc N₀ · (1 - r)ᵗ với 0 &lt; b &lt; 1.<br/>
@@ -1363,7 +1363,7 @@ D) M(t) = 80·(1 - 0.25t)`}
     category: "Math",
     title: "Problem-Solving & Data (15%)",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">
             Problem-Solving & Data (~15%)
@@ -1380,7 +1380,7 @@ D) M(t) = 80·(1 - 0.25t)`}
           <p>
             <strong>Vị trí & vai trò trên đề:</strong> Khoảng 3–5 câu/section. Gồm từ rất dễ (đổi đơn vị) đến khá/khó (multi-step rates, density, mixture).
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> SAT kiểm tra xem bạn có viết được tỉ lệ đúng đơn vị (what per what), dùng đổi đơn vị bằng "phân số 1" (conversion factor) kỉ luật, và hiểu ý nghĩa của các rate như speed, density, price...
           </div>
           <p>
@@ -1416,7 +1416,7 @@ D) M(t) = 80·(1 - 0.25t)`}
           <p>
             <strong>Vị trí & dạng bài:</strong> Khoảng 3–6 câu/section. Dữ liệu: bảng, đồ thị đường, biểu đồ cột, scatterplot, line of best fit.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Với phương trình line of best fit (y = mx + b). m = "trung bình y thay đổi khi x tăng 1". b = giá trị dự đoán của y khi x = 0. 
             Phát biểu "được hỗ trợ" bởi dữ liệu = có thể đọc hoặc nội suy ngắn từ bảng biểu.
           </div>
@@ -1438,8 +1438,8 @@ D) The highest possible score is 4.2 times the number of hours tutored.`}
           />
 
           <h4 className="font-bold mt-4">2.2. Ví dụ 2 – Two-variable data: Models and scatterplots</h4>
-          <div className="my-4 bg-white p-4 border border-gray-200 rounded text-center">
-            <svg width="250" height="200" viewBox="0 0 250 200" className="mx-auto rounded shadow-sm bg-gray-50">
+          <div className="my-4 bg-white p-4 border border-black/10 rounded text-center">
+            <svg width="250" height="200" viewBox="0 0 250 200" className="mx-auto rounded shadow-sm bg-[#fffdf0]">
               {/* Axes */}
               <line x1="30" y1="170" x2="230" y2="170" stroke="black" strokeWidth="2" />
               <line x1="30" y1="170" x2="30" y2="20" stroke="black" strokeWidth="2" />
@@ -1462,7 +1462,7 @@ D) The highest possible score is 4.2 times the number of hours tutored.`}
               {/* Line of best fit */}
               <line x1="30" y1="160" x2="220" y2="30" stroke="blue" strokeWidth="2" strokeDasharray="4 2" />
             </svg>
-            <p className="text-sm mt-2 text-gray-500 italic">Hình minh hoạ: Scatterplot và Line of best fit (đường xu hướng) biểu diễn sự tương quan dương.</p>
+            <p className="text-sm mt-2 text-slate-500 italic">Hình minh hoạ: Scatterplot và Line of best fit (đường xu hướng) biểu diễn sự tương quan dương.</p>
           </div>
           <ExampleBox
             question={`The scatterplot above shows the relationship between studying hours and test scores. The blue dashed line is the line of best fit. Which of the following is the most appropriate conclusion?
@@ -1481,7 +1481,7 @@ D) There is no relationship between the two variables.`}
           <p>
             <strong>Vị trí & dạng bài:</strong> 3–5 câu/section. Hỏi trực tiếp hoặc kết hợp với thêm/bớt giá trị, outlier, so sánh độ rải (spread).
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Definitions nhanh:</strong><br/>
             - Mean = average = sum / count.<br/>
             - Median = giá trị giữa sau khi sort.<br/>
@@ -1523,7 +1523,7 @@ D) There is no relationship between the two variables.`}
           </p>
 
           <h4 className="font-bold mt-4">4.1. Basic & Conditional Probability</h4>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> P(A) = favourable / total. P(A|B) = P(A and B) / P(B). Cụm "Given B" → mẫu số chỉ xét nhóm B.
           </div>
           <ExampleBox
@@ -1538,7 +1538,7 @@ If a student is chosen at random among those who participate in music, what is t
           />
 
           <h4 className="font-bold mt-4">4.2. Inference from sample statistics and margin of error</h4>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> Kết quả poll: estimate p̂ và margin ±m → khoảng khả dĩ: [p̂ - m, p̂ + m]. Không được chốt "exactly", "at least", "at most".
           </div>
           <ExampleBox
@@ -1551,7 +1551,7 @@ D) At most 52% support A.`}
           />
 
           <h4 className="font-bold mt-4">4.3. Evaluating statistical claims: Observational studies and experiments</h4>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong><br/>
             - Observational study: Chỉ quan sát, không gán ngẫu nhiên → Chỉ được kết luận association (có liên hệ).<br/>
             - Experiment with random assignment: Chia ngẫu nhiên vào treatment/control → Có thể khẳng định cause-effect (quan hệ nhân-quả).
@@ -1577,7 +1577,7 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
     category: "Math",
     title: "Geometry & Trig (15%)",
     content: (
-      <div className="space-y-8 text-lg leading-relaxed text-gray-800">
+      <div className="space-y-8 text-lg leading-relaxed text-black">
         <div className="bg-black text-white p-6">
           <h2 className="text-3xl font-bold mb-2">Geometry & Trig (~15%)</h2>
           <p className="opacity-90">
@@ -1592,7 +1592,7 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
           <p>
             <strong>Vị trí trên đề:</strong> 2–3 câu/section, đa phần công thức cơ bản (cho sẵn hoặc "ngầm quen thuộc"). Thường kết hợp với đổi đơn vị hoặc so sánh tỉ lệ (scale factor).
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             - Hình trụ: V = πr²h. Hình hộp chữ nhật: V = lwh.
             - Diện tích tỉ lệ với k² khi scale chiều dài lên k; thể tích tỉ lệ với k³.
@@ -1616,7 +1616,7 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
           <p>
             <strong>Vị trí trên đề:</strong> 3–4 câu/section. Nền tảng: Tổng ba góc tam giác = 180°, góc kề bù = 180°, đường thẳng song song, tam giác đồng dạng.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             Với tam giác, biết hai góc thì lấy 180° trừ đi. Với đường thẳng song song và cắt chéo: alternate interior / corresponding angles thường bằng nhau.
           </div>
@@ -1639,7 +1639,7 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
           <p>
             <strong>Vị trí trên đề:</strong> 2–3 câu/section. Chủ yếu: Pythagoras, Tam giác đặc biệt 30–60–90, 45–45–90, SOH CAH TOA, và liên hệ sin(θ) = cos(90° - θ).
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             - sin(θ) = đối/huyền; cos(θ) = kề/huyền.
             - Trong tam giác vuông, 2 góc nhọn phụ nhau → sin(θ) = cos(90° - θ).
@@ -1663,7 +1663,7 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
           <p>
             <strong>Vị trí trên đề:</strong> 2–3 câu/section. Kiểm tra: Phương trình đường tròn, quan hệ giữa (h, k) và r, độ dài cung/diện tích quạt.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+          <div className="bg-[#fffdf0] border-l-4 border-[#ffe36d] p-4 my-4">
             <strong>Mini-theory:</strong> 
             Phương trình chuẩn: (x - h)² + (y - k)² = r² với tâm (h, k) và bán kính r. Đôi khi cần "hoàn thành bình phương" (complete the square) từ dạng mở rộng.
           </div>

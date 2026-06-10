@@ -22,6 +22,27 @@ const AIDrillSolverView: React.FC = () => {
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
     const [imageUrl, setImageUrl] = useState('');
     const [textContent, setTextContent] = useState('');
+    const [isLocked, setIsLocked] = useState(false);
+
+    useEffect(() => {
+        const host = window.location.hostname;
+        // Lock if accessing from vercel or other external hosts. Allow localhost, run.app (AI Studio), googleusercontent.com
+        if (!host.includes('run.app') && !host.includes('localhost') && !host.includes('googleusercontent.com')) {
+            setIsLocked(true);
+        }
+    }, []);
+
+    if (isLocked) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[50vh] text-center p-8 bg-white rounded-3xl border border-gray-200 shadow-sm max-w-2xl mx-auto mt-12 animate-fade-in">
+                <div className="text-6xl mb-6">🔒</div>
+                <h2 className="text-2xl font-extrabold text-black uppercase tracking-tight mb-4">Tính năng khóa</h2>
+                <p className="text-gray-600 mb-8 max-w-md mx-auto">
+                    Tính năng AI Solver hiện chỉ được tiếp cận trải nghiệm native tại màn hình ứng dụng gốc. Vui lòng truy cập qua hệ thống chính thức.
+                </p>
+            </div>
+        );
+    }
     const [sourceCredit, setSourceCredit] = useState('');
     
     const [loading, setLoading] = useState(false);

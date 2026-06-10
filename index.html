@@ -22,7 +22,8 @@
             fontFamily: {
               mono: ['Roboto Mono', 'monospace'],
               sans: ['Inter', 'sans-serif'],
-              display: ['Space Grotesk', 'sans-serif']
+              display: ['Space Grotesk', 'sans-serif'],
+              math: ['"Cambria Math"', 'Cambria', '"Times New Roman"', 'serif']
             }
           }
         }
@@ -56,6 +57,10 @@
       @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
       
       /* Base overrides */
+      html, body, #root {
+        height: 100%;
+        margin: 0;
+      }
       body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
