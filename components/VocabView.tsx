@@ -59,7 +59,13 @@ const VocabView: React.FC = () => {
                           (card.antonym && card.antonym.toLowerCase().includes(searchQuery.toLowerCase()));
       
       // 3. Academic Topic Filter
-      const topicToMatch = selectedTopic === "All Areas" ? true : (card.topic && card.topic === selectedTopic);
+      const topicToMatch = selectedTopic === "All Areas" ? true : (
+        card.topic ? (
+          Array.isArray(card.topic) 
+            ? card.topic.includes(selectedTopic) 
+            : card.topic === selectedTopic
+        ) : false
+      );
       
       // 4. Alphabet starting letter filter
       const letterToMatch = selectedLetter === "All" ? true : (card.term && card.term.toUpperCase().startsWith(selectedLetter));
@@ -506,9 +512,17 @@ const VocabView: React.FC = () => {
                     {currentCard.type}
                   </span>
                   {currentCard.topic && (
-                    <span className="bg-gray-100 text-gray-700 px-2.5 py-0.5 rounded-full text-[10px] font-semibold capitalize border border-gray-200">
-                      {currentCard.topic}
-                    </span>
+                    Array.isArray(currentCard.topic) ? (
+                      currentCard.topic.map((t) => (
+                        <span key={t} className="bg-gray-100 text-gray-700 px-2.5 py-0.5 rounded-full text-[10px] font-semibold border border-gray-200">
+                          {t}
+                        </span>
+                      ))
+                    ) : (
+                      <span className="bg-gray-100 text-gray-700 px-2.5 py-0.5 rounded-full text-[10px] font-semibold border border-gray-200">
+                        {currentCard.topic}
+                      </span>
+                    )
                   )}
                 </div>
                 
@@ -548,9 +562,17 @@ const VocabView: React.FC = () => {
                  {/* Inner badge info */}
                  <div className="absolute top-3 left-4 flex gap-1">
                    {currentCard.topic && (
-                     <span className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-full border border-red-500/20 font-mono">
-                       🎓 {currentCard.topic}
-                     </span>
+                     Array.isArray(currentCard.topic) ? (
+                       currentCard.topic.map((t) => (
+                         <span key={t} className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-full border border-red-500/20 font-mono">
+                           🎓 {t}
+                         </span>
+                       ))
+                     ) : (
+                       <span className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-full border border-red-500/20 font-mono">
+                         🎓 {currentCard.topic}
+                       </span>
+                     )
                    )}
                  </div>
 

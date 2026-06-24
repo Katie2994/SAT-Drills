@@ -29,7 +29,7 @@ export interface VocabCard {
   note?: string;
   synonym?: string;
   antonym?: string;
-  topic?: string;
+  topic?: string | string[];
 }
 
 export interface TheorySection {
