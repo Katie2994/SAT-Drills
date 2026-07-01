@@ -97,7 +97,7 @@ const DesmosWidget: React.FC = () => {
       <button
         onClick={() => setIsOpen(true)}
         disabled={!isScriptLoaded}
-        className={`fixed bottom-6 right-6 z-[40] bg-[#DC2323] text-white px-5 py-3.5 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-2 border-black rounded-full hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2 font-sans font-bold group ${!isScriptLoaded ? "opacity-70 cursor-wait" : ""}`}
+        className={`fixed bottom-6 right-6 z-[40] bg-[#dc2323] text-white px-5 py-3.5 shadow-sm border border-[#dc2323] rounded-cb-md hover:bg-[#b01c1c] transition-all flex items-center gap-2 font-sans font-bold group ${!isScriptLoaded ? "opacity-70 cursor-wait" : ""} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2323] focus-visible:ring-offset-2`}
         title="Open Graphing Calculator"
       >
         {isScriptLoaded ? (
@@ -115,8 +115,8 @@ const DesmosWidget: React.FC = () => {
   const windowClasses = isFullscreen
     ? "fixed inset-0 w-full h-full z-[9999]"
     : isMinimized
-      ? "fixed bottom-6 right-6 w-72 h-12 overflow-hidden z-[40] rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-      : "fixed bottom-6 right-6 w-[90vw] h-[50vh] md:w-[640px] md:h-[520px] z-[40] rounded-2xl border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]";
+      ? "fixed bottom-6 right-6 w-72 h-12 overflow-hidden z-[40] rounded-cb-md border border-[#d9d9d9] shadow-sm"
+      : "fixed bottom-6 right-6 w-[90vw] h-[50vh] md:w-[640px] md:h-[520px] z-[40] rounded-cb-lg border border-[#d9d9d9] shadow-cb";
 
   const calculatorWindow = (
     <div
@@ -124,7 +124,7 @@ const DesmosWidget: React.FC = () => {
       className={`${windowClasses} transition-all duration-300 font-sans bg-white flex flex-col`}
     >
       <div
-        className="bg-[#21242c] text-white px-4 flex justify-between items-center select-none h-12 flex-shrink-0 cursor-pointer drag-handle"
+        className="bg-[#1e1e1e] text-white px-4 flex justify-between items-center select-none h-12 flex-shrink-0 cursor-pointer drag-handle border-b border-[#d9d9d9]"
         onClick={() => {
           if (isMinimized) setIsMinimized(false);
         }}
@@ -132,7 +132,7 @@ const DesmosWidget: React.FC = () => {
         <div className="flex items-center gap-2">
           <GripVertical className="w-4 h-4 text-gray-400 -ml-2 cursor-grab" />
           <Calculator className="w-4 h-4 text-[#ffe36d]" />
-          <span className="text-xs font-bold uppercase tracking-wider">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#f5f7fc]">
             Desmos Graphing
           </span>
         </div>
@@ -143,7 +143,7 @@ const DesmosWidget: React.FC = () => {
               setIsFullscreen(!isFullscreen);
               setIsMinimized(false);
             }}
-            className="p-1.5 hover:bg-white/10 rounded-lg text-white transition-all"
+            className="p-1.5 hover:bg-white/10 rounded-cb-xs text-[#f5f7fc] transition-all"
             title={isFullscreen ? "Restore" : "Fullscreen"}
           >
             {isFullscreen ? (
@@ -158,7 +158,7 @@ const DesmosWidget: React.FC = () => {
               setIsMinimized(!isMinimized);
               setIsFullscreen(false);
             }}
-            className="p-1.5 hover:bg-white/10 rounded-lg text-white transition-all"
+            className="p-1.5 hover:bg-white/10 rounded-cb-xs text-[#f5f7fc] transition-all"
             title={isMinimized ? "Expand" : "Minimize"}
           >
             <MinusSquare className="w-4 h-4" />
@@ -170,7 +170,7 @@ const DesmosWidget: React.FC = () => {
               setIsMinimized(false);
               setIsFullscreen(false);
             }}
-            className="p-1.5 hover:bg-[#DC2323] hover:text-white rounded-lg text-white transition-all"
+            className="p-1.5 hover:bg-[#dc2323] hover:text-white rounded-cb-xs text-[#f5f7fc] transition-all"
             title="Close"
           >
             <X className="w-4 h-4" />
@@ -179,7 +179,7 @@ const DesmosWidget: React.FC = () => {
       </div>
 
       <div
-        className={`flex-grow relative bg-gray-50 w-full h-full transition-opacity duration-300 ${isMinimized ? "opacity-0 invisible" : "opacity-100 visible"}`}
+        className={`flex-grow relative bg-[#f5f7fc] w-full h-full transition-opacity duration-300 ${isMinimized ? "opacity-0 invisible" : "opacity-100 visible"}`}
       >
         {!isScriptLoaded ? (
           <div className="w-full h-full flex flex-col items-center justify-center text-gray-400">

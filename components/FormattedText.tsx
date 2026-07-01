@@ -19,11 +19,11 @@ const FormattedText: React.FC<FormattedTextProps> = ({ text, className = '', noH
       // Heuristic: If a line starts with "A) ", "(A) ", "A. ", etc., give it indentation
       const isOption = /^(\(|)[A-D](\)|\.)\s/i.test(trimmed);
       
-      let lineClass = 'min-h-[1.5em] text-gray-800 leading-relaxed';
+      let lineClass = 'min-h-[1.5em] text-[#1e1e1e] leading-relaxed';
       if (trimmed === '') {
         lineClass = 'h-4'; // Spacer for empty lines
       } else if (isOption) {
-        lineClass = 'pl-4 font-bold text-gray-900 mt-1';
+        lineClass = 'pl-4 font-bold text-[#1e1e1e] mt-1';
       }
 
       if (trimmed === '') {
@@ -38,7 +38,7 @@ const FormattedText: React.FC<FormattedTextProps> = ({ text, className = '', noH
           {parts.map((part, partIdx) => {
             if (part.startsWith('**') && part.endsWith('**')) {
               return (
-                <strong key={partIdx} className={`font-black text-gray-900 ${noHighlight ? '' : 'bg-gray-100 px-1 rounded-sm'}`}>
+                <strong key={partIdx} className={`font-bold text-[#1e1e1e] ${noHighlight ? '' : 'bg-[#f5f7fc] px-1 rounded-cb-xs'}`}>
                   {part.slice(2, -2)}
                 </strong>
               );

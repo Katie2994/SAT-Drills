@@ -28,16 +28,12 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
   return (
     <div 
       ref={ref}
-      className="relative w-[1080px] h-[1350px] bg-[#ffe36d] overflow-hidden font-sans select-none"
-      style={{
-        backgroundImage: "radial-gradient(#000000 3px, #ffe36d 3px)",
-        backgroundSize: "40px 40px"
-      }}
+      className="relative w-[1080px] h-[1350px] bg-[#f5f7fc] overflow-hidden font-sans select-none"
     >
       {/* Top Bar - Scaled to match smaller yellow border */}
-      <div className="absolute top-4 left-6 right-6 flex justify-between items-center z-10 gap-4">
-        <div className="bg-white border-[5px] border-black rounded-[30px] px-8 py-4 w-full text-center shadow-[8px_8px_0px_0px_#000000]">
-          <h2 className="text-2xl font-black uppercase tracking-widest text-black whitespace-nowrap truncate">
+      <div className="absolute top-8 left-8 right-8 flex justify-between items-center z-10 gap-4">
+        <div className="bg-[#1e1e1e] border border-[#d9d9d9] rounded-cb-md px-8 py-6 w-full text-center shadow-cb">
+          <h2 className="text-3xl font-display font-bold uppercase tracking-widest text-white whitespace-nowrap truncate">
             {isConcept ? "MATH CONCEPTS • GENIUS" : "DIGITAL SAT • VOCAB GENIUS"}
           </h2>
         </div>
@@ -45,44 +41,33 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
 
       {/* Main Content Card - with crimson radial glow & high-tech grid layout */}
       <div 
-        className="absolute top-[105px] left-6 right-6 bottom-6 bg-[#161a26] border-[5px] border-black rounded-[45px] shadow-[12px_12px_0px_0px_#000000] flex flex-col"
-        style={{
-          backgroundImage: `
-            radial-gradient(ellipse at top right, rgba(220, 35, 35, 0.15), transparent 60%),
-            linear-gradient(to right, rgba(255, 255, 255, 0.03) 2px, transparent 2px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 2px, transparent 2px)
-          `,
-          backgroundSize: '100% 100%, 40px 40px, 40px 40px'
-        }}
+        className="absolute top-[160px] left-8 right-8 bottom-8 bg-white border border-[#d9d9d9] rounded-cb-lg shadow-cb flex flex-col"
       >
-        {/* Inner dashed border */}
-        <div className="absolute inset-5 border-[3px] border-dashed border-gray-650 rounded-[35px] pointer-events-none" />
-
-        <div className="relative z-10 pt-[75px] pb-10 px-10 flex-1 flex flex-col h-full justify-between">
+        <div className="relative z-10 pt-[75px] pb-10 px-12 flex-1 flex flex-col h-full justify-between">
           
           {/* Header Row */}
           <div className="flex justify-between items-start gap-6 shrink-0">
             <div className="flex-1 pr-2">
-              <h3 className="text-[#ffe36d] text-xl font-black tracking-[0.2em] mb-2 uppercase">
+              <h3 className="text-[#324dc7] text-2xl font-bold tracking-[0.2em] mb-4 uppercase">
                 {isConcept ? "MATH CONCEPT" : "VOCABULARY"}
               </h3>
-              <h1 className={`text-white font-black leading-tight mb-4 break-words tracking-tight ${termSize}`}>
+              <h1 className={`text-[#1e1e1e] font-display font-extrabold leading-tight mb-6 break-words tracking-tight ${termSize}`}>
                 {card.term}
               </h1>
               
-              <div className="flex flex-wrap gap-4 mt-4 items-center max-w-full">
+              <div className="flex flex-wrap gap-4 mt-6 items-center max-w-full">
                 {card.synonym && (
                   <div className="flex items-center gap-3 max-w-full">
-                    <span className="text-slate-300 text-[18px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">Synonym</span>
-                    <div className="text-black text-[22px] font-bold tracking-wide bg-[#ffe36d] inline-block px-5 py-2 rounded-2xl border-2 border-black shadow-[3px_3px_0px_0px_#000000] break-words">
+                    <span className="text-gray-500 text-[20px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">Synonym</span>
+                    <div className="text-[#1e1e1e] text-[24px] font-bold tracking-wide bg-[#ffe36d] inline-block px-5 py-2.5 rounded-cb-xs border border-[#d9d9d9] shadow-sm break-words">
                       {card.synonym}
                     </div>
                   </div>
                 )}
                 {card.antonym && (
                   <div className="flex items-center gap-3 max-w-full">
-                    <span className="text-slate-300 text-[18px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">Antonym</span>
-                    <div className="text-white text-[22px] font-bold tracking-wide bg-gray-800 inline-block px-5 py-2 rounded-2xl border-2 border-gray-700 shadow-[3px_3px_0px_0px_#000000] break-words">
+                    <span className="text-gray-500 text-[20px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">Antonym</span>
+                    <div className="text-white text-[24px] font-bold tracking-wide bg-[#1e1e1e] inline-block px-5 py-2.5 rounded-cb-xs border border-[#1e1e1e] shadow-sm break-words">
                       {card.antonym}
                     </div>
                   </div>
@@ -90,12 +75,12 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
               </div>
 
               {card.topic && (
-                <div className="mt-6 flex items-center gap-4 max-w-full">
-                  <span className="text-slate-300 text-[20px] font-extrabold tracking-wider uppercase whitespace-nowrap shrink-0">🌍 Subject</span>
+                <div className="mt-8 flex items-center gap-4 max-w-full">
+                  <span className="text-gray-500 text-[22px] font-extrabold tracking-wider uppercase whitespace-nowrap shrink-0">Subject</span>
                   <div className="flex flex-wrap gap-3">
                     {Array.isArray(card.topic) ? (
                       card.topic.map((t) => (
-                        <div key={t} className="text-[20px] font-black tracking-wider uppercase bg-[#dc2323] text-white border-4 border-black px-6 py-3 rounded-full inline-flex items-center justify-center shadow-[6px_6px_0px_0px_#000000] whitespace-nowrap leading-none w-fit">
+                        <div key={t} className="text-[22px] font-bold tracking-wider uppercase bg-[#dc2323] text-white border border-[#dc2323] px-6 py-3 rounded-cb-xs inline-flex items-center justify-center shadow-sm whitespace-nowrap leading-none w-fit">
                            {t}
                         </div>
                       ))
@@ -127,21 +112,12 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
           <div className="flex-grow flex flex-col justify-center gap-6 my-4">
             
             {/* Meaning Container */}
-            <div className="bg-gradient-to-r from-[#1c2230] to-[#121622] border-[3px] border-black p-8 rounded-[30px] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden flex-shrink-0">
-               {/* Pattern overlay to reduce negative empty space */}
-               <div 
-                 className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-                 style={{
-                   backgroundImage: `repeating-linear-gradient(45deg, #ffffff 0, #ffffff 2px, transparent 0, transparent 50%)`,
-                   backgroundSize: '12px 12px'
-                 }} 
-               />
-
+            <div className="bg-[#f5f7fc] border border-[#324dc7] p-8 rounded-cb-md shadow-sm relative overflow-hidden flex-shrink-0">
                <div className="relative z-10 w-full overflow-hidden">
-                 <div className="inline-block bg-[#dc2323] text-white text-sm font-black tracking-widest px-4 py-1.5 rounded-lg border-2 border-black mb-4 uppercase shadow-[3px_3px_0px_0px_#000000] whitespace-nowrap truncate max-w-[100%] overflow-hidden">
+                 <div className="inline-block bg-[#1e1e1e] text-white text-sm font-bold tracking-widest px-4 py-1.5 rounded-cb-xs mb-4 uppercase whitespace-nowrap truncate max-w-[100%] overflow-hidden">
                     DEFINITION • ĐỊNH NGHĨA
                  </div>
-                 <p className={`text-white font-extrabold tracking-tight break-words max-w-full ${defSize}`}>
+                 <p className={`text-[#1e1e1e] font-display font-extrabold tracking-tight break-words max-w-full ${defSize}`}>
                    {card.definition}
                  </p>
                </div>
@@ -149,16 +125,16 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
 
             {/* Example Container if exists */}
             {card.example && (
-              <div className="bg-[#171c2a] border-[3px] border-dashed border-gray-600 rounded-[30px] p-8 relative overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex-shrink-0">
+              <div className="bg-[#fffdf0] border border-[#ffe36d] rounded-cb-md p-8 relative overflow-hidden shadow-sm flex-shrink-0">
                 {/* Ambient dynamic accent indicator */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#ffe36d] border-l-[3px] border-b-[3px] border-black rounded-bl-[20px] flex items-center justify-center text-[48px] font-bold select-none text-black">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-[#ffe36d] border-l border-b border-[#ffe36d] rounded-bl-cb-sm flex items-center justify-center text-[48px] font-bold select-none text-black">
                   📖
                 </div>
                 
-                <h3 className="text-[#ffe36d] text-[24px] font-black tracking-[0.1em] mb-4 uppercase">
+                <h3 className="text-[#dc2323] text-[24px] font-bold tracking-[0.1em] mb-4 uppercase">
                   EXAMPLE IN CONTEXT
                 </h3>
-                <p className="text-gray-100 text-[42px] font-serif italic leading-[1.4] pr-[80px] break-words max-w-full">
+                <p className="text-[#1e1e1e] text-[42px] font-serif italic leading-[1.4] pr-[80px] break-words max-w-full">
                   "{card.example}"
                 </p>
               </div>
@@ -167,13 +143,13 @@ const FlashcardTemplate = forwardRef<HTMLDivElement, FlashcardTemplateProps>(({ 
 
           {/* Bottom Tags */}
           <div className="flex gap-4 z-20 mt-auto shrink-0 w-full">
-             <div className="bg-[#ffe36d] border-[4px] border-black rounded-full h-[60px] text-xs font-black tracking-widest text-black shadow-[6px_6px_0px_0px_#000000] flex items-center justify-center min-w-[145px] px-5 text-center uppercase leading-none whitespace-nowrap truncate">
+             <div className="bg-[#ffe36d] border border-[#d9d9d9] rounded-full h-[60px] text-sm font-bold tracking-widest text-[#1e1e1e] shadow-sm flex items-center justify-center min-w-[145px] px-5 text-center uppercase leading-none whitespace-nowrap truncate">
                {isConcept ? "MATH DRILLS" : "VOCAB DRILLS"}
              </div>
-             <div className="bg-[#dc2323] border-[4px] border-black rounded-full h-[60px] font-black text-lg text-white shadow-[6px_6px_0px_0px_#000000] flex-1 flex items-center justify-center px-8 text-center truncate leading-none">
+             <div className="bg-[#dc2323] border border-[#dc2323] rounded-full h-[60px] font-bold text-xl text-white shadow-sm flex-1 flex items-center justify-center px-8 text-center truncate leading-none">
                @SAT_DRILLS
              </div>
-             <div className="bg-white border-[4px] border-black rounded-full h-[60px] font-black text-lg shadow-[6px_6px_0px_0px_#000000] flex items-center justify-center min-w-[125px] px-8 text-center leading-none whitespace-nowrap truncate">
+             <div className="bg-white border border-[#d9d9d9] rounded-full h-[60px] font-bold text-xl text-[#1e1e1e] shadow-sm flex items-center justify-center min-w-[125px] px-8 text-center leading-none whitespace-nowrap truncate">
                2026
              </div>
           </div>

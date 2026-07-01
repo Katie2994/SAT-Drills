@@ -16,7 +16,8 @@ const VERBAL_TOPICS = [
   "Business & Law",
   "History & Social",
   "Logic & Essay",
-  "General Academic"
+  "General Academic",
+  "US Politics"
 ];
 
 const MATH_TOPICS = [
@@ -504,22 +505,22 @@ const VocabView: React.FC = () => {
             >
               {/* Front */}
               <div 
-                className="absolute w-full h-full bg-white border-2 border-black rounded-2xl shadow-[4px_4px_0px_0px_#000000] flex flex-col items-center justify-center p-4 md:p-6 backface-hidden"
+                className="absolute w-full h-full bg-white border border-[#d9d9d9] rounded-cb-sm shadow-cb flex flex-col items-center justify-center p-4 md:p-6 backface-hidden"
                 style={{ backfaceVisibility: 'hidden' }}
               >
                 <div className="absolute top-3 left-4 flex gap-1">
-                  <span className="bg-red-50 text-[#dc2323] px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border border-red-200">
+                  <span className="bg-[#f5f7fc] text-[#dc2323] px-2.5 py-0.5 rounded-cb-xs text-[10px] font-bold uppercase tracking-wider border border-[#d9d9d9]">
                     {currentCard.type}
                   </span>
                   {currentCard.topic && (
                     Array.isArray(currentCard.topic) ? (
                       currentCard.topic.map((t) => (
-                        <span key={t} className="bg-gray-100 text-gray-700 px-2.5 py-0.5 rounded-full text-[10px] font-semibold border border-gray-200">
+                        <span key={t} className="bg-gray-50 text-gray-700 px-2.5 py-0.5 rounded-cb-xs text-[10px] font-medium border border-[#d9d9d9]">
                           {t}
                         </span>
                       ))
                     ) : (
-                      <span className="bg-gray-100 text-gray-700 px-2.5 py-0.5 rounded-full text-[10px] font-semibold border border-gray-200">
+                      <span className="bg-gray-50 text-gray-700 px-2.5 py-0.5 rounded-cb-xs text-[10px] font-medium border border-[#d9d9d9]">
                         {currentCard.topic}
                       </span>
                     )
@@ -530,7 +531,7 @@ const VocabView: React.FC = () => {
                 <div className="absolute top-3 right-4">
                   <button 
                     onClick={(e) => handleAudioClick(e, currentCard.term)}
-                    className="p-1.5 bg-gray-50 rounded-full hover:bg-[#dc2323] hover:text-white transition-colors border border-gray-200 shadow-sm text-gray-500"
+                    className="p-1.5 bg-gray-50 rounded-full hover:bg-[#dc2323] hover:text-white transition-colors border border-[#d9d9d9] shadow-sm text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7]"
                     title="Listen to term"
                   >
                     <Volume2 className="w-4 h-4" />
@@ -544,11 +545,11 @@ const VocabView: React.FC = () => {
                   </div>
                 )}
                 
-                <h3 className="text-lg md:text-2xl font-black text-[#21242c] text-center tracking-tight leading-tight break-words max-w-full px-2">
+                <h3 className="text-xl md:text-3xl font-display font-bold text-[#1e1e1e] text-center tracking-tight leading-tight break-words max-w-full px-2">
                   {currentCard.term}
                 </h3>
                 
-                <div className="absolute bottom-3 flex items-center gap-1 text-[#dc2323] font-bold text-[10px] bg-red-50 border border-red-200 px-2.5 py-1 rounded-full opacity-60 group-hover:opacity-100 transition-opacity">
+                <div className="absolute bottom-3 flex items-center gap-1 text-[#dc2323] font-medium text-[10px] bg-[#f5f7fc] border border-[#d9d9d9] px-2.5 py-1 rounded-cb-xs opacity-60 group-hover:opacity-100 transition-opacity">
                   <RotateCw className="w-3.5 h-3.5" /> 
                   <span>Click to reveal definition</span>
                 </div>
@@ -556,7 +557,7 @@ const VocabView: React.FC = () => {
 
               {/* Back description card */}
               <div 
-                className="absolute w-full h-full bg-[#1a202c] border-2 border-black rounded-2xl shadow-[4px_4px_0px_0px_#000000] flex flex-col items-center justify-center p-4 md:p-6 text-white backface-hidden"
+                className="absolute w-full h-full bg-[#1e1e1e] border border-gray-700 rounded-cb-sm shadow-cb flex flex-col items-center justify-center p-4 md:p-6 text-white backface-hidden"
                 style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
               >
                  {/* Inner badge info */}
@@ -564,12 +565,12 @@ const VocabView: React.FC = () => {
                    {currentCard.topic && (
                      Array.isArray(currentCard.topic) ? (
                        currentCard.topic.map((t) => (
-                         <span key={t} className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-full border border-red-500/20 font-mono">
+                         <span key={t} className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-cb-xs border border-red-500/20 font-mono">
                            🎓 {t}
                          </span>
                        ))
                      ) : (
-                       <span className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-full border border-red-500/20 font-mono">
+                       <span className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-cb-xs border border-red-500/20 font-mono">
                          🎓 {currentCard.topic}
                        </span>
                      )
@@ -583,23 +584,23 @@ const VocabView: React.FC = () => {
                  {/* Synonyms & Antonyms displayed side-by-side */}
                  <div className="flex flex-wrap gap-1.5 justify-center mb-2">
                    {currentCard.synonym && (
-                     <div className="bg-yellow-400 text-black px-2 py-1 rounded-xl text-[10px] font-bold shadow-sm">
+                     <div className="bg-[#ffe36d] text-black px-2 py-1 rounded-cb-xs text-[10px] font-bold shadow-sm">
                        Synonym: {currentCard.synonym}
                      </div>
                    )}
                    {currentCard.antonym && (
-                     <div className="bg-gray-700 text-white border border-gray-600 px-2 py-1 rounded-xl text-[10px] font-bold shadow-sm">
+                     <div className="bg-gray-700 text-white border border-gray-600 px-2 py-1 rounded-cb-xs text-[10px] font-medium shadow-sm">
                        Antonym: {currentCard.antonym}
                      </div>
                    )}
                  </div>
 
                  {currentCard.example && (
-                   <div className="bg-black/20 p-2.5 rounded-xl border border-white/10 w-full max-w-lg relative mt-1 text-center">
+                   <div className="bg-black/20 p-3 rounded-cb-xs border border-white/10 w-full max-w-lg relative mt-2 text-center">
                      <p className="text-gray-300 text-xs italic pr-5 leading-normal">"{currentCard.example}"</p>
                      <button 
                         onClick={(e) => handleAudioClick(e, currentCard.example || "")}
-                        className="absolute top-2 right-2 text-white/40 hover:text-white transition-colors p-0.5"
+                        className="absolute top-2 right-2 text-white/40 hover:text-white transition-colors p-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffe36d] rounded-sm"
                         title="Listen to example"
                      >
                        <Volume2 className="w-3.5 h-3.5" />
@@ -608,7 +609,7 @@ const VocabView: React.FC = () => {
                  )}
                  
                  {currentCard.note && (
-                    <div className="mt-2 flex items-center gap-1 text-[#ffe36d] text-[10px] bg-black/40 px-2 py-1 rounded-full border border-white/10 font-bold">
+                    <div className="mt-3 flex items-center gap-1 text-[#ffe36d] text-[10px] bg-black/40 px-2.5 py-1 rounded-cb-xs border border-white/10 font-bold">
                       <Lightbulb className="w-3 h-3" />
                       <span>{currentCard.note}</span>
                     </div>

@@ -15,21 +15,65 @@
                 red: '#dc2323',
                 yellow: '#ffe36d',
                 black: '#000000',
-                dark: '#1a1a1a',
-                light: '#f8f9fa'
+                dark: '#1e1e1e',
+                light: '#f5f7fc'
+              },
+              surface: {
+                muted: '#ffffff',
+                base: '#000000',
+                strong: '#f5f7fc'
+              },
+              border: {
+                muted: '#324dc7',
+                strong: '#d9d9d9'
               }
             },
             fontFamily: {
               mono: ['Roboto Mono', 'monospace'],
-              sans: ['Inter', 'sans-serif'],
+              sans: ['Roboto', 'sans-serif'],
               display: ['Space Grotesk', 'sans-serif'],
               math: ['"Cambria Math"', 'Cambria', '"Times New Roman"', 'serif']
+            },
+            fontSize: {
+              xs: ['14px', '24px'],
+              sm: ['16px', '24px'],
+              md: ['18px', '28px'],
+              lg: ['21px', '32px'],
+              xl: ['24px', '36px'],
+              '2xl': ['26px', '40px'],
+              '3xl': ['28px', '44px'],
+              '4xl': ['40px', '56px']
+            },
+            spacing: {
+              'cb-1': '8px',
+              'cb-2': '11px',
+              'cb-3': '12px',
+              'cb-4': '16px',
+              'cb-5': '17px',
+              'cb-6': '20px',
+              'cb-7': '23px',
+              'cb-8': '24px'
+            },
+            borderRadius: {
+              'cb-xs': '12px',
+              'cb-sm': '16px',
+              'cb-md': '24px',
+              'cb-lg': '32px'
+            },
+            boxShadow: {
+              'cb': '0px 0px 12px 0px rgba(0, 0, 0, 0.1)',
+              'hard': '4px 4px 0px 0px rgba(0,0,0,1)',
+              'hard-sm': '2px 2px 0px 0px rgba(0,0,0,1)'
+            },
+            transitionDuration: {
+              'instant': '200ms',
+              'fast': '250ms'
             }
           }
         }
       }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
     
     <!-- KaTeX for Math Rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
@@ -39,9 +83,18 @@
 
     <style>
       body { 
-        font-family: 'Roboto Mono', monospace; 
-        background-color: #f8f9fa; 
-        color: #1a1a1a;
+        font-family: 'Roboto', sans-serif; 
+        background-color: #f5f7fc; 
+        color: #1e1e1e;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+      
+      /* Global Focus Visible */
+      *:focus-visible {
+        outline: 2px solid #dc2323;
+        outline-offset: 2px;
       }
       .flip-card { perspective: 1000px; }
       .flip-card-inner { transition: transform 0.6s; transform-style: preserve-3d; }

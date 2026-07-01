@@ -205,22 +205,22 @@ const AIDrillSolverView: React.FC = () => {
                 </div>
             )}
 
-            <div className="bg-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-3xl p-6 md:p-10 mb-12 relative">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#ffe36d] border-l-2 border-b-2 border-black rounded-bl-3xl flex items-center justify-center -mr-0.5 -mt-0.5 pointer-events-none">
-                    <img src="https://pbs.twimg.com/media/G9_w8N1aUAENd0l?format=jpg&name=large" alt="Logo" className="w-12 h-12 rounded-full border-2 border-black" referrerPolicy="no-referrer" />
+            <div className="bg-white border border-[#d9d9d9] shadow-cb rounded-cb-lg p-6 md:p-10 mb-12 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-[#f5f7fc] border-l border-b border-[#d9d9d9] rounded-bl-cb-md flex items-center justify-center -mr-px -mt-px pointer-events-none">
+                    <img src="https://pbs.twimg.com/media/G9_w8N1aUAENd0l?format=jpg&name=large" alt="Logo" className="w-12 h-12 rounded-full border border-[#d9d9d9]" referrerPolicy="no-referrer" />
                 </div>
                 
-                <h2 className="text-3xl font-black uppercase mb-8 pr-20 text-black tracking-tight">AI Drill Solver</h2>
+                <h2 className="text-3xl font-display font-extrabold uppercase mb-8 pr-20 text-[#1e1e1e] tracking-tight">AI Drill Solver</h2>
 
                 {/* Input Switcher */}
-                <div className="flex bg-gray-100 p-1 rounded-xl mb-8 w-fit shadow-inner border border-gray-200">
-                   <button onClick={() => setInputType('image')} className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all ${inputType === 'image' ? 'bg-white shadow border border-gray-200 text-[#dc2323]' : 'text-gray-600 hover:text-gray-900'}`}>
+                <div className="flex bg-[#f5f7fc] p-1.5 rounded-cb-sm mb-8 w-fit border border-[#d9d9d9]">
+                   <button onClick={() => setInputType('image')} className={`flex items-center gap-2 px-6 py-2.5 rounded-cb-xs text-sm font-bold transition-all ${inputType === 'image' ? 'bg-white shadow-sm border border-[#d9d9d9] text-[#dc2323]' : 'text-gray-600 hover:text-[#1e1e1e] hover:bg-white/50'}`}>
                       <FileImage className="w-4 h-4" /> Upload Ảnh
                    </button>
-                   <button onClick={() => setInputType('text')} className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all ${inputType === 'text' ? 'bg-white shadow border border-gray-200 text-[#dc2323]' : 'text-gray-600 hover:text-gray-900'}`}>
+                   <button onClick={() => setInputType('text')} className={`flex items-center gap-2 px-6 py-2.5 rounded-cb-xs text-sm font-bold transition-all ${inputType === 'text' ? 'bg-white shadow-sm border border-[#d9d9d9] text-[#dc2323]' : 'text-gray-600 hover:text-[#1e1e1e] hover:bg-white/50'}`}>
                       <Type className="w-4 h-4" /> Văn bản
                    </button>
-                   <button onClick={() => setInputType('url')} className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all ${inputType === 'url' ? 'bg-white shadow border border-gray-200 text-[#dc2323]' : 'text-gray-600 hover:text-gray-900'}`}>
+                   <button onClick={() => setInputType('url')} className={`flex items-center gap-2 px-6 py-2.5 rounded-cb-xs text-sm font-bold transition-all ${inputType === 'url' ? 'bg-white shadow-sm border border-[#d9d9d9] text-[#dc2323]' : 'text-gray-600 hover:text-[#1e1e1e] hover:bg-white/50'}`}>
                       <LinkIcon className="w-4 h-4" /> URL
                    </button>
                 </div>
@@ -228,21 +228,21 @@ const AIDrillSolverView: React.FC = () => {
                 <div className="flex flex-col items-center justify-center w-full mb-6">
                     {inputType === 'image' && (
                         !previewUrl ? (
-                            <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-gray-300 rounded-2xl cursor-pointer bg-gray-50 hover:bg-gray-100 hover:border-black transition-colors">
+                            <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-[#d9d9d9] rounded-cb-md cursor-pointer bg-white hover:bg-[#f5f7fc] hover:border-[#324dc7] transition-all">
                                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <div className="bg-white p-4 rounded-2xl shadow-sm mb-4 border border-gray-200">
-                                        <Upload className="w-8 h-8 text-black" />
+                                    <div className="bg-white p-4 rounded-cb-sm shadow-sm mb-4 border border-[#d9d9d9]">
+                                        <Upload className="w-8 h-8 text-[#324dc7]" />
                                     </div>
-                                    <p className="mb-2 text-sm text-gray-700 font-medium"><span className="font-bold text-black border-b-2 border-[#dc2323]">Nhấn để tải lên</span> hoặc kéo thả ảnh</p>
+                                    <p className="mb-2 text-sm text-gray-700 font-medium"><span className="font-bold text-[#324dc7] border-b border-[#324dc7]">Nhấn để tải lên</span> hoặc kéo thả ảnh</p>
                                 </div>
                                 <input id="dropzone-file" type="file" className="hidden" accept="image/*" onChange={handleFileChange} />
                             </label>
                         ) : (
-                            <div className="relative w-full max-w-2xl bg-gray-50 p-4 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_#000000]">
-                                <img src={previewUrl} alt="Preview" className="max-h-96 w-full object-contain rounded-xl" />
+                            <div className="relative w-full max-w-2xl bg-white p-4 rounded-cb-md border border-[#d9d9d9] shadow-sm">
+                                <img src={previewUrl} alt="Preview" className="max-h-96 w-full object-contain rounded-cb-sm" />
                                 <button 
                                     onClick={() => { setFile(null); setPreviewUrl(null); setResult(null); setIsRevealed(false); }}
-                                    className="absolute -top-4 -right-4 bg-white text-black border-2 border-black p-2 rounded-full hover:bg-gray-100 shadow-[2px_2px_0px_0px_#000000] transition-colors"
+                                    className="absolute -top-3 -right-3 bg-white text-gray-500 border border-[#d9d9d9] p-2 rounded-full hover:bg-[#f5f7fc] hover:text-[#dc2323] shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7]"
                                 >
                                     <X className="w-4 h-4 font-bold" />
                                 </button>
@@ -252,86 +252,86 @@ const AIDrillSolverView: React.FC = () => {
 
                     {inputType === 'url' && (
                         <div className="w-full max-w-2xl">
-                            <label className="block text-sm font-bold text-black mb-2">Đường dẫn ảnh (URL)</label>
+                            <label className="block text-sm font-bold text-[#1e1e1e] mb-2 uppercase tracking-wide">Đường dẫn ảnh (URL)</label>
                             <input 
                                 type="url" 
                                 value={imageUrl}
                                 onChange={e => setImageUrl(e.target.value)}
                                 placeholder="https://example.com/image.png"
-                                className="w-full px-4 py-3 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-shadow"
+                                className="w-full px-4 py-3 rounded-cb-md border border-[#d9d9d9] focus:border-[#324dc7] focus:ring-1 focus:ring-[#324dc7] outline-none transition-all shadow-sm"
                             />
                         </div>
                     )}
 
                     {inputType === 'text' && (
                         <div className="w-full max-w-2xl">
-                            <label className="block text-sm font-bold text-black mb-2">Nội dung câu hỏi</label>
+                            <label className="block text-sm font-bold text-[#1e1e1e] mb-2 uppercase tracking-wide">Nội dung câu hỏi</label>
                             <textarea 
                                 value={textContent}
                                 onChange={e => setTextContent(e.target.value)}
                                 placeholder="Nhập câu hỏi bạn cần giải đáp ở đây..."
                                 rows={6}
-                                className="w-full px-4 py-3 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-shadow resize-y"
+                                className="w-full px-4 py-3 rounded-cb-md border border-[#d9d9d9] focus:border-[#324dc7] focus:ring-1 focus:ring-[#324dc7] outline-none transition-all shadow-sm resize-y"
                             ></textarea>
                         </div>
                     )}
                 </div>
 
                 <div className="w-full max-w-2xl mx-auto mb-8">
-                    <label className="block text-sm font-bold text-black mb-2">Nguồn / Credit (Tuỳ chọn)</label>
+                    <label className="block text-sm font-bold text-[#1e1e1e] mb-2 uppercase tracking-wide">Nguồn / Credit (Tuỳ chọn)</label>
                     <input 
                         type="text" 
                         value={sourceCredit}
                         onChange={e => setSourceCredit(e.target.value)}
                         placeholder="VD: Khan Academy, College Board, etc."
-                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-black outline-none transition-colors bg-gray-50"
+                        className="w-full px-4 py-3 rounded-cb-md border border-[#d9d9d9] focus:border-[#324dc7] focus:ring-1 focus:ring-[#324dc7] outline-none transition-all bg-[#f5f7fc] shadow-sm"
                     />
                 </div>
 
-                <div className="flex justify-center border-t border-gray-100 pt-8">
+                <div className="flex justify-center border-t border-[#d9d9d9] pt-8">
                    <button 
                        onClick={handleAnalyze}
                        disabled={loading || (inputType === 'image' && !file) || (inputType === 'url' && !imageUrl) || (inputType === 'text' && !textContent)}
-                       className="bg-[#dc2323] text-white font-black text-lg px-10 py-4 rounded-full shadow-[6px_6px_0px_0px_#000000] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_#000000] border-2 border-black transition-all disabled:opacity-50 flex items-center gap-3 uppercase tracking-wider disabled:hover:translate-y-0 disabled:hover:shadow-[6px_6px_0px_0px_#000000]"
+                       className="bg-[#324dc7] text-white font-bold text-lg px-10 py-4 rounded-cb-md hover:bg-[#283b99] transition-all disabled:opacity-50 flex items-center gap-3 uppercase tracking-widest shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7] focus-visible:ring-offset-2"
                    >
                        {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <Search className="w-6 h-6" />}
                        {loading ? 'ĐANG GIẢI...' : 'GIẢI BÀI NGAY'}
                    </button>
                 </div>
-                {error && <div className="bg-red-50 text-red-600 p-4 rounded-xl mt-6 text-center font-bold border-2 border-red-200">{error}</div>}
+                {error && <div className="bg-[#fffdf0] text-[#dc2323] p-4 rounded-cb-sm mt-6 text-center font-bold border border-[#dc2323]">{error}</div>}
             </div>
 
             {/* Results Display */}
             {result && (
                 <div className="space-y-6 animate-fade-in relative max-w-3xl mx-auto">
                     <div className="flex justify-between items-center px-2">
-                       <h3 className="text-2xl font-black text-black">AI RESOLUTION</h3>
+                       <h3 className="text-2xl font-display font-extrabold text-[#1e1e1e]">AI RESOLUTION</h3>
                        <button 
                            onClick={() => setShowExportOptions(!showExportOptions)}
-                           className="bg-[#ffe36d] text-black border-2 border-black font-bold uppercase tracking-wider text-sm flex items-center gap-2 hover:bg-[#ffeb8a] px-5 py-2.5 rounded-full shadow-[3px_3px_0px_0px_#000000] transition-colors"
+                           className="bg-[#ffe36d] text-[#1e1e1e] border border-[#d9d9d9] font-bold uppercase tracking-wider text-sm flex items-center gap-2 hover:bg-[#ebd056] px-5 py-2.5 rounded-cb-sm shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffe36d]"
                        >
                          <ImageIcon className="w-4 h-4" /> LƯU ẢNH
                        </button>
                     </div>
 
-                    <div className="bg-white border-2 border-black shadow-[8px_8px_0px_0px_#000000] p-6 md:p-10 rounded-3xl">
+                    <div className="bg-white border border-[#d9d9d9] shadow-cb p-6 md:p-10 rounded-cb-lg">
                         {sourceCredit && (
-                            <div className="inline-flex items-center gap-2 text-xs font-bold text-white bg-gray-800 px-4 py-1.5 rounded-full mb-6 border border-black uppercase">
+                            <div className="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#1e1e1e] px-4 py-1.5 rounded-cb-xs mb-6 uppercase tracking-wider">
                                 SOURCE: {sourceCredit}
                             </div>
                         )}
-                        <div className="mb-8 border-b-2 border-gray-100 pb-8">
-                            <h4 className="text-sm font-black text-[#dc2323] uppercase tracking-widest mb-4">Tóm tắt Câu hỏi</h4>
-                            <div className="text-lg text-black font-semibold leading-relaxed markdown-body">
+                        <div className="mb-8 border-b border-[#d9d9d9] pb-8">
+                            <h4 className="text-sm font-bold text-[#dc2323] uppercase tracking-widest mb-4">Tóm tắt Câu hỏi</h4>
+                            <div className="text-lg text-[#1e1e1e] font-medium leading-relaxed markdown-body">
                                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{result.question}</ReactMarkdown>
                             </div>
                             
                             {result.options && result.options.length > 0 && (
                                 <div className="mt-5 space-y-3">
                                     {result.options.map((opt, i) => (
-                                        <div key={i} className="flex gap-3 items-start bg-gray-50 p-4 rounded-xl border border-gray-200">
+                                        <div key={i} className="flex gap-3 items-start bg-[#f5f7fc] p-4 rounded-cb-sm border border-[#d9d9d9]">
                                             <div className="font-bold text-gray-500 mt-0.5">{opt.substring(0, 2)}</div>
-                                            <div className="font-medium text-black">
+                                            <div className="font-medium text-[#1e1e1e]">
                                                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{opt.substring(2).trim()}</ReactMarkdown>
                                             </div>
                                         </div>
@@ -342,36 +342,36 @@ const AIDrillSolverView: React.FC = () => {
 
                         {!isRevealed ? (
                             <div className="text-center w-full max-w-md mx-auto pt-4 pb-4">
-                               <div className="mb-8 p-8 border-4 border-dashed border-gray-200 rounded-3xl bg-gray-50 text-gray-400">
-                                 <BookOpen className="w-12 h-12 mx-auto mb-4 text-[#ffe36d] drop-shadow-sm animate-bounce" />
-                                 <p className="text-base font-bold text-black">AI đã phân tích xong. Thử tự tư duy trước khi xem đáp án!</p>
+                               <div className="mb-8 p-8 border-2 border-dashed border-[#d9d9d9] rounded-cb-md bg-[#f5f7fc] text-gray-500">
+                                 <BookOpen className="w-12 h-12 mx-auto mb-4 text-[#324dc7] animate-bounce" />
+                                 <p className="text-base font-bold text-[#1e1e1e]">AI đã phân tích xong. Thử tự tư duy trước khi xem đáp án!</p>
                                </div>
                                
                                <button
                                   onClick={() => setIsRevealed(true)}
-                                  className="w-full flex items-center justify-center px-8 py-4 rounded-full font-black text-lg transition-all bg-black text-white hover:bg-gray-800 shadow-[6px_6px_0px_0px_#dc2323] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_#dc2323] border-2 border-black"
+                                  className="w-full flex items-center justify-center px-8 py-4 rounded-cb-md font-bold text-lg transition-all bg-[#1e1e1e] text-white hover:bg-black shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7] focus-visible:ring-offset-2"
                                 >
                                   <Eye className="w-5 h-5 mr-3" /> MỞ KHÓA LỜI GIẢI
                                 </button>
                             </div>
                         ) : (
                             <div className="animate-fade-in space-y-8 pt-4">
-                                <div className="bg-[#f0fdf4] p-8 rounded-3xl border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative text-left">
-                                    <div className="inline-flex items-center gap-2 bg-[#22c55e] text-white border-2 border-black px-4 py-2 rounded-full text-sm font-black uppercase mb-4 shadow-[2px_2px_0px_0px_#000000]">
-                                       <CheckCircle2 className="w-4 h-4" />
+                                <div className="bg-[#f5f7fc] p-8 rounded-cb-md border border-[#324dc7] shadow-sm relative text-left">
+                                    <div className="inline-flex items-center gap-2 bg-[#1e1e1e] text-white px-4 py-2 rounded-cb-xs text-sm font-bold uppercase mb-4 shadow-sm tracking-wider">
+                                       <CheckCircle2 className="w-4 h-4 text-[#324dc7]" />
                                        <span>ĐÁP ÁN ĐÚNG</span>
                                     </div>
-                                    <div className="text-3xl font-black text-black">
+                                    <div className="text-3xl font-display font-bold text-[#1e1e1e]">
                                         {result.correctAnswer}
                                     </div>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-left">
-                                    <div className="md:col-span-7 bg-white p-6 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_#000000]">
-                                        <h4 className="text-sm font-black text-[#dc2323] uppercase tracking-widest mb-6 flex items-center gap-2">
+                                    <div className="md:col-span-7 bg-white p-6 rounded-cb-md border border-[#d9d9d9] shadow-sm">
+                                        <h4 className="text-sm font-bold text-[#324dc7] uppercase tracking-widest mb-6 flex items-center gap-2">
                                             GIẢI THÍCH CHI TIẾT
                                         </h4>
-                                        <div className="prose prose-sm md:prose-base prose-slate max-w-none text-black font-medium leading-relaxed markdown-style-custom">
+                                        <div className="prose prose-sm md:prose-base prose-slate max-w-none text-[#1e1e1e] font-medium leading-relaxed markdown-style-custom">
                                             <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                                 {result.explanation}
                                             </ReactMarkdown>
@@ -380,13 +380,13 @@ const AIDrillSolverView: React.FC = () => {
                                     
                                     <div className="md:col-span-5 flex flex-col gap-8">
                                         {result.keyTerms && result.keyTerms.length > 0 && (
-                                            <div className="bg-slate-900 p-6 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_#000000] text-white">
-                                                <h4 className="text-sm font-black text-[#ffe36d] uppercase tracking-widest mb-5 flex items-center gap-2">
+                                            <div className="bg-[#1e1e1e] p-6 rounded-cb-md border border-[#1e1e1e] shadow-sm text-white">
+                                                <h4 className="text-sm font-bold text-[#ffe36d] uppercase tracking-widest mb-5 flex items-center gap-2">
                                                     KEY CONCEPTS
                                                 </h4>
                                                 <div className="flex flex-col gap-4">
                                                     {result.keyTerms.map((item, idx) => (
-                                                        <div key={idx} className="flex flex-col gap-1.5 pb-4 border-b border-slate-700 last:border-0 last:pb-0">
+                                                        <div key={idx} className="flex flex-col gap-1.5 pb-4 border-b border-gray-700 last:border-0 last:pb-0">
                                                             <span className="font-bold text-[#ffe36d]">{item.term}</span>
                                                             <span className="text-gray-300 text-sm leading-relaxed">{item.definition}</span>
                                                         </div>
@@ -396,8 +396,8 @@ const AIDrillSolverView: React.FC = () => {
                                         )}
                                         
                                         {result.tips && (
-                                            <div className="bg-[#fff9e6] p-6 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_#000000]">
-                                                 <h4 className="text-sm font-black text-orange-600 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                            <div className="bg-[#fffdf0] p-6 rounded-cb-md border border-[#ffe36d] shadow-sm">
+                                                 <h4 className="text-sm font-bold text-[#dc2323] uppercase tracking-widest mb-4 flex items-center gap-2">
                                                     TIPS & LƯU Ý
                                                 </h4>
                                                 <div className="prose prose-sm text-gray-800 font-medium markdown-style-custom">
@@ -415,26 +415,26 @@ const AIDrillSolverView: React.FC = () => {
             
             {showExportOptions && result && (
                 <div className="fixed inset-0 z-[100] bg-black/80 flex flex-col overflow-y-auto font-sans p-6">
-                    <div className="w-full max-w-6xl mx-auto flex justify-between items-center bg-white border-2 border-black shadow-[6px_6px_0px_0px_#000000] p-4 rounded-2xl mb-8">
+                    <div className="w-full max-w-6xl mx-auto flex justify-between items-center bg-white border border-[#d9d9d9] shadow-cb p-4 rounded-cb-md mb-8">
                         <div className="flex items-center gap-6">
-                           <h3 className="text-xl font-black uppercase">TÙY CHỈNH LƯU ẢNH</h3>
-                           <div className="flex items-center gap-2 border-l-2 border-black pl-6">
-                               <span className="text-sm font-bold text-gray-500 uppercase">Cỡ Ảnh:</span>
+                           <h3 className="text-xl font-display font-bold uppercase text-[#1e1e1e]">TÙY CHỈNH LƯU ẢNH</h3>
+                           <div className="flex items-center gap-2 border-l border-[#d9d9d9] pl-6">
+                               <span className="text-sm font-bold text-gray-500 uppercase tracking-wide">Cỡ Ảnh:</span>
                                <select 
                                   value={exportPlatform} 
                                   onChange={e => setExportPlatform(e.target.value as any)}
-                                  className="bg-gray-100 border-2 border-black rounded-lg px-3 py-1 font-bold outline-none"
+                                  className="bg-[#f5f7fc] border border-[#d9d9d9] rounded-cb-xs px-3 py-1 font-bold outline-none focus:border-[#324dc7]"
                                >
                                   <option value="1080x1080">1080 x 1080 (Vuông - FB/Insta post)</option>
                                   <option value="1080x1350">1080 x 1350 (Dọc - Insta portrait)</option>
                                </select>
                            </div>
-                           <div className="flex items-center gap-2 border-l-2 border-black pl-6">
-                               <span className="text-sm font-bold text-gray-500 uppercase">Cỡ Chữ:</span>
+                           <div className="flex items-center gap-2 border-l border-[#d9d9d9] pl-6">
+                               <span className="text-sm font-bold text-gray-500 uppercase tracking-wide">Cỡ Chữ:</span>
                                <select 
                                   value={exportFontSize} 
                                   onChange={e => setExportFontSize(e.target.value as any)}
-                                  className="bg-gray-100 border-2 border-black rounded-lg px-3 py-1 font-bold outline-none"
+                                  className="bg-[#f5f7fc] border border-[#d9d9d9] rounded-cb-xs px-3 py-1 font-bold outline-none focus:border-[#324dc7]"
                                >
                                   <option value="sm">Nhỏ</option>
                                   <option value="md">Vừa</option>
@@ -443,10 +443,10 @@ const AIDrillSolverView: React.FC = () => {
                            </div>
                         </div>
                         <div className="flex gap-4">
-                            <button onClick={downloadZip} disabled={loading} className="bg-[#ffe36d] text-black border-2 border-black font-bold uppercase py-2 px-6 rounded-full shadow-[3px_3px_0px_0px_#000000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+                            <button onClick={downloadZip} disabled={loading} className="bg-[#ffe36d] text-[#1e1e1e] border border-[#d9d9d9] font-bold uppercase py-2 px-6 rounded-cb-sm shadow-sm hover:bg-[#ebd056] transition-all flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffe36d]">
                                 {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Archive className="w-5 h-5" />} ZIP CẢ 4 ẢNH
                             </button>
-                            <button onClick={() => setShowExportOptions(false)} className="bg-gray-200 text-black border-2 border-black p-2 rounded-full hover:bg-gray-300">
+                            <button onClick={() => setShowExportOptions(false)} className="bg-[#f5f7fc] text-gray-500 border border-[#d9d9d9] p-2 rounded-full hover:bg-white hover:text-[#dc2323] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7]">
                                 <X className="w-6 h-6 font-bold" />
                             </button>
                         </div>

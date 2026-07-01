@@ -12,7 +12,6 @@ import AIDrillSolverView from './components/AIDrillSolverView';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewState>(ViewState.HOME);
-  const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [theoryCategory, setTheoryCategory] = useState<'Overview' | 'Verbal' | 'Math'>('Overview');
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -125,57 +124,11 @@ const App: React.FC = () => {
           </div>
         )}
 
-        {/* Global Help Toggle */}
-        {currentView === ViewState.LEARN && (
-          <div className="mb-8 border border-gray-200 bg-white shadow-sm rounded-xl overflow-hidden">
-            <button 
-              onClick={() => setIsHelpOpen(!isHelpOpen)}
-              className="w-full flex items-center justify-between p-5 bg-white hover:bg-gray-50 transition-colors text-left"
-            >
-              <h3 className="text-base md:text-lg font-bold text-[#21242c] flex items-center">
-                <span className="bg-[#dc2323] text-white text-xs px-3 py-1 mr-3 rounded-full font-semibold">HƯỚNG DẪN</span>
-                Cách sử dụng App
-              </h3>
-              <span className="text-2xl font-light text-gray-400 w-8 h-8 flex items-center justify-center">
-                {isHelpOpen ? '−' : '+'}
-              </span>
-            </button>
-            
-            {isHelpOpen && (
-              <div className="p-6 border-t border-gray-100 bg-gray-50/50 animate-fade-in">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-white p-6 border border-gray-200 shadow-sm rounded-xl">
-                    <div className="text-3xl mb-4">📍</div>
-                    <h4 className="font-bold text-[#dc2323] mb-2 text-base">1. Lý thuyết (Theory)</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      Đọc kỹ các quy tắc Ngữ pháp và Công thức Toán (Đại số, Hình học).
-                    </p>
-                  </div>
-                  <div className="bg-white p-6 border border-gray-200 shadow-sm rounded-xl">
-                    <div className="text-3xl mb-4">🧐</div>
-                    <h4 className="font-bold text-[#dc2323] mb-2 text-base">2. Từ vựng (Vocab)</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      Ghi nhớ từ vựng học thuật thường gặp và các thuật ngữ Toán tiếng Anh.
-                    </p>
-                  </div>
-                  <div className="bg-white p-6 border border-gray-200 shadow-sm rounded-xl">
-                    <div className="text-3xl mb-4">🧠</div>
-                    <h4 className="font-bold text-[#dc2323] mb-2 text-base">3. Luyện tập (Drills)</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      Làm bài tập ngắn và xem giải thích chi tiết để hiểu lỗi sai.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
         {renderView()}
       </main>
 
       {/* Footer */}
-      <footer className={`bg-slate-900 text-white border-t-[5px] border-black font-sans select-none ${currentView === ViewState.VOCAB ? 'py-3 text-xs w-full' : 'py-12 mt-auto'}`}>
+      <footer className={`bg-[#1e1e1e] text-white border-t-4 border-[#dc2323] font-sans select-none ${currentView === ViewState.VOCAB ? 'py-4 text-xs w-full' : 'py-12 mt-auto'}`}>
         <div className={`max-w-6xl mx-auto px-4 flex ${currentView === ViewState.VOCAB ? 'flex-row justify-between items-center w-full gap-4' : 'flex-col md:flex-row justify-between items-center gap-8'}`}>
           <div className={`flex ${currentView === ViewState.VOCAB ? 'flex-row items-center gap-4 text-left' : 'flex-col items-center md:items-start text-center md:text-left'}`}>
              <button onClick={() => setCurrentView(ViewState.HOME)} className={`flex items-center gap-2 hover:opacity-80 transition-opacity ${currentView === ViewState.VOCAB ? 'mb-0' : 'mb-4'}`}>
@@ -201,7 +154,7 @@ const App: React.FC = () => {
                 href="https://ieltsdrills.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`bg-[#dc2323] hover:bg-[#b01c1c] text-white font-black uppercase tracking-wider rounded-full border border-black inline-block transition-all whitespace-nowrap ${currentView === ViewState.VOCAB ? 'text-[10px] px-3 py-1.5 shadow-[2px_2px_0px_0px_#ffffff]' : 'text-xs px-6 py-3 border-2 shadow-[4px_4px_0px_0px_#ffffff]'}`}
+                className={`bg-[#dc2323] hover:bg-[#b01c1c] text-white font-bold uppercase tracking-wider rounded-cb-md inline-block transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2323] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e1e1e] ${currentView === ViewState.VOCAB ? 'text-[10px] px-3 py-1.5' : 'text-xs px-6 py-3 shadow-sm'}`}
               >
                 Luyện IELTS
               </a>
@@ -230,7 +183,7 @@ const App: React.FC = () => {
       {/* Fullscreen Toggle Button */}
       <button
         onClick={toggleFullscreen}
-        className="fixed bottom-24 left-6 z-50 bg-black text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-300 print:hidden group"
+        className="fixed bottom-24 left-6 z-50 bg-[#1e1e1e] text-white w-12 h-12 flex items-center justify-center rounded-cb-md shadow-sm border border-[#d9d9d9] hover:bg-black hover:scale-105 active:scale-95 transition-all duration-300 print:hidden group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7] focus-visible:ring-offset-2"
         title="Toàn màn hình"
         aria-label="Toggle Fullscreen"
       >

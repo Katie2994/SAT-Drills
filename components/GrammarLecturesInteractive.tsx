@@ -66,12 +66,12 @@ const GrammarLecturesInteractive: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 text-[#21242c] font-sans">
+    <div className="space-y-6 text-[#1e1e1e] font-sans">
       
       {/* Upper overview card */}
-      <div className="bg-[#1a202c] text-white p-6 rounded-2xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#1e1e1e] text-white p-6 rounded-cb-md shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 border border-[#324dc7]">
         <div>
-          <h2 className="text-3xl font-extrabold flex items-center gap-2 tracking-tight">
+          <h2 className="text-3xl font-extrabold flex items-center gap-2 tracking-tight font-display">
             <Presentation className="text-[#ffe36d] w-8 h-8" />
             Grammar Bytes Lectures
           </h2>
@@ -82,7 +82,7 @@ const GrammarLecturesInteractive: React.FC = () => {
         <div className="flex gap-2">
           <button
             onClick={handleDownloadPng}
-            className="export-button-hide flex items-center gap-1.5 bg-[#ffe36d] hover:bg-[#ebd056] text-black text-xs font-bold px-3 py-2 rounded-lg shadow transition-colors"
+            className="export-button-hide flex items-center gap-1.5 bg-[#ffe36d] hover:bg-[#ebd056] text-black text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-cb-xs shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffe36d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e1e1e]"
             title="Tải bài học hiện tại dạng ảnh PNG chất lượng cao có header & footer"
           >
             <Download className="w-3.5 h-3.5" />
@@ -90,7 +90,7 @@ const GrammarLecturesInteractive: React.FC = () => {
           </button>
           <button
             onClick={handleDownloadHtml}
-            className="export-button-hide flex items-center gap-1.5 bg-gray-700 hover:bg-gray-600 text-white text-xs font-bold px-3 py-2 rounded-lg shadow transition-colors"
+            className="export-button-hide flex items-center gap-1.5 bg-gray-700 hover:bg-gray-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-cb-xs shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffe36d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e1e1e]"
             title="Tải bài học hiện tại dạng tập tin HTML độc lập giữ nguyên giao diện"
           >
             <FileCode className="w-3.5 h-3.5" />
@@ -100,8 +100,8 @@ const GrammarLecturesInteractive: React.FC = () => {
       </div>
 
       {/* Grid selector / Navigation bar of 18 lessons */}
-      <div className="bg-white p-4 rounded-xl border border-gray-200">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 flex items-center gap-1.5">
+      <div className="bg-white p-4 rounded-cb-md border border-[#d9d9d9] shadow-sm">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3 flex items-center gap-1.5">
           <ListChecks className="w-4 h-4 text-[#dc2323]" />
           Chọn chủ đề bài giảng (18 Modules):
         </h4>
@@ -110,14 +110,14 @@ const GrammarLecturesInteractive: React.FC = () => {
             <button
               key={idx}
               onClick={() => setActiveLectureIdx(idx)}
-              className={`text-xs p-2 rounded-lg font-bold transition-all text-left truncate flex items-center gap-1 border ${
+              className={`text-xs p-2 rounded-cb-xs font-bold transition-all text-left truncate flex items-center gap-1 border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7] ${
                 activeLectureIdx === idx
-                  ? 'bg-[#dc2323] border-[#dc2323] text-white shadow-sm'
-                  : 'bg-white border-gray-100 text-gray-600 hover:bg-gray-50'
+                  ? 'bg-[#324dc7] border-[#324dc7] text-white shadow-sm'
+                  : 'bg-white border-[#d9d9d9] text-[#1e1e1e] hover:border-[#324dc7] hover:bg-[#f5f7fc]'
               }`}
               title={`${idx + 1}. ${lecture.title}`}
             >
-              <span className={`w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold flex-shrink-0 ${activeLectureIdx === idx ? 'bg-white text-[#dc2323]' : 'bg-gray-300 text-white'}`}>
+              <span className={`w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold flex-shrink-0 ${activeLectureIdx === idx ? 'bg-white text-[#324dc7]' : 'bg-[#f5f7fc] text-gray-500'}`}>
                 {idx + 1}
               </span>
               <span className="truncate">{lecture.title}</span>
@@ -127,13 +127,13 @@ const GrammarLecturesInteractive: React.FC = () => {
       </div>
 
       {/* Main viewport with the selected lecture detail wrapper */}
-      <div id="active-lecture-container" className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col gap-5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-100">
+      <div id="active-lecture-container" className="bg-white p-6 rounded-cb-lg border border-[#d9d9d9] shadow-cb flex flex-col gap-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#d9d9d9]">
           <div>
-            <span className="bg-[#fffdf0] text-[#dc2323] border border-[#ffe36d] text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+            <span className="bg-[#f5f7fc] text-[#324dc7] border border-[#d9d9d9] text-xs font-bold px-3 py-1 rounded-cb-xs uppercase tracking-wider inline-flex items-center">
               Lecture Module {activeLectureIdx + 1} of {GRAMMAR_LECTURES.length}
             </span>
-            <h3 className="font-extrabold text-xl md:text-2xl text-black mt-2">
+            <h3 className="font-extrabold text-xl md:text-2xl text-[#1e1e1e] mt-3 tracking-tight font-display">
               {currentLecture.title}
             </h3>
           </div>
@@ -144,7 +144,7 @@ const GrammarLecturesInteractive: React.FC = () => {
               href={currentLecture.src}
               target="_blank"
               rel="noopener noreferrer"
-              className="export-button-hide inline-flex items-center gap-1.5 text-xs font-bold text-[#dc2323] bg-white border border-red-200 px-3 py-2 rounded-lg hover:bg-red-50 transition-colors shadow-sm"
+              className="export-button-hide inline-flex items-center gap-1.5 text-xs font-bold text-[#324dc7] bg-white border border-[#324dc7] px-4 py-2 rounded-cb-xs hover:bg-[#f5f7fc] hover:shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7]"
               title="Nhấn vào đây để xem trực tiếp trang slide PowerPoint OneDrive nếu iframe bị chặn hoặc không hiển thị."
             >
               <ExternalLink className="w-3.5 h-3.5" />
@@ -154,12 +154,12 @@ const GrammarLecturesInteractive: React.FC = () => {
         </div>
 
         {/* Informative summary bullet points or overview text */}
-        <p className="text-sm text-gray-600 bg-gray-50 p-3.5 rounded-xl border border-gray-150 leading-relaxed font-medium">
-          <strong>Tóm tắt nội dung:</strong> {LECTURE_DEFS[activeLectureIdx + 1] || "Bài học ngữ pháp tiếng Anh quan trọng giúp trang bị kiến thức giải đề thi viết/đọc thử thách."}
+        <p className="text-sm text-gray-700 bg-[#f5f7fc] p-4 rounded-cb-sm border border-[#d9d9d9] leading-relaxed font-medium">
+          <strong className="text-[#1e1e1e] uppercase tracking-wide text-xs mb-1 block">Tóm tắt nội dung:</strong> {LECTURE_DEFS[activeLectureIdx + 1] || "Bài học ngữ pháp tiếng Anh quan trọng giúp trang bị kiến thức giải đề thi viết/đọc thử thách."}
         </p>
 
         {/* PPT Slide Iframe Viewer Container */}
-        <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden bg-gray-50 border border-gray-200 shadow-md flex items-center justify-center" style={{ aspectRatio: '16/10' }}>
+        <div className="relative w-full max-w-4xl mx-auto rounded-cb-md overflow-hidden bg-[#f5f7fc] border border-[#d9d9d9] shadow-sm flex items-center justify-center" style={{ aspectRatio: '16/10' }}>
           <iframe 
             src={currentLecture.src} 
             className="absolute top-0 left-0 w-full h-full" 
@@ -172,7 +172,7 @@ const GrammarLecturesInteractive: React.FC = () => {
         </div>
 
         {/* Friendly instruction tag for users */}
-        <div className="text-center text-xs text-gray-400 font-medium italic select-none">
+        <div className="text-center text-xs text-gray-500 font-medium italic select-none">
           Mẹo: Slide trình bày trực quan chứa bài học lí thuyết ngữ pháp, bấm vào các nút điều khiển của OneDrive bên trong slide để chuyển trang.
         </div>
       </div>

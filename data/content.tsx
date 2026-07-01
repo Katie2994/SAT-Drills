@@ -1681,6 +1681,156 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
       </div>
     ),
   },
+  {
+    id: "us_politics_constitution",
+    category: "Verbal",
+    title: "US Politics & The Constitution",
+    content: (
+      <div className="space-y-8 text-lg leading-relaxed text-black">
+        <div className="bg-black text-white p-6">
+          <h2 className="text-3xl font-bold mb-2">US Politics & The Constitution (SAT Prep)</h2>
+          <p className="opacity-90">
+            Kiến thức nền tảng về chính trị Mỹ và Hiến pháp dành cho phần thi Đọc Hiểu SAT.
+          </p>
+        </div>
+
+        <section>
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            1. Tổng quan về Chính trị Mỹ (Foundation)
+          </h3>
+          <p className="mb-4">Trong các bài đọc SAT (History/Social Studies), học sinh cần nắm vững khung xương sống:</p>
+          <ul className="list-disc list-inside space-y-2 mb-6">
+            <li><strong>Separation of Powers (Phân quyền):</strong> Hệ thống <em>Checks and Balances</em> (Kiểm soát và Đối trọng) giữa 3 nhánh:
+              <ul className="list-[circle] list-inside ml-6 mt-2">
+                <li><strong>Legislative</strong> (Lập pháp - Congress): Làm luật.</li>
+                <li><strong>Executive</strong> (Hành pháp - President): Thực thi luật.</li>
+                <li><strong>Judicial</strong> (Tư pháp - Supreme Court): Giải thích luật/Phán quyết tính hiến pháp.</li>
+              </ul>
+            </li>
+            <li><strong>Federalism:</strong> Sự phân chia quyền lực giữa Chính phủ Liên bang và Chính quyền Bang.</li>
+          </ul>
+
+          <div className="mb-6">
+            <h4 className="font-bold text-xl mb-2 text-red-700">Sơ đồ 3 nhánh (Tam quyền phân lập)</h4>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 inline-block">
+              <img src="https://images.ndla.no/bf0JONgl.svg" alt="Sơ đồ 3 nhánh" className="max-w-md w-full h-auto" />
+            </div>
+          </div>
+
+          <div className="bg-[#fffdf0] border-l-4 border-[#DC2323] p-4 my-4">
+            <strong>Tư duy cốt lõi (Federalist No. 51):</strong> James Madison lập luận rằng "Ambition must be made to counteract ambition". Chính phủ được thiết kế để không một nhánh nào quá mạnh. Nếu một nhánh vượt quyền, các nhánh kia có đủ công cụ để ngăn chặn.
+          </div>
+        </section>
+
+        <section>
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            2. Các Tu chính án (Amendments) & Tài liệu dẫn chứng
+          </h3>
+          <div className="overflow-x-auto mb-6">
+            <table className="w-full text-left border-collapse border-gray-300">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="border border-gray-300 px-4 py-2 font-bold">Tu chính án</th>
+                  <th className="border border-gray-300 px-4 py-2 font-bold">Nội dung chính</th>
+                  <th className="border border-gray-300 px-4 py-2 font-bold">Trọng tâm SAT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2"><strong>Amendment 1</strong></td>
+                  <td className="border border-gray-300 px-4 py-2">Tự do tôn giáo, ngôn luận, báo chí, hội họp (1791).</td>
+                  <td className="border border-gray-300 px-4 py-2">Tranh luận về giới hạn ngôn luận (Free speech).</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-2"><strong>Amendment 2</strong></td>
+                  <td className="border border-gray-300 px-4 py-2">Quyền sở hữu vũ khí (1791).</td>
+                  <td className="border border-gray-300 px-4 py-2">Cân bằng quyền cá nhân và an toàn công cộng.</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2"><strong>Amendment 13</strong></td>
+                  <td className="border border-gray-300 px-4 py-2">Bãi bỏ chế độ nô lệ (1865).</td>
+                  <td className="border border-gray-300 px-4 py-2">Công lý xã hội & Phong trào bãi nô (Đọc thêm: Frederick Douglass).</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border border-gray-300 px-4 py-2"><strong>Amendment 19</strong></td>
+                  <td className="border border-gray-300 px-4 py-2">Quyền bầu cử của phụ nữ (1920).</td>
+                  <td className="border border-gray-300 px-4 py-2">Phong trào đòi quyền bầu cử (Đọc thêm: Elizabeth Cady Stanton).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div>
+              <h4 className="font-bold text-lg mb-2">Amendment 13</h4>
+              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 h-full">
+                <img src="https://pbs.twimg.com/media/GeIbPUcWYAE8QOc.jpg" alt="Amendment 13" className="w-full h-auto rounded" />
+              </div>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-2">Amendment 19</h4>
+              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 h-full flex justify-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/VOTE_poster_-_Citation_Acc_22002_-_Archives_and_Manuscripts_-_Library_of_Virginia.jpg/250px-VOTE_poster_-_Citation_Acc_22002_-_Archives_and_Manuscripts_-_Library_of_Virginia.jpg" alt="Amendment 19" className="h-auto rounded object-contain max-h-[400px]" />
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold text-lg mb-2">Tài liệu tham khảo: Video về Phong trào Quyền bầu cử phụ nữ</h4>
+            <div className="max-w-2xl">
+              <iframe 
+                src="https://www.youtube.com/embed/0EIFDSb7tWc" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                className="w-full h-[315px] rounded-lg shadow-sm"
+              ></iframe>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            3. Chiến lược đọc hiểu (SAT Reading Tips)
+          </h3>
+          <p className="mb-4">Để xử lý tốt các đoạn văn về chính trị Mỹ, học sinh cần chú ý kỹ 4 kỹ năng sau:</p>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm">
+              <strong className="block text-red-700 mb-2">Identify Purpose</strong>
+              Tác giả viết để ủng hộ, chỉ trích, hay giải thích trung lập về một đạo luật?
+            </div>
+            <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm">
+              <strong className="block text-red-700 mb-2">Contextualization</strong>
+              Đặt đạo luật vào thời điểm lịch sử (ví dụ: Amendment 13 ra đời sau Nội chiến, 19 sau phong trào đấu tranh kéo dài).
+            </div>
+            <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm">
+              <strong className="block text-red-700 mb-2">Analyze Arguments</strong>
+              Tìm Claim (Luận điểm) và Counterclaim (Phản biện). Các bài đọc SAT thường có cấu trúc: "Một số người nói A, tuy nhiên tác giả cho rằng B".
+            </div>
+            <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm">
+              <strong className="block text-red-700 mb-2">Tone Analysis</strong>
+              Từ ngữ thể hiện quan điểm: imperative, critical, advocate, skeptical, objective.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            4. Từ vựng trọng tâm (Academic Vocabulary)
+          </h3>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-6">
+            <div><strong className="text-red-700">Sovereignty:</strong> Chủ quyền.</div>
+            <div><strong className="text-red-700">Enfranchisement / Suffrage:</strong> Quyền bầu cử.</div>
+            <div><strong className="text-red-700">Ratification:</strong> Sự phê chuẩn.</div>
+            <div><strong className="text-red-700">Infringement:</strong> Sự vi phạm quyền cá nhân.</div>
+            <div><strong className="text-red-700">Tyranny:</strong> Chế độ chuyên chế.</div>
+            <div><strong className="text-red-700">Partisan:</strong> Mang tính đảng phái.</div>
+          </div>
+        </section>
+      </div>
+    ),
+  },
 ];
 
 // ==========================================
@@ -1873,6 +2023,59 @@ export const topics: Topic[] = [
     ]
   },
   
+  {
+    id: "rw_us_politics",
+    name: "US Politics & Constitution",
+    icon: "🏛️",
+    questions: [
+      {
+        text: "In Federalist No. 51, James Madison wrote: 'Ambition must be made to counteract ambition. The interest of the man must be connected with the constitutional rights of the place.' This fundamental principle was embedded into the United States Constitution to prevent any single group from seizing total control of the government.\n\nWhich constitutional concept does the passage most clearly describe?",
+        samples: [
+          createSample("Medium", "**A) The system of Checks and Balances.**", "Đoạn văn trích dẫn quan điểm của James Madison về việc dùng 'tham vọng đối trọng với tham vọng' để ngăn chặn một nhóm chiếm toàn quyền. Đây chính là khái niệm cốt lõi của 'Checks and Balances' (Kiểm soát và Đối trọng) giữa các nhánh quyền lực.", [
+            { term: "Counteract", definition: "Chống lại, làm mất tác dụng" },
+            { term: "Checks and Balances", definition: "Hệ thống kiểm soát và đối trọng" }
+          ])
+        ]
+      },
+      {
+        text: "During the mid-19th century, the abolitionist movement gained significant momentum, culminating in a devastating Civil War. Following the conflict, a landmark amendment was ratified in 1865, fundamentally altering the social and economic fabric of the nation by formally ending a centuries-old institution of forced labor.\n\nBased on the text and historical context, which amendment is the author referring to?",
+        samples: [
+          createSample("Easy", "**C) The 13th Amendment.**", "Đoạn văn nhắc đến phong trào bãi nô (abolitionist movement), Nội chiến, và một tu chính án được phê chuẩn năm 1865 để kết thúc chế độ lao động cưỡng bức (forced labor). Đó là Tu chính án thứ 13 bãi bỏ chế độ nô lệ.", [
+            { term: "Abolitionist", definition: "Người theo chủ nghĩa bãi nô" },
+            { term: "Ratify", definition: "Phê chuẩn" }
+          ])
+        ]
+      },
+      {
+        text: "The Nineteenth Amendment, ratified in 1920, prohibited the states and the federal government from denying the right to vote to citizens of the United States on the basis of sex. This milestone was the culmination of decades of activism by leaders who faced imprisonment, public ridicule, and physical violence.\n\nWhich of the following best describes the main purpose of the text?",
+        samples: [
+          createSample("Medium", "**B) To provide historical context for the enfranchisement of women in the United States.**", "Mục đích chính của đoạn văn là giải thích ngắn gọn về Tu chính án thứ 19 (đảm bảo quyền bầu cử của phụ nữ) và nêu bật sự đấu tranh gian khổ của các nhà hoạt động để đạt được thành tựu này.", [
+            { term: "Enfranchisement", definition: "Sự trao quyền bầu cử" },
+            { term: "Culmination", definition: "Đỉnh cao, kết quả cuối cùng" }
+          ])
+        ]
+      },
+      {
+        text: "The First Amendment prevents the government from establishing a religion and protects the free exercise thereof. Furthermore, it safeguards freedom of speech, the press, and the right to peaceful assembly. Critics often argue about the absolute nature of these rights, pointing out that certain types of dangerous speech might warrant reasonable restriction.\n\nWhich choice best states the primary function of the underlined sentence in the text as a whole?",
+        samples: [
+          createSample("Hard", "**D) It introduces a nuanced debate regarding the limits of a constitutional protection.**", "Câu được gạch chân (giả định là câu cuối) đưa ra quan điểm phản biện (critics argue) về việc các quyền này có tuyệt đối hay không và gợi ý rằng cần có sự hạn chế hợp lý. Do đó, nó giới thiệu một cuộc tranh luận tinh tế (nuanced debate) về giới hạn của bảo vệ Hiến pháp.", [
+            { term: "Nuanced", definition: "Tinh tế, có nhiều khía cạnh nhỏ" },
+            { term: "Warrant", definition: "Bảo đảm, biện minh cho" }
+          ])
+        ]
+      },
+      {
+        text: "Federalism is a system in which power is divided between a national (federal) government and various regional governments (states). While the federal government handles issues of national concern such as defense and diplomacy, states retain the sovereignty to manage local affairs, creating a dual-layered system of governance that constantly requires judicial interpretation.\n\nBased on the text, what is a necessary consequence of Federalism?",
+        samples: [
+          createSample("Medium", "**A) An ongoing need for courts to clarify the boundaries of power between state and national levels.**", "Đoạn văn nêu rõ hệ thống hai lớp này (dual-layered system) 'constantly requires judicial interpretation' (liên tục đòi hỏi sự giải thích của tư pháp) để phân chia ranh giới quyền lực.", [
+            { term: "Sovereignty", definition: "Chủ quyền" },
+            { term: "Judicial interpretation", definition: "Sự giải thích luật của tư pháp" }
+          ])
+        ]
+      }
+    ]
+  },
+
   // --- MATH DRILLS ---
   {
     id: "m_algebra",
