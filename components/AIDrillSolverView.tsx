@@ -35,11 +35,16 @@ const AIDrillSolverView: React.FC = () => {
     if (isLocked) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[50vh] text-center p-8 bg-white rounded-3xl border border-gray-200 shadow-sm max-w-2xl mx-auto mt-12 animate-fade-in">
-                <div className="text-6xl mb-6">🔒</div>
-                <h2 className="text-2xl font-extrabold text-black uppercase tracking-tight mb-4">Tính năng khóa</h2>
-                <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                    Tính năng AI Solver hiện chỉ được tiếp cận trải nghiệm native tại màn hình ứng dụng gốc. Vui lòng truy cập qua hệ thống chính thức.
+                <div className="text-6xl mb-6 animate-pulse">⚙️</div>
+                <h2 className="text-2xl font-extrabold text-black uppercase tracking-tight mb-4">Tính năng đang được cập nhật</h2>
+                <p className="text-gray-600 mb-8 max-w-md mx-auto font-medium">
+                    Tính năng AI Solver hiện đang được bảo trì và cập nhật trên hệ thống này. Vui lòng quay lại sau!
                 </p>
+                <img 
+                    src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/511006794_24133287536328545_1676392969100136650_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1152&ctp=s2048x1152&_nc_cat=104&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHw9xGUpGYiLqCTDZ1QGYpwDi4b2FJaQHEOLhvYUlpAccai9qazjbldtchvOzXpU1dzWRlHfgRDuQq-w2CPPgqf&_nc_ohc=O1bC89T716gQ7kNvwGXYTu-&_nc_oc=AdrUM5xczvhUusPTVcqgCR4nEzOV61Tj4Nd7jLVdhcUH7R9KpfBamur5gEbb0h-ghWo&_nc_zt=23&_nc_ht=scontent.fsgn2-5.fna&_nc_gid=N-8APSoitDzdUIZMSsF3rg&_nc_ss=7b2a8&oh=00_AQD-UIFAPqqbyuLMsh-V-auRdPmf6O4inh5mcmw7dQYGpQ&oe=6A4ABC59"
+                    alt="Updating"
+                    className="w-full h-auto rounded-2xl border-2 border-black"
+                />
             </div>
         );
     }
@@ -50,8 +55,6 @@ const AIDrillSolverView: React.FC = () => {
     const [isRevealed, setIsRevealed] = useState(false);
     const [error, setError] = useState('');
     
-    const [showVercelPopup, setShowVercelPopup] = useState(false);
-    
     // Image Export States
     const [showExportOptions, setShowExportOptions] = useState(false);
     const [exportPlatform, setExportPlatform] = useState<'1080x1080' | '1080x1350'>('1080x1080'); // Instagram square vs tall
@@ -61,12 +64,6 @@ const AIDrillSolverView: React.FC = () => {
     const card2Ref = useRef<HTMLDivElement>(null);
     const card3Ref = useRef<HTMLDivElement>(null);
     const card4Ref = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-       if (typeof window !== 'undefined' && window.location.hostname.includes('vercel.app')) {
-           setShowVercelPopup(true);
-       }
-    }, []);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
@@ -183,28 +180,7 @@ const AIDrillSolverView: React.FC = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto py-8 font-sans">
-            {showVercelPopup && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
-                    <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative border-4 border-black">
-                        <button onClick={() => setShowVercelPopup(false)} className="absolute top-4 right-4 text-gray-400 hover:text-black">
-                            <X className="w-6 h-6" />
-                        </button>
-                        <div className="text-center">
-                            <h2 className="text-2xl font-black text-black mb-4">Gói Nâng Cấp Tự Học Cùng AI</h2>
-                            <p className="text-gray-600 mb-6 leading-relaxed font-medium">
-                                Tham gia cộng đồng hoặc nâng cấp gói để mở khóa AI Solver với tốc độ và khả năng suy luận vượt trội cho các dạng bài Digital SAT.
-                            </p>
-                            <img 
-                                src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/511006794_24133287536328545_1676392969100136650_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=ChLQCnsX7P8Q7kNvwGAlQAo&_nc_oc=AdoWtMKdG7w706j3e2qSTBiTYjbt-oPY3H3LSuaXhXIHJKQaDlNsGVAE5ruUfMmZBes&_nc_zt=23&_nc_ht=scontent.fsgn2-5.fna&_nc_gid=By8eQwlLIg1URNKawKhv5w&_nc_ss=7b2a8&oh=00_Af-4_WGHRVxiHqj_8eOBbOOXYbsxW7p8E6l01sJ6Wyds2g&oe=6A283D19" 
-                                alt="Upgrade AI Solver" 
-                                className="w-full h-auto rounded-2xl border-2 border-black mix-blend-multiply" 
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
-
+        <div className="max-w-4xl mx-auto py-8 font-sans px-4">
             <div className="bg-white border border-[#d9d9d9] shadow-cb rounded-cb-lg p-6 md:p-10 mb-12 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-[#f5f7fc] border-l border-b border-[#d9d9d9] rounded-bl-cb-md flex items-center justify-center -mr-px -mt-px pointer-events-none">
                     <img src="https://pbs.twimg.com/media/G9_w8N1aUAENd0l?format=jpg&name=large" alt="Logo" className="w-12 h-12 rounded-full border border-[#d9d9d9]" referrerPolicy="no-referrer" />
