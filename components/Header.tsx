@@ -48,8 +48,10 @@ const Header: React.FC<HeaderProps> = ({ currentView, setView }) => {
               { id: ViewState.VOCAB, label: 'Vocab' },
               { id: ViewState.PRACTICE, label: 'Drills' },
               { id: ViewState.RESOURCES, label: 'Resources' },
-              { id: ViewState.AI_SOLVER, label: 'AI Solver' }
-            ].map(tab => (
+              { id: ViewState.AI_SOLVER, label: 'AI Solver', requiresAIStudio: true }
+            ]
+            .filter(tab => !tab.requiresAIStudio || (typeof window !== 'undefined' && (window.location.hostname.includes('localhost') || window.location.hostname.includes('run.app'))))
+            .map(tab => (
               <button 
                 key={tab.id}
                 onClick={() => setView(tab.id as ViewState)}

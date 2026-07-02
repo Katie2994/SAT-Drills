@@ -63,10 +63,10 @@ const VocabCard = ({
     >
       {/* Front */}
       <div 
-        className="absolute w-full h-full bg-white border border-[#d9d9d9] rounded-cb-sm shadow-cb flex flex-col items-center justify-center p-4 md:p-6 backface-hidden"
+        className="absolute w-full h-full bg-white border border-[#d9d9d9] rounded-cb-sm shadow-cb flex flex-col items-center justify-center p-4 md:p-6 backface-hidden overflow-y-auto hide-scrollbar"
         style={{ backfaceVisibility: 'hidden' }}
       >
-        <div className="absolute top-3 left-4 flex gap-1">
+        <div className="absolute top-3 left-4 flex gap-1 z-10">
           <span className="bg-[#f5f7fc] text-[#dc2323] px-2.5 py-0.5 rounded-cb-xs text-[10px] font-bold uppercase tracking-wider border border-[#d9d9d9]">
             {card.type}
           </span>
@@ -122,11 +122,11 @@ const VocabCard = ({
 
       {/* Back description card */}
       <div 
-        className="absolute w-full h-full bg-[#1e1e1e] border border-gray-700 rounded-cb-sm shadow-cb flex flex-col items-center justify-center p-4 md:p-6 text-white backface-hidden"
+        className="absolute w-full h-full bg-[#1e1e1e] border border-gray-700 rounded-cb-sm shadow-cb flex flex-col items-center justify-center p-4 md:p-6 text-white backface-hidden overflow-y-auto hide-scrollbar"
         style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
       >
          {/* Inner badge info */}
-         <div className="absolute top-3 left-4 flex gap-1">
+         <div className="absolute top-3 left-4 flex gap-1 z-10">
            {card.topic && (
              Array.isArray(card.topic) ? (
                card.topic.map((t: string) => (
@@ -169,12 +169,12 @@ const VocabCard = ({
          )}
 
          {/* Learning Status Buttons */}
-         <div className="absolute bottom-4 flex gap-2 mx-auto w-full justify-center px-4">
+         <div className="mt-auto w-full flex gap-2 justify-center pt-4 z-10">
            <button
              onClick={(e) => {
                toggleLearningWord(e, card.term);
              }}
-             className={`flex items-center justify-center flex-1 gap-1 py-1.5 text-[10px] font-bold rounded-full border shadow-sm transition-all ${
+             className={`flex items-center justify-center flex-1 max-w-[120px] gap-1 py-1.5 text-[10px] font-bold rounded-full border shadow-sm transition-all ${
                learningWords.includes(card.term) 
                  ? 'bg-[#dc2323] text-white border-[#dc2323]' 
                  : 'bg-[#2a2a2a] text-gray-300 border-gray-600 hover:bg-gray-700'
@@ -186,7 +186,7 @@ const VocabCard = ({
              onClick={(e) => {
                toggleKnownWord(e, card.term);
              }}
-             className={`flex items-center justify-center flex-1 gap-1 py-1.5 text-[10px] font-bold rounded-full border shadow-sm transition-all ${
+             className={`flex items-center justify-center flex-1 max-w-[120px] gap-1 py-1.5 text-[10px] font-bold rounded-full border shadow-sm transition-all ${
                knownWords.includes(card.term) 
                  ? 'bg-green-600 text-white border-green-600' 
                  : 'bg-[#2a2a2a] text-gray-300 border-gray-600 hover:bg-gray-700'
@@ -203,8 +203,9 @@ const VocabCard = ({
 const VocabView: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [filter, setFilter] = useState<'all' | 'vocab' | 'concept' | 'saved'>('all');
+  const [filter, setFilter] = useState<'all' | 'vocab' | 'concept' | 'saved' | 'learning'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<string>("All Areas");
   const [selectedLetter, setSelectedLetter] = useState<string>("All");
   const [isDownloading, setIsDownloading] = useState(false);
@@ -282,7 +283,7 @@ const VocabView: React.FC = () => {
     });
   };
 
-  const handleFilterChange = (newFilter: 'all' | 'vocab' | 'concept' | 'saved') => {
+  const handleFilterChange = (newFilter: 'all' | 'vocab' | 'concept' | 'saved' | 'learning') => {
     setFilter(newFilter);
     setSelectedTopic("All Areas");
     setSelectedLetter("All");
@@ -296,6 +297,8 @@ const VocabView: React.FC = () => {
       let matchFilter = true;
       if (filter === 'saved') {
         matchFilter = savedWords.includes(card.term);
+      } else if (filter === 'learning') {
+        matchFilter = learningWords.includes(card.term);
       } else if (filter !== 'all') {
         matchFilter = card.type === filter;
       }
@@ -321,12 +324,12 @@ const VocabView: React.FC = () => {
       return matchFilter && matchSearch && topicToMatch && letterToMatch;
     });
 
-    // Sort alphabetically by default for 'all', 'vocab', and 'saved'
-    if (filter === 'all' || filter === 'vocab' || filter === 'saved') {
+    // Sort alphabetically by default for 'all', 'vocab', 'saved', and 'learning'
+    if (filter === 'all' || filter === 'vocab' || filter === 'saved' || filter === 'learning') {
        list = [...list].sort((a, b) => a.term.localeCompare(b.term));
     }
     return list;
-  }, [filter, searchQuery, selectedTopic, selectedLetter, savedWords]);
+  }, [filter, searchQuery, selectedTopic, selectedLetter, savedWords, learningWords]);
 
   const currentCard = filteredList[currentIndex] || filteredList[0];
   const currentCards = useMemo(() => {
@@ -514,52 +517,69 @@ const VocabView: React.FC = () => {
         </div>
       </div>
 
-      {/* Bento Control Panel */}
-      <div className="mt-1 w-full bg-white rounded-xl border border-gray-200/80 p-2 shadow-sm space-y-1.5 text-left text-xs">
-        {/* Row 1: Search Input & Type Filter Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-1.5 items-center">
-          {/* Search Input (7 cols on md) */}
-          <div className="md:col-span-7 relative">
-             <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
-                <Search className="h-3.5 w-3.5 text-gray-400" />
-             </div>
-             <input
-               type="text"
-               value={searchQuery}
-               onChange={(e) => { setSearchQuery(e.target.value); setCurrentIndex(0); }}
-               placeholder="Search terms, definitions..."
-               className="block w-full pl-8 pr-3 py-1 border border-gray-200 rounded-lg bg-gray-50/50 hover:bg-gray-50 focus:bg-white focus:ring-1 focus:ring-[#dc2323] focus:border-[#dc2323] focus:outline-none transition-all text-xs"
-             />
-          </div>
+      <div className="flex justify-between items-center px-2 mb-1">
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="flex items-center gap-1.5 text-xs font-bold text-gray-700 bg-white border border-gray-200 shadow-sm px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors"
+        >
+          <Search className="w-4 h-4" /> 
+          {isMenuOpen ? "Hide Filters & Search" : "Search & Filters"}
+        </button>
+      </div>
 
-          {/* Segmented Controls (5 cols on md) */}
-          <div className="md:col-span-5 flex p-1 bg-gray-100 rounded-lg border border-gray-200">
-            <button 
-              onClick={() => handleFilterChange('all')} 
-              className={`flex-1 text-center py-2 text-[11px] font-bold rounded-md transition-all ${filter === 'all' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
-            >
-              All
-            </button>
-            <button 
-              onClick={() => handleFilterChange('vocab')} 
-              className={`flex-1 text-center py-2 text-[11px] font-bold rounded-md transition-all ${filter === 'vocab' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
-            >
-              Vocab
-            </button>
-            <button 
-              onClick={() => handleFilterChange('concept')} 
-              className={`flex-1 text-center py-2 text-[11px] font-bold rounded-md transition-all ${filter === 'concept' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
-            >
-              Math
-            </button>
-            <button 
-              onClick={() => handleFilterChange('saved')} 
-              className={`flex-1 text-center py-2 text-[11px] font-bold rounded-md transition-all flex items-center justify-center gap-1 ${filter === 'saved' ? 'bg-[#ffe36d] text-[#1e1e1e] shadow-sm ring-1 ring-black/10' : 'text-gray-600 hover:text-gray-900'}`}
-            >
-              <Bookmark className="w-3 h-3" /> Saved
-            </button>
+      {/* Bento Control Panel */}
+      {isMenuOpen && (
+        <div className="mt-1 w-full bg-white rounded-xl border border-gray-200/80 p-2 shadow-sm space-y-1.5 text-left text-xs animate-fade-in">
+          {/* Row 1: Search Input & Type Filter Tabs */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-1.5 items-center">
+            {/* Search Input (7 cols on md) */}
+            <div className="md:col-span-7 relative">
+               <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none">
+                  <Search className="h-3.5 w-3.5 text-gray-300" />
+               </div>
+               <input
+                 type="text"
+                 value={searchQuery}
+                 onChange={(e) => { setSearchQuery(e.target.value); setCurrentIndex(0); }}
+                 placeholder="Search terms, definitions..."
+                 className="block w-full pl-8 pr-3 py-1.5 border border-gray-700 rounded-lg bg-[#1e1e1e] text-white placeholder-gray-400 focus:bg-black focus:ring-1 focus:ring-[#dc2323] focus:border-[#dc2323] focus:outline-none transition-all text-xs shadow-inner"
+               />
+            </div>
+
+            {/* Segmented Controls (5 cols on md) */}
+            <div className="md:col-span-5 flex p-1 bg-gray-100 rounded-lg border border-gray-200 overflow-x-auto hide-scrollbar">
+              <button 
+                onClick={() => handleFilterChange('all')} 
+                className={`flex-1 min-w-[50px] text-center py-2 text-[11px] font-bold rounded-md transition-all ${filter === 'all' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                All
+              </button>
+              <button 
+                onClick={() => handleFilterChange('vocab')} 
+                className={`flex-1 min-w-[50px] text-center py-2 text-[11px] font-bold rounded-md transition-all ${filter === 'vocab' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                Vocab
+              </button>
+              <button 
+                onClick={() => handleFilterChange('concept')} 
+                className={`flex-1 min-w-[50px] text-center py-2 text-[11px] font-bold rounded-md transition-all ${filter === 'concept' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                Math
+              </button>
+              <button 
+                onClick={() => handleFilterChange('learning')} 
+                className={`flex-1 min-w-[70px] text-center py-2 text-[11px] font-bold rounded-md transition-all ${filter === 'learning' ? 'bg-[#dc2323] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                Cần học
+              </button>
+              <button 
+                onClick={() => handleFilterChange('saved')} 
+                className={`flex-1 min-w-[65px] text-center py-2 text-[11px] font-bold rounded-md transition-all flex items-center justify-center gap-1 ${filter === 'saved' ? 'bg-[#ffe36d] text-[#1e1e1e] shadow-sm ring-1 ring-black/10' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                <Bookmark className="w-3 h-3" /> Saved
+              </button>
+            </div>
           </div>
-        </div>
 
         {/* Row 2: Selected Categories/Topics */}
         <div className="pt-2 border-t border-gray-100">
@@ -730,6 +750,7 @@ const VocabView: React.FC = () => {
           </div>
         </div>
       </div>
+      )}
 
       <div className="flex justify-between items-center gap-2 my-1.5 flex-wrap">
         <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-lg p-0.5 shadow-sm">

@@ -14,9 +14,11 @@ const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewState>(ViewState.HOME);
   const [theoryCategory, setTheoryCategory] = useState<'Overview' | 'Verbal' | 'Math'>('Overview');
   const [isInitialized, setIsInitialized] = useState(false);
+  const [isAIStudio, setIsAIStudio] = useState(true); // Default true until checked
 
   // Initialize state from URL on first mount
   useEffect(() => {
+    setIsAIStudio(window.location.hostname.includes('localhost') || window.location.hostname.includes('run.app'));
     const urlParams = new URLSearchParams(window.location.search);
     const tab = urlParams.get('tab');
     const category = urlParams.get('category');
