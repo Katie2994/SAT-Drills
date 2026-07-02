@@ -1,7 +1,7 @@
 import React, { useState, useRef, useMemo, useEffect, useCallback } from 'react';
 import { combinedVocabList } from '../data/vocab';
 import { speakText } from '../services/audioService';
-import { ArrowLeft, ArrowRight, RotateCw, Lightbulb, Volume2, Download, Archive, Search, FileCode, Bookmark, BookmarkCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, RotateCw, Lightbulb, Volume2, Download, Archive, Search, FileCode, Bookmark, BookmarkCheck, ChevronDown, ChevronUp } from 'lucide-react';
 import FlashcardTemplate from './FlashcardTemplate';
 import { toPng } from 'html-to-image';
 import JSZip from 'jszip';
@@ -66,51 +66,73 @@ const VocabCard = ({
         className="absolute w-full h-full bg-white border border-[#d9d9d9] rounded-cb-sm shadow-cb flex flex-col items-center justify-center p-4 md:p-6 backface-hidden overflow-y-auto hide-scrollbar"
         style={{ backfaceVisibility: 'hidden' }}
       >
-        <div className="absolute top-3 left-4 flex gap-1 z-10">
-          <span className="bg-[#f5f7fc] text-[#dc2323] px-2.5 py-0.5 rounded-cb-xs text-[10px] font-bold uppercase tracking-wider border border-[#d9d9d9]">
-            {card.type}
-          </span>
-          {card.topic && (
-            Array.isArray(card.topic) ? (
-              card.topic.map((t: string) => (
-                <span key={t} className="bg-gray-50 text-gray-700 px-2.5 py-0.5 rounded-cb-xs text-[10px] font-medium border border-[#d9d9d9]">
-                  {t}
-                </span>
-              ))
-            ) : (
-              <span className="bg-gray-50 text-gray-700 px-2.5 py-0.5 rounded-cb-xs text-[10px] font-medium border border-[#d9d9d9]">
-                {card.topic}
+        {/* Unified Top Header Bar */}
+        <div className="absolute top-3 left-4 right-4 flex justify-between items-center gap-2 z-10 flex-wrap">
+          {/* Left badges */}
+          <div className="flex gap-1 items-center">
+            <span className="bg-[#f5f7fc] text-[#dc2323] px-2 py-0.5 rounded-cb-xs text-[9px] font-bold uppercase tracking-wider border border-[#d9d9d9]">
+              {card.type}
+            </span>
+            {card.topic && (
+              <span className="hidden sm:inline bg-gray-50 text-gray-700 px-2 py-0.5 rounded-cb-xs text-[9px] font-medium border border-[#d9d9d9]">
+                {Array.isArray(card.topic) ? card.topic[0] : card.topic}
               </span>
-            )
-          )}
-        </div>
-        
-        {/* Audio Button Front */}
-        <div className="absolute top-3 right-4 flex items-center gap-2">
-          <button 
-            onClick={(e) => toggleSaveWord(e, card.term)}
-            className={`p-1.5 rounded-full transition-colors border shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7] ${savedWords.includes(card.term) ? 'bg-[#ffe36d] text-black border-yellow-500' : 'bg-gray-50 text-gray-500 border-[#d9d9d9] hover:bg-[#ffe36d] hover:text-black'}`}
-            title={savedWords.includes(card.term) ? "Unsave word" : "Save word"}
-          >
-            {savedWords.includes(card.term) ? <BookmarkCheck className="w-4 h-4 fill-black" /> : <Bookmark className="w-4 h-4" />}
-          </button>
-          <button 
-            onClick={(e) => handleAudioClick(e, card.term)}
-            className="p-1.5 bg-gray-50 rounded-full hover:bg-[#dc2323] hover:text-white transition-colors border border-[#d9d9d9] shadow-sm text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7]"
-            title="Listen to term"
-          >
-            <Volume2 className="w-4 h-4" />
-          </button>
+            )}
+          </div>
+          
+          {/* Right controls */}
+          <div className="flex items-center gap-1.5 flex-wrap justify-end">
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleLearningWord(e, card.term);
+              }}
+              className={`px-2 py-0.5 text-[9px] font-bold rounded-full border transition-all ${
+                learningWords.includes(card.term) 
+                  ? 'bg-[#dc2323] text-white border-[#dc2323]' 
+                  : 'bg-gray-50 text-gray-500 border-[#d9d9d9] hover:bg-red-50 hover:text-[#dc2323]'
+              }`}
+            >
+              X <span className="hidden sm:inline">Cần học</span>
+            </button>
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleKnownWord(e, card.term);
+              }}
+              className={`px-2 py-0.5 text-[9px] font-bold rounded-full border transition-all ${
+                knownWords.includes(card.term) 
+                  ? 'bg-green-600 text-white border-green-600' 
+                  : 'bg-gray-50 text-gray-500 border-[#d9d9d9] hover:bg-green-50 hover:text-green-600'
+              }`}
+            >
+              ✓ <span className="hidden sm:inline">Đã biết</span>
+            </button>
+            <button 
+              onClick={(e) => toggleSaveWord(e, card.term)}
+              className={`p-1 rounded-full transition-colors border shadow-sm ${savedWords.includes(card.term) ? 'bg-[#ffe36d] text-black border-yellow-500' : 'bg-gray-50 text-gray-500 border-[#d9d9d9] hover:bg-[#ffe36d] hover:text-black'}`}
+              title={savedWords.includes(card.term) ? "Unsave word" : "Save word"}
+            >
+              {savedWords.includes(card.term) ? <BookmarkCheck className="w-3.5 h-3.5 fill-black" /> : <Bookmark className="w-3.5 h-3.5" />}
+            </button>
+            <button 
+              onClick={(e) => handleAudioClick(e, card.term)}
+              className="p-1 bg-gray-50 rounded-full hover:bg-[#dc2323] hover:text-white transition-colors border border-[#d9d9d9] shadow-sm text-gray-500"
+              title="Listen to term"
+            >
+              <Volume2 className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
         
         {/* ICON Display */}
         {card.icon && (
-          <div className="text-3xl md:text-4xl mb-3 filter drop-shadow-sm opacity-90 animate-fade-in">
+          <div className="text-3xl md:text-4xl mb-3 mt-8 filter drop-shadow-sm opacity-90 animate-fade-in">
             {card.icon}
           </div>
         )}
         
-        <h3 className="text-xl md:text-3xl font-display font-bold text-[#1e1e1e] text-center tracking-tight leading-tight break-words max-w-full px-2">
+        <h3 className="text-xl md:text-3xl font-display font-bold text-[#1e1e1e] text-center tracking-tight leading-tight break-words max-w-full px-2 mt-4">
           {card.term}
         </h3>
         
@@ -125,76 +147,69 @@ const VocabCard = ({
         className="absolute w-full h-full bg-[#1e1e1e] border border-gray-700 rounded-cb-sm shadow-cb flex flex-col items-center justify-center p-4 md:p-6 text-white backface-hidden overflow-y-auto hide-scrollbar"
         style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
       >
-         {/* Inner badge info */}
-         <div className="absolute top-3 left-4 flex gap-1 z-10">
-           {card.topic && (
-             Array.isArray(card.topic) ? (
-               card.topic.map((t: string) => (
-                 <span key={t} className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-cb-xs border border-red-500/20 font-mono">
-                   🎓 {t}
-                 </span>
-               ))
-             ) : (
-               <span className="text-[9px] bg-red-900/40 text-red-300 px-2.5 py-0.5 rounded-cb-xs border border-red-500/20 font-mono">
-                 🎓 {card.topic}
-               </span>
-             )
-           )}
-         </div>
+        {/* Unified Top Header Bar */}
+        <div className="absolute top-3 left-4 right-4 flex justify-between items-center gap-2 z-10 flex-wrap">
+          {/* Left badges */}
+          <div className="flex gap-1 items-center">
+            {card.topic && (
+              <span className="text-[9px] bg-red-900/40 text-red-300 px-2 py-0.5 rounded-cb-xs border border-red-500/20 font-mono">
+                🎓 {Array.isArray(card.topic) ? card.topic[0] : card.topic}
+              </span>
+            )}
+          </div>
+          
+          {/* Right controls */}
+          <div className="flex items-center gap-1.5 flex-wrap justify-end">
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleLearningWord(e, card.term);
+              }}
+              className={`px-2 py-0.5 text-[9px] font-bold rounded-full border transition-all ${
+                learningWords.includes(card.term) 
+                  ? 'bg-[#dc2323] text-white border-[#dc2323]' 
+                  : 'bg-gray-800 text-gray-300 border-gray-700 hover:bg-red-900/40'
+              }`}
+            >
+              X <span className="hidden sm:inline">Cần học</span>
+            </button>
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleKnownWord(e, card.term);
+              }}
+              className={`px-2 py-0.5 text-[9px] font-bold rounded-full border transition-all ${
+                knownWords.includes(card.term) 
+                  ? 'bg-green-600 text-white border-green-600' 
+                  : 'bg-gray-800 text-gray-300 border-gray-700 hover:bg-green-900/40'
+              }`}
+            >
+              ✓ <span className="hidden sm:inline">Đã biết</span>
+            </button>
+            <button 
+              onClick={(e) => toggleSaveWord(e, card.term)}
+              className={`p-1 rounded-full transition-colors border shadow-sm ${savedWords.includes(card.term) ? 'bg-[#ffe36d] text-black border-yellow-500' : 'bg-gray-800 text-gray-400 border-gray-700 hover:bg-[#ffe36d] hover:text-black'}`}
+              title={savedWords.includes(card.term) ? "Unsave word" : "Save word"}
+            >
+              {savedWords.includes(card.term) ? <BookmarkCheck className="w-3.5 h-3.5 fill-black" /> : <Bookmark className="w-3.5 h-3.5" />}
+            </button>
+          </div>
+        </div>
 
-         {/* Bookmark Toggle Back */}
-         <div className="absolute top-3 right-4 flex items-center gap-2">
-           <button 
-             onClick={(e) => toggleSaveWord(e, card.term)}
-             className={`p-1.5 rounded-full transition-colors border shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#324dc7] ${savedWords.includes(card.term) ? 'bg-[#ffe36d] text-black border-yellow-500' : 'bg-gray-800 text-gray-400 border-gray-700 hover:bg-[#ffe36d] hover:text-black'}`}
-             title={savedWords.includes(card.term) ? "Unsave word" : "Save word"}
-           >
-             {savedWords.includes(card.term) ? <BookmarkCheck className="w-4 h-4 fill-black" /> : <Bookmark className="w-4 h-4" />}
-           </button>
-         </div>
-
-         <h4 className="text-sm md:text-base font-bold text-center mt-2 mb-2 leading-relaxed max-w-[95%] text-gray-100">
-           {card.definition}
-         </h4>
-         
-         {card.synonym && (
-           <p className="text-xs text-gray-400 mb-1 text-center w-full">
-             <span className="font-bold text-gray-300">Synonym:</span> {card.synonym}
-           </p>
-         )}
-         {card.antonym && (
-           <p className="text-xs text-gray-400 mb-1 text-center w-full">
-             <span className="font-bold text-gray-300">Antonym:</span> {card.antonym}
-           </p>
-         )}
-
-         {/* Learning Status Buttons */}
-         <div className="mt-auto w-full flex gap-2 justify-center pt-4 z-10">
-           <button
-             onClick={(e) => {
-               toggleLearningWord(e, card.term);
-             }}
-             className={`flex items-center justify-center flex-1 max-w-[120px] gap-1 py-1.5 text-[10px] font-bold rounded-full border shadow-sm transition-all ${
-               learningWords.includes(card.term) 
-                 ? 'bg-[#dc2323] text-white border-[#dc2323]' 
-                 : 'bg-[#2a2a2a] text-gray-300 border-gray-600 hover:bg-gray-700'
-             }`}
-           >
-             X Cần học
-           </button>
-           <button
-             onClick={(e) => {
-               toggleKnownWord(e, card.term);
-             }}
-             className={`flex items-center justify-center flex-1 max-w-[120px] gap-1 py-1.5 text-[10px] font-bold rounded-full border shadow-sm transition-all ${
-               knownWords.includes(card.term) 
-                 ? 'bg-green-600 text-white border-green-600' 
-                 : 'bg-[#2a2a2a] text-gray-300 border-gray-600 hover:bg-gray-700'
-             }`}
-           >
-             ✓ Đã biết
-           </button>
-         </div>
+        <h4 className="text-sm md:text-base font-bold text-center mt-12 mb-2 leading-relaxed max-w-[95%] text-gray-100">
+          {card.definition}
+        </h4>
+        
+        {card.synonym && (
+          <p className="text-xs text-gray-400 mb-1 text-center w-full">
+            <span className="font-bold text-gray-300">Synonym:</span> {card.synonym}
+          </p>
+        )}
+        {card.antonym && (
+          <p className="text-xs text-gray-400 mb-1 text-center w-full">
+            <span className="font-bold text-gray-300">Antonym:</span> {card.antonym}
+          </p>
+        )}
       </div>
     </div>
   );
@@ -331,10 +346,17 @@ const VocabView: React.FC = () => {
     return list;
   }, [filter, searchQuery, selectedTopic, selectedLetter, savedWords, learningWords]);
 
-  const currentCard = filteredList[currentIndex] || filteredList[0];
+  const currentCard = filteredList[currentIndex >= filteredList.length ? 0 : currentIndex] || filteredList[0];
   const currentCards = useMemo(() => {
-    return filteredList.slice(currentIndex, currentIndex + gridSize);
+    const safeIndex = currentIndex >= filteredList.length ? 0 : currentIndex;
+    return filteredList.slice(safeIndex, safeIndex + gridSize);
   }, [filteredList, currentIndex, gridSize]);
+
+  useEffect(() => {
+    if (currentIndex >= filteredList.length) {
+      setCurrentIndex(0);
+    }
+  }, [filteredList.length, currentIndex]);
   const templateRef = useRef<HTMLDivElement>(null);
 
   const nextCard = useCallback(() => {
@@ -517,13 +539,26 @@ const VocabView: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center px-2 mb-1">
+      <div className="flex justify-between items-center px-2 mb-2 w-full">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center gap-1.5 text-xs font-bold text-gray-700 bg-white border border-gray-200 shadow-sm px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors"
+          className={`flex items-center gap-2 text-xs font-bold px-3.5 py-2 rounded-xl border transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#dc2323] ${
+            isMenuOpen 
+              ? 'bg-[#1e1e1e] text-white border-gray-800' 
+              : 'bg-white text-gray-800 border-[#dc2323]/40 hover:border-[#dc2323] hover:bg-gray-50 hover:shadow-md'
+          }`}
+          title="Click to expand/collapse Search and Filters"
         >
-          <Search className="w-4 h-4" /> 
-          {isMenuOpen ? "Hide Filters & Search" : "Search & Filters"}
+          <Search className="w-3.5 h-3.5 text-[#dc2323]" /> 
+          <span>{isMenuOpen ? "Hide Filters & Search" : "Search & Filters"}</span>
+          <span className={`inline-flex items-center justify-center px-2 py-0.5 text-[9px] font-bold rounded-full uppercase tracking-wider ${isMenuOpen ? 'bg-gray-800 text-gray-300' : 'bg-red-50 text-[#dc2323] animate-pulse border border-red-200'}`}>
+            {isMenuOpen ? 'Active' : 'Click to expand ▾'}
+          </span>
+          {isMenuOpen ? (
+            <ChevronUp className="w-4 h-4 text-gray-400 transition-transform duration-300" />
+          ) : (
+            <ChevronDown className="w-4 h-4 text-[#dc2323] transition-transform duration-300" />
+          )}
         </button>
       </div>
 
@@ -805,14 +840,14 @@ const VocabView: React.FC = () => {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEndEvent}
         >
-          <div className={`grid gap-4 w-full ${
-            gridSize === 1 ? 'grid-cols-1 max-w-[min(95vw,600px)] mx-auto' :
-            gridSize === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto' :
-            gridSize === 4 ? 'grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto' :
-            'grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-7xl mx-auto'
+          <div className={`grid gap-5 w-full transition-all duration-300 ${
+            gridSize === 1 ? (isMenuOpen ? 'grid-cols-1 max-w-[min(95vw,600px)] mx-auto' : 'grid-cols-1 max-w-[min(95vw,850px)] mx-auto') :
+            gridSize === 2 ? (isMenuOpen ? 'grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto' : 'grid-cols-1 sm:grid-cols-2 max-w-[min(95vw,1200px)] mx-auto') :
+            gridSize === 4 ? (isMenuOpen ? 'grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto' : 'grid-cols-2 lg:grid-cols-4 max-w-[min(95vw,1400px)] mx-auto') :
+            (isMenuOpen ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-7xl mx-auto' : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-[min(95vw,1600px)] mx-auto')
           }`}>
             {currentCards.map((card) => (
-              <div key={card.term} className={`relative w-full ${gridSize <= 2 ? 'aspect-[17/10]' : 'aspect-[10/17]'} perspective-1000 group animate-fade-in`}>
+              <div key={card.term} className={`relative w-full ${gridSize <= 2 ? 'aspect-[17/10] min-h-[260px] xs:min-h-[280px] sm:min-h-0' : 'aspect-[10/17] min-h-[350px] sm:min-h-0'} perspective-1000 group animate-fade-in`}>
                 <VocabCard 
                   card={card}
                   savedWords={savedWords}
