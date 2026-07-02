@@ -225,6 +225,7 @@ const VocabView: React.FC = () => {
   const [selectedLetter, setSelectedLetter] = useState<string>("All");
   const [isDownloading, setIsDownloading] = useState(false);
   const [gridSize, setGridSize] = useState<1 | 2 | 4 | 6>(1);
+  const [showBatchExport, setShowBatchExport] = useState(false);
   
   const [savedWords, setSavedWords] = useState<string[]>(() => {
     try {
@@ -458,9 +459,14 @@ const VocabView: React.FC = () => {
     if (!templateRef.current) return;
     try {
       setIsDownloading(true);
-      const zip = new JSZip();
+      setShowBatchExport(true);
       
       alert('Bắt đầu tạo file ZIP. Quá trình này có thể mất một lúc tùy số lượng ảnh. Vui lòng chờ...');
+      
+      // Chờ một khoảng thời gian ngắn (~150ms) để DOM kịp render các card ẩn trước khi truy xuất phần tử
+      await new Promise((resolve) => setTimeout(resolve, 150));
+      
+      const zip = new JSZip();
       
       const batchContainer = document.getElementById('batch-export-container');
       if (batchContainer) {
@@ -496,6 +502,7 @@ const VocabView: React.FC = () => {
       alert('Có lỗi xảy ra khi tạo file zip. Vui lòng thử lại sau.');
     } finally {
       setIsDownloading(false);
+      setShowBatchExport(false);
     }
   };
 
@@ -509,13 +516,15 @@ const VocabView: React.FC = () => {
         {currentCard && <FlashcardTemplate ref={templateRef} card={currentCard} index={currentIndex + 1} />}
         
         {/* Hidden exporter batch */}
-        <div id="batch-export-container">
-          {filteredList.slice(0, 50).map((card, i) => (
-             <div key={i} data-term={card.term}>
-                 <FlashcardTemplate card={card} index={i + 1} />
-             </div>
-          ))}
-        </div>
+        {showBatchExport && (
+          <div id="batch-export-container">
+            {filteredList.slice(0, 50).map((card, i) => (
+               <div key={i} data-term={card.term}>
+                   <FlashcardTemplate card={card} index={i + 1} />
+               </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="text-center mb-1 flex items-center justify-between px-2 gap-4 flex-wrap">
