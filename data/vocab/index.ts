@@ -5,6 +5,7 @@ import { extraVocabList } from './extraVocab';
 import { offlineSATDictionary } from './offlineTranslator';
 import { defaultMeanings } from './defaultMeanings';
 import { usPoliticsVocab } from './usPoliticsVocab';
+import { ideasVocabList } from './ideasVocab';
 
 // Export raw components for specific use cases (like Quizzes or custom scripts)
 export { vocabList } from './vocabularyList';
@@ -13,6 +14,7 @@ export { extraVocabList } from './extraVocab';
 export { offlineSATDictionary } from './offlineTranslator';
 export { defaultMeanings } from './defaultMeanings';
 export { usPoliticsVocab } from './usPoliticsVocab';
+export { ideasVocabList } from './ideasVocab';
 
 // Map each extra vocab word to ensure standard, robust definitions
 const enrichedExtraVocabList = extraVocabList.map(card => {
@@ -58,7 +60,7 @@ const enrichedExtraVocabList = extraVocabList.map(card => {
 });
 
 // Precompute combined list
-export const combinedVocabList: VocabCard[] = [...vocabList, ...mathVocabList, ...enrichedExtraVocabList, ...usPoliticsVocab].map(card => {
+export const combinedVocabList: VocabCard[] = [...vocabList, ...mathVocabList, ...enrichedExtraVocabList, ...usPoliticsVocab, ...ideasVocabList].map(card => {
   if (card.type === 'concept' && card.id >= 1001 && card.id <= 1999) {
     const topics: string[] = [];
     const id = card.id;

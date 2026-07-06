@@ -8,6 +8,7 @@ import {
   ChecklistItem,
 } from "../types";
 import FormattedText from "../components/FormattedText";
+import ThreeBranchesDiagram from "../components/ThreeBranchesDiagram";
 import {
   Brain,
   Image as ImageIcon,
@@ -1710,11 +1711,8 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
             <li><strong>Federalism:</strong> Sự phân chia quyền lực giữa Chính phủ Liên bang và Chính quyền Bang.</li>
           </ul>
 
-          <div className="mb-6">
-            <h4 className="font-bold text-xl mb-2 text-red-700">Sơ đồ 3 nhánh (Tam quyền phân lập)</h4>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 inline-block">
-              <img src="https://images.ndla.no/bf0JONgl.svg" alt="Sơ đồ 3 nhánh" className="max-w-md w-full h-auto" />
-            </div>
+          <div className="mb-8">
+            <ThreeBranchesDiagram />
           </div>
 
           <div className="bg-[#fffdf0] border-l-4 border-[#DC2323] p-4 my-4">
@@ -1760,32 +1758,54 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
             </table>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div>
-              <h4 className="font-bold text-lg mb-2">Amendment 13</h4>
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 h-full">
-                <img src="https://pbs.twimg.com/media/GeIbPUcWYAE8QOc.jpg" alt="Amendment 13" className="w-full h-auto rounded" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm flex flex-col">
+              <div className="p-4 bg-gray-50 border-b border-gray-200">
+                <h4 className="font-bold text-lg text-gray-900">Amendment 13</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Bãi bỏ chế độ nô lệ tại Hoa Kỳ (1865)</p>
+              </div>
+              <div className="p-4 flex-1 flex items-center justify-center bg-gray-50/50">
+                <img 
+                  src="https://pbs.twimg.com/media/GeIbPUcWYAE8QOc.jpg" 
+                  alt="Amendment 13" 
+                  className="w-full h-auto rounded-lg max-h-[320px] object-contain shadow-sm border border-gray-100" 
+                />
               </div>
             </div>
-            <div>
-              <h4 className="font-bold text-lg mb-2">Amendment 19</h4>
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 h-full flex justify-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/VOTE_poster_-_Citation_Acc_22002_-_Archives_and_Manuscripts_-_Library_of_Virginia.jpg/250px-VOTE_poster_-_Citation_Acc_22002_-_Archives_and_Manuscripts_-_Library_of_Virginia.jpg" alt="Amendment 19" className="h-auto rounded object-contain max-h-[400px]" />
+            
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm flex flex-col">
+              <div className="p-4 bg-gray-50 border-b border-gray-200">
+                <h4 className="font-bold text-lg text-gray-900">Amendment 19</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Trao quyền bầu cử cho phụ nữ (1920)</p>
+              </div>
+              <div className="p-4 flex-1 flex items-center justify-center bg-gray-50/50">
+                <img 
+                  src="https://npr.brightspotcdn.com/dims4/default/5021f1d/2147483647/strip/true/crop/1023x679+0+0/resize/880x584!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fc3%2Fcd%2F4945e5d14e90b2394fd0a995b2dd%2Fsource-suffrage.jpg" 
+                  alt="Amendment 19" 
+                  className="w-full h-auto rounded-lg max-h-[320px] object-contain shadow-sm border border-gray-100" 
+                />
               </div>
             </div>
           </div>
 
           <div className="mb-6">
-            <h4 className="font-bold text-lg mb-2">Tài liệu tham khảo: Video về Phong trào Quyền bầu cử phụ nữ</h4>
-            <div className="max-w-2xl">
-              <iframe 
-                src="https://www.youtube.com/embed/0EIFDSb7tWc" 
-                title="YouTube video player" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                className="w-full h-[315px] rounded-lg shadow-sm"
-              ></iframe>
+            <h4 className="font-bold text-xl mb-3 text-red-700">Tài liệu tham khảo: Video minh họa</h4>
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm max-w-3xl">
+              <div className="p-4 bg-gray-50 border-b border-gray-200">
+                <h5 className="font-bold text-lg text-gray-900">
+                  The most notorious act of protest for women’s suffrage | Vox
+                </h5>
+                <p className="text-sm text-gray-500 mt-1">Video tìm hiểu về cuộc đấu tranh đòi quyền bầu cử của phụ nữ Mỹ.</p>
+              </div>
+              <div className="aspect-video w-full">
+                <iframe 
+                  src="https://www.youtube.com/embed/0EIFDSb7tWc" 
+                  title="The most notorious act of protest for women’s suffrage | Vox" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                  className="w-full h-full border-0"
+                ></iframe>
+              </div>
             </div>
           </div>
         </section>
@@ -1828,6 +1848,187 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
             <div><strong className="text-red-700">Partisan:</strong> Mang tính đảng phái.</div>
           </div>
         </section>
+      </div>
+    ),
+  },
+  {
+    id: "v_vocab_ideas",
+    category: "Verbal",
+    title: "SAT Vocabulary: The Language of Ideas",
+    content: (
+      <div className="space-y-8 text-lg leading-relaxed text-black">
+        <div className="bg-black text-white p-6 rounded-xl">
+          <h2 className="text-3xl font-bold mb-2 font-sans tracking-tight">SAT Vocabulary: The Language of Ideas</h2>
+          <p className="opacity-90">
+            Học cách làm chủ từ vựng học thuật đỉnh cao thông qua bản đồ ý niệm và phương pháp ghi nhớ Flashcards khoa học.
+          </p>
+        </div>
+
+        <section>
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            1. Tại sao Từ vựng là "Chìa khóa vàng" trên Digital SAT?
+          </h3>
+          <p className="mb-4">
+            Trái với suy nghĩ thông thường rằng bài thi SAT chỉ đơn thuần kiểm tra khả năng nhớ nghĩa của từ, 
+            <strong> Digital SAT Reading & Writing</strong> tích hợp từ vựng trực tiếp vào các ngữ cảnh phức tạp:
+          </p>
+          <ul className="list-disc list-inside space-y-2 mb-6">
+            <li><strong>Words in Context:</strong> Các câu hỏi yêu cầu điền từ thích hợp vào chỗ trống dựa trên các gợi ý logic tinh tế trong đoạn văn.</li>
+            <li><strong>Tone & Rhetoric:</strong> Việc hiểu chính xác sắc thái biểu đạt (connotation) của từ vựng quyết định việc nắm bắt thái độ, luận điểm và lập trường của tác giả.</li>
+            <li><strong>Cross-Disciplinary Content:</strong> Các bài đọc trải dài từ Nhân học (Anthropology), Khoa học tự nhiên (Natural Sciences) cho tới Văn học cổ điển (Classic Literature).</li>
+          </ul>
+          <div className="bg-gray-100 p-4 rounded-lg border-l-4 border-black font-sans my-4">
+            <strong>Nguyên lý cơ bản:</strong> Để đạt điểm 700+ phần Verbal, bạn không cần thuộc lòng cuốn từ điển dày cộp, nhưng 
+            bắt buộc phải làm chủ <em>"The Language of Ideas"</em> - nhóm ngôn ngữ học thuật được sử dụng để xây dựng hệ thống 
+            lập luận, phản biện, đả kích, hay khẳng định chân lý.
+          </div>
+        </section>
+
+        <section>
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            2. 4 Phương pháp học Flashcards tối ưu (Mastery Methods)
+          </h3>
+          <p className="mb-4">Dựa trên nghiên cứu khoa học về trí nhớ dài hạn, hãy áp dụng 4 phương pháp sau khi lật thẻ từ vựng:</p>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm hover:border-black transition-colors">
+              <strong className="block text-xl text-black mb-2">1. Sentence Method (Đặt câu)</strong>
+              Khi mở một thẻ từ, không chỉ đọc định nghĩa tiếng Việt. Hãy ngay lập tức phát âm từ đó và đặt một câu tiếng Anh hoàn chỉnh mô tả ngữ cảnh thực tế của riêng bạn.
+            </div>
+            <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm hover:border-black transition-colors">
+              <strong className="block text-xl text-black mb-2">2. Root Method (Gốc từ)</strong>
+              Phân tích các tiền tố, hậu tố và gốc từ La Tinh / Hy Lạp. Ví dụ: gốc <em>circum-</em> (vòng tròn) giúp giải nghĩa <em>circumscribe</em> (vẽ vòng hạn chế, giới hạn) và <em>circumlocutory</em> (nói vòng vo).
+            </div>
+            <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm hover:border-black transition-colors">
+              <strong className="block text-xl text-black mb-2">3. Crossword Method (Đoán ngược)</strong>
+              Nhìn vào định nghĩa tiếng Việt hoặc từ đồng nghĩa, kết hợp với chữ cái đầu tiên gợi ý, cố gắng tái hiện lại từ vựng tiếng Anh nguyên bản trong trí nhớ mà không lật thẻ trước.
+            </div>
+            <div className="border border-gray-200 p-4 rounded-lg bg-white shadow-sm hover:border-black transition-colors">
+              <strong className="block text-xl text-black mb-2">4. Mnemonic Method (Liên tưởng)</strong>
+              Sử dụng các liên tưởng âm thanh tương tự hoặc hình ảnh hài hước để gắn kết nghĩa của từ. Ví dụ: từ <em>misanthrope</em> (kẻ ghét loài người) có thể liên tưởng tới hình ảnh một gã sống cô độc ghét mọi cuộc trò chuyện.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            3. Bản đồ Ý niệm & Các nhóm từ vựng cốt lõi
+          </h3>
+          <p className="mb-4">Dưới đây là tóm tắt các nhóm từ vựng học thuật quan trọng nhất xuất hiện trong tài liệu gốc:</p>
+          
+          <div className="space-y-6">
+            <div className="border border-black rounded-lg overflow-hidden">
+              <div className="bg-black text-white p-3 font-semibold font-sans">
+                Nhóm 1: The Language of Ideas & Learning (Ý niệm & Học thuật)
+              </div>
+              <div className="p-4 bg-white space-y-2 text-sm">
+                <p>Nhóm từ vựng dùng để mô tả tư duy, học thuyết, tri thức và phương pháp luận:</p>
+                <div className="grid md:grid-cols-2 gap-2 mt-2 font-sans">
+                  <div>• <strong>Abstract:</strong> Trừu tượng, lý thuyết (Trái nghĩa: <em>Concrete</em>).</div>
+                  <div>• <strong>Erudite:</strong> Uyên bác, thông thái sâu sắc.</div>
+                  <div>• <strong>Discerning:</strong> Sáng suốt, có mắt nhìn tinh tường.</div>
+                  <div>• <strong>Pedantic:</strong> Giáo điều, quá câu nệ tiểu tiết sách vở.</div>
+                  <div>• <strong>Disseminate:</strong> Truyền bá, gieo rắc thông tin rộng rãi.</div>
+                  <div>• <strong>Orthodox:</strong> Chính thống, tuân thủ truyền thống lâu đời.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-black rounded-lg overflow-hidden">
+              <div className="bg-black text-white p-3 font-semibold font-sans">
+                Nhóm 2: The Language of Argument & Persuasion (Biện luận & Thuyết phục)
+              </div>
+              <div className="p-4 bg-white space-y-2 text-sm">
+                <p>Nhóm từ vựng trọng tâm nhất trong các bài đọc phân tích lập luận (Rhetorical Analysis):</p>
+                <div className="grid md:grid-cols-2 gap-2 mt-2 font-sans">
+                  <div>• <strong>Advocate:</strong> Người ủng hộ, biện hộ công khai.</div>
+                  <div>• <strong>Bolster / Buttress:</strong> Củng cố, chống đỡ vững chắc lập luận.</div>
+                  <div>• <strong>Specious:</strong> Ngụy biện, hợp lý bề ngoài nhưng thực chất sai lầm.</div>
+                  <div>• <strong>Vindicate / Exonerate:</strong> Minh oan, bào chữa, chứng minh tính đúng đắn.</div>
+                  <div>• <strong>Contentious:</strong> Gây tranh cãi dữ dội, hiếu chiến.</div>
+                  <div>• <strong>Elucidate:</strong> Giải thích rõ ràng, làm sáng tỏ.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-black rounded-lg overflow-hidden">
+              <div className="bg-black text-white p-3 font-semibold font-sans">
+                Nhóm 3: The Language of Dissent, Criticism & Rebellion (Phản biện & Nổi loạn)
+              </div>
+              <div className="p-4 bg-white space-y-2 text-sm">
+                <p>Nhóm từ vựng mô tả sự phản kháng, đối đầu, chỉ trích xã hội hoặc chính quyền:</p>
+                <div className="grid md:grid-cols-2 gap-2 mt-2 font-sans">
+                  <div>• <strong>Iconoclast:</strong> Người đả phá thần tượng, hủ tục truyền thống.</div>
+                  <div>• <strong>Adversary:</strong> Đối thủ, kẻ thù trong một cuộc xung đột.</div>
+                  <div>• <strong>Antipathy / Rancor:</strong> Ác cảm sâu sắc, mối hận thù lâu dài.</div>
+                  <div>• <strong>Malign / Vilify:</strong> Vu khống, phỉ báng danh dự của người khác.</div>
+                  <div>• <strong>Maverick:</strong> Người độc lập, lập dị, không chịu tuân phục khuôn mẫu.</div>
+                  <div>• <strong>Subvert:</strong> Lật đổ, ngấm ngầm phá hoại từ bên trong.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-black rounded-lg overflow-hidden">
+              <div className="bg-black text-white p-3 font-semibold font-sans">
+                Nhóm 4: The Language of Power & Submission (Quyền lực & Phục tùng)
+              </div>
+              <div className="p-4 bg-white space-y-2 text-sm">
+                <p>Mô tả các mối quan hệ kiểm soát, cưỡng ép, tuân phục trong lịch sử và chính trị:</p>
+                <div className="grid md:grid-cols-2 gap-2 mt-2 font-sans">
+                  <div>• <strong>Acquiesce:</strong> Phục tùng miễn cưỡng, không phản kháng.</div>
+                  <div>• <strong>Capitulate:</strong> Đầu hàng dưới các điều kiện nhất định.</div>
+                  <div>• <strong>Coerce:</strong> Ép buộc, cưỡng chế bằng bạo lực hoặc đe dọa.</div>
+                  <div>• <strong>Despot / Demagogue:</strong> Kẻ bạo chúa / Nhà lãnh đạo mị dân.</div>
+                  <div>• <strong>Tenacious:</strong> Ngoan cường, bám dai, kiên trì không từ bỏ.</div>
+                  <div>• <strong>Relinquish:</strong> Từ bỏ, nhường lại quyền sở hữu hay ngôi vị.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-8">
+          <h3 className="font-bold text-2xl border-b-2 border-black mb-4 inline-block">
+            4. Tài liệu Tham khảo: McGraw-Hill Education: SAT 2019
+          </h3>
+          <p className="mb-4">
+            Dưới đây là bản xem trước tài liệu gốc <strong>McGraw-Hill Education: SAT 2019</strong>. Bạn có thể thu gọn hoặc mở rộng (collapse/expand) khung xem này, cuộn trang, phóng to, thu nhỏ và tra cứu từ vựng trực tiếp trong tài liệu.
+          </p>
+
+          <details className="group border border-black rounded-lg overflow-hidden bg-white shadow-md" open>
+            <summary className="flex items-center justify-between p-4 font-semibold font-sans text-lg bg-black text-white cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden">
+              <div className="flex items-center gap-2">
+                <span>📖 Xem Tài liệu McGraw-Hill Education: SAT 2019</span>
+              </div>
+              <span className="transition-transform duration-300 group-open:rotate-180 text-sm font-sans">
+                ▲
+              </span>
+            </summary>
+            <div className="bg-gray-50 p-2 border-t border-black">
+              <div className="relative w-full h-[650px] bg-white rounded overflow-hidden shadow-inner border border-gray-200">
+                <iframe
+                  src="https://drive.google.com/file/d/1No_B6Z_OxXS_Vb2KKHV2z2dTwV-hsh-H/preview"
+                  className="w-full h-full"
+                  allow="autoplay"
+                  referrerPolicy="no-referrer"
+                  title="McGraw-Hill Education: SAT 2019"
+                />
+              </div>
+              <div className="mt-2 text-sm text-gray-500 font-sans flex flex-col md:flex-row justify-between items-start md:items-center gap-2 p-2">
+                <span>💡 <strong>Mẹo tra từ:</strong> Nhấn nút <strong>"Mở trong tab mới" (Pop-out)</strong> ở góc trên bên phải khung PDF để tìm kiếm bằng tổ hợp phím <kbd className="px-1.5 py-0.5 bg-gray-200 rounded text-xs text-gray-700">Ctrl + F</kbd> hoặc <kbd className="px-1.5 py-0.5 bg-gray-200 rounded text-xs text-gray-700">Cmd + F</kbd> dễ dàng hơn.</span>
+                <a
+                  href="https://drive.google.com/file/d/1No_B6Z_OxXS_Vb2KKHV2z2dTwV-hsh-H/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black font-semibold hover:underline flex items-center gap-1"
+                >
+                  Mở Google Drive ↗
+                </a>
+              </div>
+            </div>
+          </details>
+        </section>
+
+
       </div>
     ),
   },
