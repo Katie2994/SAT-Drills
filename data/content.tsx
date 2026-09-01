@@ -2076,6 +2076,75 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
                 </div>
               </div>
             </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-fuchsia-800 mb-3 flex items-center gap-2">
+                <span className="bg-fuchsia-100 text-fuchsia-800 px-2 py-1 rounded text-sm">8</span> Hệ Thức Lượng Trong Tam Giác Vuông (Đường cao)
+              </h4>
+              <p className="mb-4 text-gray-700">Dùng để giải siêu nhanh các bài toán hình học có tam giác vuông bị chia đôi bởi đường cao (Altitude). Đây là các công thức "sát thủ" tiết kiệm thời gian:</p>
+              
+              <div className="grid md:grid-cols-2 gap-6 items-center">
+                <div className="bg-fuchsia-50/50 p-4 rounded border border-fuchsia-100 flex justify-center">
+                  <svg viewBox="-20 0 320 210" className="w-full max-w-sm text-gray-800" stroke="currentColor">
+                    {/* Right angle marks */}
+                    <path d="M 91,42 L 103,51 L 112,39" fill="none" strokeWidth="1.5" />
+                    <path d="M 100,135 L 115,135 L 115,150" fill="none" strokeWidth="1.5" />
+                    
+                    {/* Main triangle and altitude */}
+                    <polygon points="10,150 260,150 100,30" fill="none" strokeWidth="2.5" />
+                    <line x1="100" y1="30" x2="100" y2="150" strokeWidth="1.5" />
+                    
+                    {/* Brackets for c' and b' */}
+                    <line x1="10" y1="165" x2="260" y2="165" strokeWidth="1" strokeDasharray="4 4" />
+                    <line x1="10" y1="150" x2="10" y2="170" strokeWidth="1" />
+                    <line x1="260" y1="150" x2="260" y2="170" strokeWidth="1" />
+                    <line x1="100" y1="150" x2="100" y2="170" strokeWidth="1" />
+                    
+                    {/* Bracket for a */}
+                    <line x1="10" y1="190" x2="260" y2="190" strokeWidth="1" strokeDasharray="4 4" />
+                    <line x1="10" y1="180" x2="10" y2="200" strokeWidth="1" />
+                    <line x1="260" y1="180" x2="260" y2="200" strokeWidth="1" />
+
+                    {/* Text labels */}
+                    <text x="100" y="20" fontSize="18" fontWeight="bold" textAnchor="middle" fill="currentColor" stroke="none">A</text>
+                    <text x="0" y="155" fontSize="18" fontWeight="bold" textAnchor="end" fill="currentColor" stroke="none">B</text>
+                    <text x="270" y="155" fontSize="18" fontWeight="bold" textAnchor="start" fill="currentColor" stroke="none">C</text>
+                    <text x="100" y="155" fontSize="18" fontWeight="bold" textAnchor="middle" dominantBaseline="hanging" fill="currentColor" stroke="none">H</text>
+                    
+                    <text x="40" y="85" fontSize="18" fontStyle="italic" textAnchor="end" fill="currentColor" stroke="none">c</text>
+                    <text x="195" y="85" fontSize="18" fontStyle="italic" textAnchor="start" fill="currentColor" stroke="none">b</text>
+                    <text x="92" y="100" fontSize="18" fontStyle="italic" textAnchor="end" fill="currentColor" stroke="none">h</text>
+                    
+                    <text x="55" y="160" fontSize="16" fontStyle="italic" textAnchor="middle" fill="currentColor" stroke="none">c'</text>
+                    <text x="180" y="160" fontSize="16" fontStyle="italic" textAnchor="middle" fill="currentColor" stroke="none">b'</text>
+                    <text x="135" y="185" fontSize="18" fontStyle="italic" textAnchor="middle" fill="currentColor" stroke="none">a</text>
+                  </svg>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="border-l-4 border-fuchsia-400 pl-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-800 font-medium">1. Cao × Huyền = 2 Cạnh Góc Vuông</span>
+                    </div>
+                    <code className="bg-gray-100 text-red-600 px-2 py-1 rounded font-mono font-bold mt-1 inline-block">a · h = b · c</code>
+                  </div>
+                  
+                  <div className="border-l-4 border-fuchsia-400 pl-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-800 font-medium">2. Đường cao bình phương = Tích 2 hình chiếu</span>
+                    </div>
+                    <code className="bg-gray-100 text-red-600 px-2 py-1 rounded font-mono font-bold mt-1 inline-block">h² = b' · c'</code>
+                  </div>
+
+                  <div className="border-l-4 border-fuchsia-400 pl-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-800 font-medium">3. Nghịch đảo bình phương</span>
+                    </div>
+                    <code className="bg-gray-100 text-red-600 px-2 py-1 rounded font-mono font-bold mt-1 inline-block">1/h² = 1/b² + 1/c²</code>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
