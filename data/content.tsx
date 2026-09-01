@@ -1218,6 +1218,82 @@ export const theorySections: TheorySection[] = [
             solution={`**Đáp án: x > -4**\n\n**Giải thích chi tiết:**\n- -2x + 6 < 14\n- -2x < 8\n- Chia 2 vế cho -2, đảo dấu: x > -4.\n\n**Common trap:** Viết x < -4 vì quên đảo dấu, dù tính toán phần số hoàn toàn đúng.`}
           />
         </section>
+
+        <section className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <h3 className="font-bold text-2xl text-black mb-6 border-b-2 border-gray-300 pb-2">
+            6. Tổng hợp Công thức Algebra (Xu hướng Digital SAT 2023-2026)
+          </h3>
+          
+          <div className="space-y-6">
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-blue-800 mb-3 flex items-center gap-2">
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">1</span> Các Dạng Phương Trình Đường Thẳng
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-blue-500">
+                <li><strong>Slope-Intercept Form:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">y = mx + b</code>. (m: độ dốc, b: y-intercept).</li>
+                <li><strong>Point-Slope Form:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">y - y₁ = m(x - x₁)</code>. Dùng khi biết độ dốc m và một điểm (x₁, y₁) thuộc đường thẳng.</li>
+                <li><strong>Standard Form:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">Ax + By = C</code>. 
+                  <ul className="list-circle list-inside ml-6 mt-1 text-sm">
+                    <li>Độ dốc (Slope) = <code className="bg-white text-red-600 px-1 rounded">-A/B</code></li>
+                    <li>y-intercept = <code className="bg-white text-red-600 px-1 rounded">C/B</code></li>
+                    <li>x-intercept = <code className="bg-white text-red-600 px-1 rounded">C/A</code></li>
+                  </ul>
+                </li>
+                <li><strong>Công thức tính độ dốc:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">m = (y₂ - y₁) / (x₂ - x₁)</code>.</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-emerald-800 mb-3 flex items-center gap-2">
+                <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-sm">2</span> Số Nghiệm Của Hệ Phương Trình
+              </h4>
+              <p className="mb-2 text-gray-700">Cho hệ: <code className="font-mono text-sm bg-gray-100 px-1">A₁x + B₁y = C₁</code> và <code className="font-mono text-sm bg-gray-100 px-1">A₂x + B₂y = C₂</code>. Đây là dạng <strong>luôn xuất hiện</strong>:</p>
+              <div className="grid md:grid-cols-3 gap-4 mt-3">
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">One Solution (1 nghiệm)</strong>
+                  <p className="text-sm text-gray-800 mb-2">Hai đường thẳng cắt nhau.</p>
+                  <code className="bg-white text-red-600 px-2 py-1 rounded block text-center font-mono">A₁/A₂ ≠ B₁/B₂</code>
+                  <p className="text-xs text-gray-500 mt-2 text-center">(Hai độ dốc khác nhau)</p>
+                </div>
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">No Solution (Vô nghiệm)</strong>
+                  <p className="text-sm text-gray-800 mb-2">Hai đường thẳng song song.</p>
+                  <code className="bg-white text-red-600 px-2 py-1 rounded block text-center font-mono">A₁/A₂ = B₁/B₂ ≠ C₁/C₂</code>
+                  <p className="text-xs text-gray-500 mt-2 text-center">(Cùng độ dốc, khác y-intercept)</p>
+                </div>
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">Infinite Solutions (Vô số)</strong>
+                  <p className="text-sm text-gray-800 mb-2">Hai đường thẳng trùng nhau.</p>
+                  <code className="bg-white text-red-600 px-2 py-1 rounded block text-center font-mono">A₁/A₂ = B₁/B₂ = C₁/C₂</code>
+                  <p className="text-xs text-gray-500 mt-2 text-center">(Hai PT là tỉ lệ của nhau)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-purple-800 mb-3 flex items-center gap-2">
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">3</span> Tính Chất Hai Đường Thẳng Đặc Biệt
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-purple-500">
+                <li><strong>Song song (Parallel):</strong> Có <strong>cùng độ dốc</strong> (<code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">m₁ = m₂</code>) và khác y-intercept.</li>
+                <li><strong>Vuông góc (Perpendicular):</strong> Độ dốc là <strong>nghịch đảo âm</strong> của nhau. <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">m₁ × m₂ = -1</code> (hay <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">m₁ = -1/m₂</code>).</li>
+                <li><strong>Đường ngang (Horizontal):</strong> Phương trình dạng <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">y = c</code>. Độ dốc m = 0.</li>
+                <li><strong>Đường dọc (Vertical):</strong> Phương trình dạng <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">x = c</code>. Độ dốc không xác định (undefined).</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-orange-800 mb-3 flex items-center gap-2">
+                <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">4</span> Trị Tuyệt Đối & Bất Phương Trình
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-orange-500">
+                <li>Phương trình <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">|x| = a</code> (với a &ge; 0) có 2 nghiệm: <code className="bg-gray-100 px-1 rounded font-mono">x = a</code> hoặc <code className="bg-gray-100 px-1 rounded font-mono">x = -a</code>.</li>
+                <li>Bất phương trình <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">|x| &lt; a</code> &rarr; khoảng nằm giữa: <code className="bg-gray-100 px-1 rounded font-mono">-a &lt; x &lt; a</code>.</li>
+                <li>Bất phương trình <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">|x| &gt; a</code> &rarr; rẽ ra ngoài: <code className="bg-gray-100 px-1 rounded font-mono">x &gt; a</code> hoặc <code className="bg-gray-100 px-1 rounded font-mono">x &lt; -a</code>.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
     ),
   },
@@ -1351,6 +1427,110 @@ D) M(t) = 80·(1 - 0.25t)`}
             question={`A savings account A starts with $1,000 and earns $50 interest each year. Another account B starts with $1,000 and grows by 5% each year. After t years, which models account B?\nA) 1000 + 50t\nB) 1000 + 0.05t\nC) 1000·(1.05)ᵗ\nD) 1000·(0.95)ᵗ`}
             solution={`**Đáp án: C**\n\n**Giải thích chi tiết:**\n- Interest "5% each year" → nhân 1.05.\n→ B(t) = 1000·(1.05)ᵗ (exponential growth).\n- A(t) = 1000 + 50t là linear (của account A).\n\n**Common trap:** Chọn B (cộng 0.05). Chọn A do không chuyển sang %.`}
           />
+        </section>
+
+        <section className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <h3 className="font-bold text-2xl text-black mb-6 border-b-2 border-gray-300 pb-2">
+            5. Tổng hợp Công thức Advanced Math (Các dạng vận dụng cao)
+          </h3>
+          
+          <div className="space-y-6">
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-blue-800 mb-3 flex items-center gap-2">
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">1</span> Các Dạng Phương Trình Bậc Hai (Quadratics)
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-blue-500">
+                <li><strong>Standard Form:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">y = ax² + bx + c</code>. Điểm cắt trục tung (y-intercept) là c. Tọa độ x của đỉnh (Vertex x) = <code className="bg-white text-red-600 px-1 rounded">-b/2a</code>.</li>
+                <li><strong>Vertex Form:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">y = a(x - h)² + k</code>. Đỉnh parabol (Vertex) là (h, k). Dạng này cực tốt để tìm giá trị lớn nhất / nhỏ nhất.</li>
+                <li><strong>Factored Form:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">y = a(x - r₁)(x - r₂)</code>. Cắt trục hoành (x-intercepts) tại r₁ và r₂. Tọa độ x của đỉnh chính là trung bình cộng hai nghiệm: <code className="bg-white text-red-600 px-1 rounded">(r₁ + r₂)/2</code>.</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-emerald-800 mb-3 flex items-center gap-2">
+                <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-sm">2</span> Biệt Thức (Discriminant) & Số Nghiệm
+              </h4>
+              <p className="mb-2 text-gray-700">Cho phương trình <code className="font-mono text-sm bg-gray-100 px-1">ax² + bx + c = 0</code>, biệt thức <code className="font-mono text-sm bg-gray-100 px-1">Δ = b² - 4ac</code> quyết định số nghiệm (số giao điểm với trục Ox):</p>
+              <div className="grid md:grid-cols-3 gap-4 mt-3">
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">Δ &gt; 0</strong>
+                  <p className="text-sm text-gray-800 mb-2">2 nghiệm thực phân biệt.</p>
+                  <p className="text-xs text-gray-500 mt-2 text-center">(Parabol cắt Ox tại 2 điểm)</p>
+                </div>
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">Δ = 0</strong>
+                  <p className="text-sm text-gray-800 mb-2">1 nghiệm kép (nghiệm duy nhất).</p>
+                  <p className="text-xs text-gray-500 mt-2 text-center">(Parabol tiếp xúc Ox)</p>
+                </div>
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">Δ &lt; 0</strong>
+                  <p className="text-sm text-gray-800 mb-2">Vô nghiệm thực (0 nghiệm).</p>
+                  <p className="text-xs text-gray-500 mt-2 text-center">(Parabol lơ lửng, không cắt Ox)</p>
+                </div>
+              </div>
+              <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 text-sm text-red-900">
+                <strong>🔥 Dạng bài điểm 800:</strong> Tìm điều kiện để đường thẳng <code className="font-mono">y = mx + b</code> tiếp xúc hoặc không cắt Parabol. <br/>
+                <em>Cách giải:</em> Cho 2 biểu thức bằng nhau, chuyển vế đưa về phương trình bậc 2 chuẩn <code className="font-mono">Ax² + Bx + C = 0</code>, rồi ép <code className="font-mono">Δ = 0</code> (tiếp xúc) hoặc <code className="font-mono">Δ &lt; 0</code> (không cắt).
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-purple-800 mb-3 flex items-center gap-2">
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">3</span> Định Lý Vi-ét & Đa Thức (Polynomials)
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-purple-500">
+                <li><strong>Tổng các nghiệm (Sum of roots):</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">x₁ + x₂ = -b/a</code>. Cực kỳ hay gặp trong câu hỏi kiểu "What is the sum of the solutions...". Cứ dùng Vi-ét là ra, không cần bấm máy tính giải nghiệm!</li>
+                <li><strong>Tích các nghiệm (Product of roots):</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">x₁ × x₂ = c/a</code>.</li>
+                <li><strong>Định lý phần dư (Remainder Theorem):</strong> Số dư khi chia đa thức <code className="font-mono">P(x)</code> cho <code className="font-mono">(x - c)</code> chính là giá trị <code className="font-mono">P(c)</code>.</li>
+                <li><strong>Định lý nhân tử (Factor Theorem):</strong> Nếu <code className="font-mono">P(c) = 0</code> thì đa thức chia hết cho <code className="font-mono">(x - c)</code>, tức <code className="font-mono">(x - c)</code> là một nhân tử (factor) và đồ thị cắt trục hoành tại x=c.</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-orange-800 mb-3 flex items-center gap-2">
+                <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">4</span> Hàm Số Mũ (Exponentials) & Lũy Thừa
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-orange-500">
+                <li><strong>Mô hình Tăng/Giảm:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">y = a(1 ± r)^(t/k)</code>. Trong đó: 
+                  <ul className="list-circle list-inside ml-6 mt-1 text-sm">
+                    <li><code className="font-mono">a</code> là giá trị khởi điểm.</li>
+                    <li><code className="font-mono">r</code> là tốc độ tăng/giảm theo chu kỳ (ghi dưới dạng số thập phân, ví dụ: 5% &rarr; 0.05).</li>
+                    <li><code className="font-mono">k</code> là khoảng thời gian của một chu kỳ (VD: "nhân đôi sau mỗi 3 năm" &rarr; k=3, hàm số là <code className="font-mono">y = a·2^(t/3)</code>).</li>
+                  </ul>
+                </li>
+                <li><strong>Lãi kép (Compound Interest):</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">A = P(1 + r/n)^(nt)</code> với n là số lần gộp lãi trong 1 năm (ví dụ: compounded monthly &rarr; n=12).</li>
+                <li><strong>Đổi Lũy thừa sang Căn thức:</strong> <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">x^(a/b) = ᵇ√(xᵃ)</code>. Dạng bài yêu cầu rút gọn biểu thức mũ hoặc đưa về căn cực kỳ hay ra.</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-teal-800 mb-3 flex items-center gap-2">
+                <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">5</span> Chia Đa Thức (Polynomial Division)
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-teal-500">
+                <li><strong>Dạng thức cơ bản:</strong> Khi chia đa thức <code className="font-mono">P(x)</code> cho <code className="font-mono">D(x)</code>, ta có: <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">P(x) / D(x) = Q(x) + R(x) / D(x)</code> (với Q(x) là thương, R(x) là phần dư).</li>
+                <li><strong>Mẹo giải nhanh:</strong> Đối với các biểu thức dạng phân thức như <code className="font-mono">(ax + b) / (cx + d)</code>, để tìm biểu thức tương đương, hãy thực hiện phép chia đa thức (Long Division) hoặc dùng kỹ thuật thêm bớt trên tử số để tạo ra nhân tử giống mẫu số.</li>
+                <li><strong>Liên hệ Định lý phần dư:</strong> Số dư <code className="font-mono">R</code> khi chia <code className="font-mono">P(x)</code> cho <code className="font-mono">(x - c)</code> là hằng số <code className="font-mono">P(c)</code>. Dạng biểu diễn sẽ là <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">Q(x) + P(c) / (x - c)</code>.</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-rose-800 mb-3 flex items-center gap-2">
+                <span className="bg-rose-100 text-rose-800 px-2 py-1 rounded text-sm">6</span> Tối Đa Hóa Hệ Số (Dạng Bài Siêu Khó)
+              </h4>
+              <p className="mb-2 text-gray-700">Đây là dạng câu hỏi chặn điểm 800 đặc trưng, xuất hiện với tần suất cao dạo gần đây. Yêu cầu tìm giá trị <strong>lớn nhất</strong> của hệ số ở giữa trong một biểu thức phân tích nhân tử.</p>
+              <div className="bg-rose-50 border-l-4 border-rose-500 p-3 mb-3 text-sm text-gray-800">
+                <strong>Ví dụ:</strong> Cho biểu thức <code className="font-mono">26z¹⁸ + bz⁹ + 70</code>. Biết <code className="font-mono">b</code> là số nguyên dương và <code className="font-mono">qz⁹ + r</code> là một nhân tử (với q, r là số nguyên dương). Giá trị lớn nhất có thể của <code className="font-mono">b</code> là bao nhiêu?
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-rose-500">
+                <li><strong>Bản chất:</strong> Biểu thức có thể đặt ẩn phụ <code className="font-mono">x = z⁹</code>, biến thành dạng <code className="font-mono">Ax² + Bx + C</code>. Phân tích nhân tử sẽ có dạng <code className="font-mono">(q₁x + r₁)(q₂x + r₂)</code>.</li>
+                <li><strong>Công thức hệ số:</strong> Ta có <code className="font-mono">A = q₁·q₂</code>, <code className="font-mono">C = r₁·r₂</code>, và <code className="font-mono">B = q₁·r₂ + q₂·r₁</code>.</li>
+                <li><strong>Công thức giải nhanh:</strong> Để <code className="font-mono">B</code> đạt giá trị <strong>LỚN NHẤT</strong> (với các hệ số dương), ta ghép cặp <strong>nhân tử lớn nhất của A với nhân tử lớn nhất của C</strong>.</li>
+                <li><strong>Chốt công thức:</strong> <code className="bg-white text-red-600 px-2 py-1 rounded font-mono shadow-sm font-bold block text-center mt-2 w-max">B_max = A × C + 1</code></li>
+              </ul>
+              <p className="mt-2 text-sm text-gray-600 italic">Áp dụng công thức vào ví dụ trên: Giá trị lớn nhất của <code className="font-mono">b = 26 × 70 + 1 = 1821</code>.</p>
+            </div>
+          </div>
         </section>
       </div>
     ),
@@ -1566,6 +1746,80 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
             solution={`**Đáp án: B**\n\n**Hướng dẫn:** B là thiết kế chuẩn: random assignment + 2 nhóm. Ngược lại, A và C là quan sát, D không có nhóm control đồng thời.`}
           />
         </section>
+
+        <section className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <h3 className="font-bold text-2xl text-black mb-6 border-b-2 border-gray-300 pb-2">
+            5. Tổng hợp Kỹ năng & Công thức Problem-Solving (Xu hướng 2023-2026)
+          </h3>
+          
+          <div className="space-y-6">
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-blue-800 mb-3 flex items-center gap-2">
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">1</span> Hack Regression (Hồi Quy) bằng Desmos
+              </h4>
+              <p className="mb-2 text-gray-700">Digital SAT cho tích hợp sẵn máy tính Desmos. Khi đề bài cho một bảng giá trị (table) và yêu cầu tìm phương trình (Linear hoặc Exponential), cách cực nhanh là dùng Regression:</p>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-blue-500">
+                <li><strong>Bước 1:</strong> Bấm nút "+" góc trái trên Desmos, chọn <strong>table</strong>, nhập giá trị x vào <code className="bg-gray-100 px-1 rounded font-mono">x₁</code>, y vào <code className="bg-gray-100 px-1 rounded font-mono">y₁</code>.</li>
+                <li><strong>Bước 2 (Linear):</strong> Nếu đề hỏi hàm bậc nhất, gõ vào ô mới: <code className="bg-gray-100 text-red-600 px-2 py-1 rounded font-mono font-bold">y₁ ~ mx₁ + b</code>. Desmos sẽ tự tính ra m và b.</li>
+                <li><strong>Bước 2 (Exponential):</strong> Nếu đề hỏi hàm mũ, gõ vào ô mới: <code className="bg-gray-100 text-red-600 px-2 py-1 rounded font-mono font-bold">y₁ ~ a·b^x₁</code>. Desmos sẽ tự tính ra a và b.</li>
+                <li><strong>Bước 2 (Quadratic):</strong> Nếu đề hỏi Parabol, gõ: <code className="bg-gray-100 text-red-600 px-2 py-1 rounded font-mono font-bold">y₁ ~ ax₁² + bx₁ + c</code>.</li>
+              </ul>
+              <p className="mt-2 text-sm text-gray-500 italic">* Lưu ý: Bắt buộc dùng dấu ngã <code className="font-mono">~</code> thay cho dấu <code className="font-mono">=</code>, và gõ đúng <code className="font-mono">x₁</code>, <code className="font-mono">y₁</code>.</p>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-emerald-800 mb-3 flex items-center gap-2">
+                <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-sm">2</span> Tính Chất Nâng Cao của Độ Lệch Chuẩn (Standard Deviation)
+              </h4>
+              <p className="mb-2 text-gray-700">Đề bài thường KHÔNG yêu cầu tính chính xác số SD, mà hỏi sự thay đổi của SD. Cần nhớ kỹ:</p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">Cộng / Trừ một hằng số:</strong>
+                  <p className="text-sm text-gray-800 mb-2">Nếu cộng (hoặc trừ) cùng một số <code className="font-mono">k</code> vào TẤT CẢ các giá trị trong tập dữ liệu:</p>
+                  <ul className="text-sm space-y-1 text-gray-800">
+                    <li>Mean, Median <strong>thay đổi</strong> (cộng/trừ thêm k).</li>
+                    <li>Standard Deviation <strong>KHÔNG ĐỔI</strong> (vì khoảng cách giữa các số không đổi).</li>
+                  </ul>
+                </div>
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">So sánh bằng mắt (Spread):</strong>
+                  <p className="text-sm text-gray-800 mb-2">Nếu đề cho 2 biểu đồ cột (bar chart / dot plot):</p>
+                  <ul className="text-sm space-y-1 text-gray-800">
+                    <li>Dữ liệu chụm lại ở giữa (gần mean) &rarr; <strong>SD Nhỏ</strong>.</li>
+                    <li>Dữ liệu tản ra xa hai bên (nhiều giá trị ở hai đuôi) &rarr; <strong>SD Lớn</strong>.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-purple-800 mb-3 flex items-center gap-2">
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">3</span> Xác Suất Có Điều Kiện (Conditional Probability từ Bảng)
+              </h4>
+              <p className="mb-2 text-gray-700">Câu hỏi bẫy thường gặp khi đọc bảng Two-way table:</p>
+              <div className="bg-purple-50 border-l-4 border-purple-500 p-3 text-sm text-gray-800 mb-2">
+                <strong>Ví dụ hỏi:</strong> "If a selected person is a junior, what is the probability they chose Math?"
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-purple-500">
+                <li>Tuyệt đối <strong>không</strong> chia cho tổng toàn bộ (Grand Total).</li>
+                <li><strong>Mẫu số (Denominator):</strong> Là tổng của cột/hàng của điều kiện IF (Ở đây là tổng số Juniors).</li>
+                <li><strong>Tử số (Numerator):</strong> Ô giao nhau (Junior VÀ Math).</li>
+                <li><code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">P(A | B) = Giao của A và B / Tổng của B</code></li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-orange-800 mb-3 flex items-center gap-2">
+                <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">4</span> Margin of Error (Sai Số Chuẩn)
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-orange-500">
+                <li>Sai số chuẩn (Margin of Error - MoE) chỉ bị ảnh hưởng bởi <strong>kích thước mẫu (Sample Size)</strong> và độ biến thiên của dữ liệu.</li>
+                <li><strong>Kích thước mẫu CÀNG LỚN &rarr; MoE CÀNG NHỎ</strong> (Dữ liệu càng đáng tin cậy). Nhớ kỹ tỉ lệ nghịch này!</li>
+                <li>MoE <strong>KHÔNG</strong> phụ thuộc vào kích thước của quần thể (Population size). Ví dụ hỏi 100 người trong thành phố 1 triệu dân hay 100 người trong thành phố 10 triệu dân thì MoE tương đương nhau.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
     ),
   },
@@ -1678,6 +1932,151 @@ D) Study one garden using only the new fertilizer and compare to last year's gro
             question={`The equation x² + y² + 6x - 8y = 0 represents a circle. Find its radius.`}
             solution={`**Đáp án: 5**\n\n**Giải thích chi tiết:**\n- Gom nhóm và hoàn thành bình phương: \n(x² + 6x + 9) + (y² - 8y + 16) = 9 + 16\n- (x + 3)² + (y - 4)² = 25.\n- Từ đó r² = 25 → r = 5.`}
           />
+        </section>
+
+        <section className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <h3 className="font-bold text-2xl text-black mb-6 border-b-2 border-gray-300 pb-2">
+            5. Tổng hợp Công thức Geometry & Trig (Xu hướng Digital SAT 2023-2026)
+          </h3>
+          
+          <div className="space-y-6">
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-blue-800 mb-3 flex items-center gap-2">
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">1</span> Đa giác (Polygons)
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-blue-500">
+                <li><strong>Tổng số đo các góc trong</strong> của đa giác lồi n cạnh: <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">(n - 2) × 180°</code> (với n ≥ 3).</li>
+                <li><strong>Số đo một góc trong</strong> của đa giác ĐỀU n cạnh: <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">[(n - 2) × 180°] / n</code>.</li>
+                <li><strong>Tổng số đo các góc ngoài</strong> (mỗi đỉnh lấy 1 góc) của bất kỳ đa giác lồi nào luôn luôn bằng <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">360°</code>.</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-emerald-800 mb-3 flex items-center gap-2">
+                <span className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-sm">2</span> Hình Tròn: Cung và Hình Quạt
+              </h4>
+              <p className="mb-2 text-gray-700">Digital SAT thường xuyên kiểm tra tỉ lệ thuận giữa <strong>độ dài cung</strong> (Arc length), <strong>diện tích quạt</strong> (Sector area), và <strong>góc ở tâm</strong> (Central angle):</p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">Góc tính bằng Độ (Degrees):</strong>
+                  <ul className="text-sm space-y-1 text-gray-800">
+                    <li>Độ dài cung = <code className="bg-white text-red-600 px-1 rounded">(θ / 360°) × 2πr</code></li>
+                    <li>Diện tích quạt = <code className="bg-white text-red-600 px-1 rounded">(θ / 360°) × πr²</code></li>
+                  </ul>
+                </div>
+                <div className="border border-emerald-100 bg-emerald-50/30 p-3 rounded">
+                  <strong className="text-emerald-900 block mb-1">Góc tính bằng Radian:</strong>
+                  <ul className="text-sm space-y-1 text-gray-800">
+                    <li>Độ dài cung <code className="bg-white text-red-600 px-1 rounded">s = rθ</code> (hoặc θ = s/r)</li>
+                    <li>Diện tích quạt = <code className="bg-white text-red-600 px-1 rounded">½ r²θ</code></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-purple-800 mb-3 flex items-center gap-2">
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">3</span> Tỉ lệ đồng dạng (Similarity & Scale Factor)
+              </h4>
+              <p className="mb-2 text-gray-700">Nếu hai hình đồng dạng có tỉ lệ chiều dài (scale factor) là <code className="bg-gray-100 px-1 rounded font-mono">k</code> (hoặc tỉ lệ a:b):</p>
+              <ul className="list-disc list-inside space-y-1 text-gray-800 marker:text-purple-500">
+                <li>Tỉ lệ <strong>chu vi / các cạnh</strong>: <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">k</code> (hoặc a : b).</li>
+                <li>Tỉ lệ <strong>diện tích / diện tích bề mặt</strong>: <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">k²</code> (hoặc a² : b²).</li>
+                <li>Tỉ lệ <strong>thể tích</strong>: <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">k³</code> (hoặc a³ : b³).</li>
+              </ul>
+              <p className="mt-2 text-sm text-gray-500 italic">* Lỗi phổ biến: Học sinh thường quên bình phương/lập phương tỉ lệ khi tính diện tích/thể tích.</p>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-orange-800 mb-3 flex items-center gap-2">
+                <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">4</span> Tam giác vuông đặc biệt & Bộ ba Pythagore
+              </h4>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <strong className="text-orange-900 block mb-2 border-b border-orange-100 pb-1">Tam giác đặc biệt (Cho sẵn ở đầu đề)</strong>
+                  <ul className="space-y-2 text-sm text-gray-800">
+                    <li>📐 <strong>30°-60°-90°:</strong> Các cạnh theo tỉ lệ <code className="bg-gray-100 text-red-600 px-1 rounded">x : x√3 : 2x</code>. Cạnh đối diện góc 30° là nhỏ nhất (x), cạnh huyền là 2x.</li>
+                    <li>📐 <strong>45°-45°-90°:</strong> Các cạnh theo tỉ lệ <code className="bg-gray-100 text-red-600 px-1 rounded">x : x : x√2</code>. Thường áp dụng cho đường chéo hình vuông.</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong className="text-orange-900 block mb-2 border-b border-orange-100 pb-1">Bộ ba Pythagore (Nên học thuộc để nhẩm nhanh)</strong>
+                  <div className="grid grid-cols-2 gap-2 text-sm text-gray-800 font-mono">
+                    <div className="bg-orange-50 px-2 py-1 rounded border border-orange-100 text-center">3 - 4 - 5<br/><span className="text-xs text-gray-500">(và 6-8-10)</span></div>
+                    <div className="bg-orange-50 px-2 py-1 rounded border border-orange-100 text-center">5 - 12 - 13</div>
+                    <div className="bg-orange-50 px-2 py-1 rounded border border-orange-100 text-center">8 - 15 - 17</div>
+                    <div className="bg-orange-50 px-2 py-1 rounded border border-orange-100 text-center">7 - 24 - 25</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-rose-800 mb-3 flex items-center gap-2">
+                <span className="bg-rose-100 text-rose-800 px-2 py-1 rounded text-sm">5</span> Tính chất Tam giác khác
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-rose-500">
+                <li><strong>Bất đẳng thức tam giác:</strong> Tổng độ dài của 2 cạnh bất kỳ luôn LỚN HƠN độ dài cạnh thứ ba. <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">a + b &gt; c</code>.</li>
+                <li><strong>Công thức diện tích với sin:</strong> Diện tích = <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">½ ab sin(C)</code> (với a, b là 2 cạnh, C là góc xen giữa). Hữu ích cho phần hard module.</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-teal-800 mb-3 flex items-center gap-2">
+                <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">6</span> Đường Tròn Nâng Cao & Tiếp Tuyến (Tangents)
+              </h4>
+              <p className="mb-2 text-gray-700">Digital SAT rất hay hỏi dạng toán tiếp tuyến với đường tròn ở module khó. Cần nhớ nguyên tắc vàng:</p>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-teal-500 mb-4">
+                <li><strong>Tiếp tuyến vuông góc với Bán kính:</strong> Tại tiếp điểm (Point of tangency), đường tiếp tuyến tạo với bán kính một góc 90°.</li>
+                <li><strong>Độ dốc vuông góc:</strong> Nếu độ dốc của tiếp tuyến là <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">m</code>, thì độ dốc của bán kính nối từ tâm đến tiếp điểm là nghịch đảo âm: <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">-1/m</code>.</li>
+              </ul>
+              <div className="bg-teal-50 border-l-4 border-teal-500 p-4 text-sm text-gray-800">
+                <strong className="text-teal-900 block mb-1">🔥 Ví dụ (Câu chặn điểm 800):</strong>
+                Đường tròn có tâm <code className="font-mono">(3, 7)</code>. Đường thẳng <code className="font-mono">t</code> là tiếp tuyến của đường tròn tại điểm <code className="font-mono">(a, -4)</code>. Biết độ dốc của <code className="font-mono">t</code> là <code className="font-mono">5/4</code>. Tìm <code className="font-mono">a</code>.
+                <hr className="my-3 border-teal-200" />
+                <strong className="text-teal-900 block mb-1">Giải chi tiết:</strong>
+                <ol className="list-decimal list-inside space-y-1">
+                  <li>Độ dốc tiếp tuyến là <code className="font-mono">5/4</code> &rarr; Độ dốc bán kính tại tiếp điểm là <code className="font-mono">-4/5</code>.</li>
+                  <li>Tính độ dốc bán kính đi qua 2 điểm <code className="font-mono">(3, 7)</code> và <code className="font-mono">(a, -4)</code> bằng công thức m: <br/> <code className="font-mono bg-white px-1 ml-5 rounded">m = (-4 - 7) / (a - 3) = -11 / (a - 3)</code>.</li>
+                  <li>Cho 2 độ dốc bằng nhau: <code className="font-mono bg-white px-1 rounded">-11 / (a - 3) = -4/5</code>.</li>
+                  <li>Giải phương trình tìm a: <code className="font-mono bg-white px-1 rounded">-55 = -4(a - 3) &rarr; 55 = 4a - 12 &rarr; 4a = 67 &rarr; a = 67/4 = 16.75</code>.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-indigo-800 mb-3 flex items-center gap-2">
+                <span className="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-sm">7</span> Lượng Giác Nâng Cao (Advanced Trigonometry)
+              </h4>
+              <p className="mb-2 text-gray-700">Lượng giác (Trig) thường nằm ở nửa cuối của Math section. Chỉ cần nắm vững các nguyên tắc cốt lõi sau:</p>
+              
+              <div className="space-y-4">
+                <div className="border border-indigo-100 bg-indigo-50/30 p-3 rounded">
+                  <strong className="text-indigo-900 block mb-1">1. Định lý góc phụ nhau (Complementary Angle Theorem) - 🚨 Cực kỳ hay ra</strong>
+                  <p className="text-sm text-gray-800 mb-2">Nếu <code className="font-mono bg-white px-1 rounded">A + B = 90°</code> (hoặc π/2 radian), thì:</p>
+                  <code className="bg-white text-red-600 px-2 py-1 rounded block text-center font-mono font-bold shadow-sm w-fit mx-auto">sin(A) = cos(B) &nbsp; VÀ &nbsp; cos(A) = sin(B)</code>
+                  <p className="text-xs text-gray-600 mt-2"><strong>Dấu hiệu nhận biết:</strong> Bài cho sin(x) = một số, bắt tìm cos(90 - x) hoặc ngược lại. Đáp án chính là con số đó, không cần tính toán phức tạp!</p>
+                </div>
+
+                <div className="border border-indigo-100 bg-indigo-50/30 p-3 rounded">
+                  <strong className="text-indigo-900 block mb-1">2. Định lý Lượng giác cơ bản (Pythagorean Identity)</strong>
+                  <code className="bg-white text-red-600 px-2 py-1 rounded block text-center font-mono font-bold shadow-sm w-fit mx-auto">sin²(x) + cos²(x) = 1</code>
+                  <p className="text-xs text-gray-600 mt-2"><strong>Mẹo:</strong> Nếu bài cho sin(x) = a, và hỏi cos(x), bạn tính nhanh: <code className="font-mono">cos(x) = ±√(1 - a²)</code>.</p>
+                </div>
+
+                <div className="border border-indigo-100 bg-indigo-50/30 p-3 rounded">
+                  <strong className="text-indigo-900 block mb-1">3. Vòng tròn lượng giác (The Unit Circle)</strong>
+                  <p className="text-sm text-gray-800 mb-2">Đường tròn tâm (0,0), bán kính R = 1. Trên vòng tròn này, tọa độ một điểm <code className="font-mono">(x, y)</code> tương ứng với góc <code className="font-mono">θ</code> là:</p>
+                  <code className="bg-white text-red-600 px-2 py-1 rounded block text-center font-mono font-bold shadow-sm w-fit mx-auto">x = cos(θ) &nbsp; , &nbsp; y = sin(θ)</code>
+                  <ul className="text-sm space-y-1 text-gray-800 mt-2 list-disc list-inside">
+                    <li><strong>Góc bù (Supplementary):</strong> <code className="font-mono">sin(180° - x) = sin(x)</code> nhưng <code className="font-mono">cos(180° - x) = -cos(x)</code>. (Ví dụ: sin(150°) = sin(30°), nhưng cos(150°) = -cos(30°)).</li>
+                    <li><strong>Góc hơn kém 360° (chu kỳ):</strong> <code className="font-mono">sin(x + 360°) = sin(x)</code>, tương tự với cos. Việc cộng trừ 360° (hoặc 2π) không làm thay đổi giá trị.</li>
+                    <li><strong>Quy tắc ASTC (Dấu các góc):</strong> <strong>A</strong>ll (Q1: Tất cả +), <strong>S</strong>in (Q2: Chỉ sin +), <strong>T</strong>an (Q3: Chỉ tan +), <strong>C</strong>os (Q4: Chỉ cos +). <em>(Mẹo nhớ: All Students Take Calculus)</em>.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     ),
