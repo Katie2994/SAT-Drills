@@ -1512,6 +1512,15 @@ D) M(t) = 80·(1 - 0.25t)`}
                 <li><strong>Mẹo giải nhanh:</strong> Đối với các biểu thức dạng phân thức như <code className="font-mono">(ax + b) / (cx + d)</code>, để tìm biểu thức tương đương, hãy thực hiện phép chia đa thức (Long Division) hoặc dùng kỹ thuật thêm bớt trên tử số để tạo ra nhân tử giống mẫu số.</li>
                 <li><strong>Liên hệ Định lý phần dư:</strong> Số dư <code className="font-mono">R</code> khi chia <code className="font-mono">P(x)</code> cho <code className="font-mono">(x - c)</code> là hằng số <code className="font-mono">P(c)</code>. Dạng biểu diễn sẽ là <code className="bg-gray-100 text-red-600 px-1 py-0.5 rounded font-mono">Q(x) + P(c) / (x - c)</code>.</li>
               </ul>
+              
+              <div className="mt-4 border-t border-gray-100 pt-4">
+                <strong className="text-teal-900 block mb-2">Hình minh họa thuật toán chia đa thức dài (Long Division):</strong>
+                <img 
+                  src="https://cdn3.olm.vn/upload/img_teacher/0303/img_teacher_2023-03-03_640150b8a4b6f_1212.png" 
+                  alt="Polynomial Long Division" 
+                  className="w-full max-w-sm rounded border border-gray-200 shadow-sm mx-auto"
+                />
+              </div>
             </div>
 
             <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
@@ -1529,6 +1538,28 @@ D) M(t) = 80·(1 - 0.25t)`}
                 <li><strong>Chốt công thức:</strong> <code className="bg-white text-red-600 px-2 py-1 rounded font-mono shadow-sm font-bold block text-center mt-2 w-max">B_max = A × C + 1</code></li>
               </ul>
               <p className="mt-2 text-sm text-gray-600 italic">Áp dụng công thức vào ví dụ trên: Giá trị lớn nhất của <code className="font-mono">b = 26 × 70 + 1 = 1821</code>.</p>
+            </div>
+
+            <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="font-bold text-lg text-cyan-800 mb-3 flex items-center gap-2">
+                <span className="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-sm">7</span> Work Rate (Bài Toán Năng Suất)
+              </h4>
+              <p className="mb-2 text-gray-700">Dạng bài toán tỉ lệ nghịch về năng suất làm việc, rất phổ biến ở module 2.</p>
+              
+              <div className="bg-cyan-50 border-l-4 border-cyan-500 p-3 mb-3 text-sm text-gray-800">
+                <strong>Dạng bài kinh điển:</strong> "A certain job can be completed by <code className="font-mono text-red-600 font-bold">p</code> persons in <code className="font-mono text-red-600 font-bold">h</code> hours. How long would it take <code className="font-mono text-red-600 font-bold">n</code> persons, working at the same rate, to complete the same job?"
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-gray-800 marker:text-cyan-500">
+                <li><strong>Bản chất:</strong> Số người và thời gian hoàn thành là <strong>tỉ lệ nghịch</strong>. Tổng khối lượng công việc = Số người × Thời gian.</li>
+                <li>
+                  <strong>Công thức giải siêu tốc 2 giây:</strong>
+                  <div className="flex justify-center mt-2">
+                     <code className="bg-white text-red-600 px-3 py-2 rounded font-mono shadow-sm font-bold text-lg border border-cyan-200">
+                       Thời gian mới = (h × p) / n
+                     </code>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </section>

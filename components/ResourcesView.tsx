@@ -485,6 +485,10 @@ const ResourcesView: React.FC = () => {
             </span>
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+             <a href="https://satdrills.theclaracare.com/" target="_blank" rel="noopener noreferrer" className="bg-[#fffdf0] p-5 border border-[#ffe36d] hover:border-[#dc2323] shadow-sm hover:shadow-md transition-all rounded-cb-sm flex items-center justify-between group">
+               <span className="font-bold text-[#dc2323] group-hover:text-[#b01c1c] transition-colors">SAT Drills</span>
+               <span className="text-[#dc2323] group-hover:translate-x-1 transition-all">↗</span>
+             </a>
              <a href="https://www.oneprep.co/" target="_blank" rel="noopener noreferrer" className="bg-white p-5 border border-[#d9d9d9] hover:border-[#324dc7] shadow-sm hover:shadow-md transition-all rounded-cb-sm flex items-center justify-between group">
                <span className="font-bold text-[#1e1e1e] group-hover:text-[#324dc7] transition-colors">One Prep</span>
                <span className="text-gray-400 group-hover:text-[#324dc7] group-hover:translate-x-1 transition-all">↗</span>
